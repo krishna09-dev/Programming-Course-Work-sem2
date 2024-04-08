@@ -7,9 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+// import javax.swing.JTextField;
 
-import java.awt.Image;
+// import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -58,51 +58,51 @@ public class TeacherGUI implements ActionListener{
 
          // add image
         // Load and display image
-        // try {
-        //     BufferedImage image = ImageIO.read(new File("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\mainpage.png"));
-        //     ImageIcon imageIcon = new ImageIcon(image);
-        //     JLabel imageLabel = new JLabel(imageIcon);
-        //     // Adjust position and size of image label
-        //     imageLabel.setBounds(1, 81, imageIcon.getIconWidth(), imageIcon.getIconHeight());
-        //     LeftSidePanel.add(imageLabel);
-        // } catch (IOException ex) {
-        //     ex.printStackTrace();
-        //     JOptionPane.showMessageDialog(frame, "Error loading image: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        // }
+        try {
+            BufferedImage image = ImageIO.read(new File("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\startingpage.png"));
+            ImageIcon imageIcon = new ImageIcon(image);
+            JLabel imageLabel = new JLabel(imageIcon);
+            // Adjust position and size of image label
+            imageLabel.setBounds(0, 62, imageIcon.getIconWidth(), imageIcon.getIconHeight());
+            LeftSidePanel.add(imageLabel);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(frame, "Error loading image: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     
 
 
-        JLabel LeftSideH1 = new JLabel("Welcome");
-        LeftSideH1.setBounds(238, 273, 216, 58);
-        LeftSideH1.setFont(new java.awt.Font("Arial", 1, 48));
-        LeftSideH1.setForeground(new java.awt.Color(105, 105, 105));
-        LeftSidePanel.add(LeftSideH1);
+        // JLabel LeftSideH1 = new JLabel("Welcome");
+        // LeftSideH1.setBounds(238, 273, 216, 58);
+        // LeftSideH1.setFont(new java.awt.Font("Arial", 1, 48));
+        // LeftSideH1.setForeground(new java.awt.Color(105, 105, 105));
+        // LeftSidePanel.add(LeftSideH1);
 
-        JLabel LeftSideH2 = new JLabel("to");
-        LeftSideH2.setBounds(320, 319, 52, 58);
-        LeftSideH2.setFont(new java.awt.Font("Arial", 1, 48));
-        LeftSideH2.setForeground(new java.awt.Color(105, 105, 105));
-        LeftSidePanel.add(LeftSideH2);
+        // JLabel LeftSideH2 = new JLabel("to");
+        // LeftSideH2.setBounds(320, 319, 52, 58);
+        // LeftSideH2.setFont(new java.awt.Font("Arial", 1, 48));
+        // LeftSideH2.setForeground(new java.awt.Color(105, 105, 105));
+        // LeftSidePanel.add(LeftSideH2);
 
-        JLabel LeftSideH3 = new JLabel("Teacher");
-        LeftSideH3.setBounds(251, 367, 190, 58);
-        LeftSideH3.setFont(new java.awt.Font("Arial", 1, 48));
-        LeftSideH3.setForeground(new java.awt.Color(105, 105, 105));
-        LeftSidePanel.add(LeftSideH3);
+        // JLabel LeftSideH3 = new JLabel("Teacher");
+        // LeftSideH3.setBounds(251, 367, 190, 58);
+        // LeftSideH3.setFont(new java.awt.Font("Arial", 1, 48));
+        // LeftSideH3.setForeground(new java.awt.Color(105, 105, 105));
+        // LeftSidePanel.add(LeftSideH3);
 
-        JLabel LeftSideH4 = new JLabel("Management System");
-        LeftSideH4.setBounds(92, 418, 507, 67);
-        LeftSideH4.setFont(new java.awt.Font("Arial", 1, 48));
-        LeftSideH4.setForeground(new java.awt.Color(105, 105, 105));
-        LeftSidePanel.add(LeftSideH4);
+        // JLabel LeftSideH4 = new JLabel("Management System");
+        // LeftSideH4.setBounds(92, 418, 507, 67);
+        // LeftSideH4.setFont(new java.awt.Font("Arial", 1, 48));
+        // LeftSideH4.setForeground(new java.awt.Color(105, 105, 105));
+        // LeftSidePanel.add(LeftSideH4);
 
         
 
-        JLabel LeftSideH5 = new JLabel("Mange all the records in easy way possible.....");
-        LeftSideH5.setBounds(120, 490, 523, 40);
-        LeftSideH5.setFont(new java.awt.Font("Arial", 1, 18));
-        LeftSideH5.setForeground(new java.awt.Color(105, 105, 105));
-        LeftSidePanel.add(LeftSideH5);
+        // JLabel LeftSideH5 = new JLabel("Mange all the records in easy way possible.....");
+        // LeftSideH5.setBounds(120, 490, 523, 40);
+        // LeftSideH5.setFont(new java.awt.Font("Arial", 1, 18));
+        // LeftSideH5.setForeground(new java.awt.Color(105, 105, 105));
+        // LeftSidePanel.add(LeftSideH5);
         // add underline below this label
 
         JLabel RightSideH1 = new JLabel("Islington College");
