@@ -22,10 +22,10 @@ public class TeacherGUI implements ActionListener{
 
     JFrame frame;
     JTextField userIDField, passwordField;
-    JButton startLoginButton, mainLoginButton, displayData, lecturer, addLecturer, tutor, addTutor, gradeAssignment, profile,menuHome,menuLecturer,menuTutor,menuAssignments,menuProfile,menuLogOut,
-    assignment, setSalaryOfTutor,removeTutor,displayTutorData,displayTutorSalary, displayTutorSalaryDisplayMethod, displayGradedAssignments ;
-    JPanel mainPanel;
-    JPanel startBackground, loginPageBackground, dashBoardBackground, displayDataPanel, addlecturerPanel, lecturerPanel, leftSideMenuPanel, tutorPanel
+    JButton startLoginButton, mainLoginButton, displayData, lecturer, addLecturer, tutor, addTutor, gradeAssignment, profile,
+    menuHome, menuLecturer, menuTutor, menuAssignments, menuProfile, menuLogOut, assignment, setSalaryOfTutor, removeTutor, displayTutorData,
+    displayTutorSalary, displayTutorSalaryDisplayMethod, displayGradedAssignments ;
+    JPanel mainPanel, startBackground, loginPageBackground, dashBoardBackground, displayDataPanel, addlecturerPanel, lecturerPanel, leftSideMenuPanel, tutorPanel
     , addTutorPanel, removeTutorPanel, displayTutorSalaryPanel, setSalaryPanel, assignmentPanel, DisplayGradedAssignmentsPanel, profilePanel, profileGUIPanel;
     
     int user;
@@ -85,7 +85,7 @@ public class TeacherGUI implements ActionListener{
         leftSideH5.setFont(new java.awt.Font("Arial", 1, 12));
         leftSideH5.setForeground(new java.awt.Color(105, 105, 105));
         leftSidePanel.add(leftSideH5);
-        // add underline below this label <-----------------------pending to do
+        // add underline below this label <-----------------------pending to do--------------------------------------------------------------------------
 
         JLabel rightSideH1 = new JLabel("Islington College");
         rightSideH1.setBounds(1100, 32, 228, 38);
@@ -161,11 +161,11 @@ public class TeacherGUI implements ActionListener{
         loginPageBackground = new JPanel();
 
         // adding components and setting up there size,color,positions etc 
-        JLabel RightSideH1 = new JLabel("Islington College");
-        RightSideH1.setBounds(1100, 32, 228, 38);
-        RightSideH1.setFont(new java.awt.Font("Arial", 1, 15));
-        RightSideH1.setForeground(new java.awt.Color(101, 151, 128));
-        loginPageBackground.add(RightSideH1);
+        JLabel rightSideH1 = new JLabel("Islington College");
+        rightSideH1.setBounds(1100, 32, 228, 38);
+        rightSideH1.setFont(new java.awt.Font("Arial", 1, 15));
+        rightSideH1.setForeground(new java.awt.Color(101, 151, 128));
+        loginPageBackground.add(rightSideH1);
 
         JLabel centerH1 = new JLabel("Welcome to TMS");
         centerH1.setBounds(490, 180, 330, 47);
@@ -458,29 +458,22 @@ public class TeacherGUI implements ActionListener{
         rightSideH2.setForeground(new java.awt.Color(105, 105, 105));
         rightSidePanel.add(rightSideH2);
 
-        JButton displayTeacherData = new JButton("<html><h1 text-align:center;>Display <br> Teacher Data</h1></html>");
-        displayTeacherData.setBounds(379, 224, 222, 118);
-        displayTeacherData.setFont(new java.awt.Font("Arial", 1, 20));
-        displayTeacherData.setForeground(new java.awt.Color(105, 105, 105));
-        displayTeacherData.setBackground(new java.awt.Color(164, 196, 181));
-        rightSidePanel.add(displayTeacherData);
-
         JButton displayLecturerData = new JButton("<html><h1 text-align:center;>Display <br> Lecturer Data</h1></html>");
-        displayLecturerData.setBounds(659, 224, 222, 118);
+        displayLecturerData.setBounds(379, 224, 222, 118);
         displayLecturerData.setFont(new java.awt.Font("Arial", 1, 20));
         displayLecturerData.setForeground(new java.awt.Color(105,105,105));
         displayLecturerData.setBackground(new java.awt.Color(164, 196, 181));
         rightSidePanel.add(displayLecturerData);
 
         JButton displayTutorData = new JButton("<html><h1 text-align:center;>Display <br> Tutor Data</h1></html>");
-        displayTutorData.setBounds(939, 224, 222, 118);
+        displayTutorData.setBounds(659, 224, 222, 118);
         displayTutorData.setFont(new java.awt.Font("Arial", 1, 20));
         displayTutorData.setForeground(new java.awt.Color(105,105,105));
         displayTutorData.setBackground(new java.awt.Color(164, 196, 181));
         rightSidePanel.add(displayTutorData);
 
         displayGradedAssignments = new JButton("<html><h1 text-align:center;>Display Graded <br> Assignments</h1></html>");
-        displayGradedAssignments.setBounds(379, 390, 222, 118);
+        displayGradedAssignments.setBounds(939, 224, 222, 118);
         displayGradedAssignments.setFont(new java.awt.Font("Arial", 1, 20));
         displayGradedAssignments.setForeground(new java.awt.Color(105,105,105));
         displayGradedAssignments.setBackground(new java.awt.Color(164, 196, 181));
@@ -488,7 +481,7 @@ public class TeacherGUI implements ActionListener{
         rightSidePanel.add(displayGradedAssignments);
 
         displayTutorSalaryDisplayMethod = new JButton("<html><h1 text-align:center;>Display Tutor <br> Salary</h1></html>");
-        displayTutorSalaryDisplayMethod.setBounds(659, 390, 222, 118);
+        displayTutorSalaryDisplayMethod.setBounds(379, 390, 222, 118);
         displayTutorSalaryDisplayMethod.setFont(new java.awt.Font("Arial", 1, 20));
         displayTutorSalaryDisplayMethod.setForeground(new java.awt.Color(105,105,105));
         displayTutorSalaryDisplayMethod.setBackground(new java.awt.Color(164, 196, 181));
@@ -569,10 +562,8 @@ public class TeacherGUI implements ActionListener{
         int width = 50; // Desired width of the image
         int height = 50; // Desired height of the image
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
-        
         // Create JButton with just the image
         JButton assignmentBackButton = new JButton(scaledIcon);
         assignmentBackButton.setBounds(378, 91, width, height); // Adjust position and size of the button
@@ -704,19 +695,17 @@ public class TeacherGUI implements ActionListener{
         rightSidePanel.add(yearsOfExperienceField);
 
         // Load image from file
-        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png"); // Replace with the path to your image file
-        
+        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png"); 
         // Resize the image
         int width = 50; // Desired width of the image
         int height = 50; // Desired height of the image
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         
         // Create JButton with just the image
         JButton assignmentBackButton = new JButton(scaledIcon);
-        assignmentBackButton.setBounds(378, 91, width, height); // Adjust position and size of the button
+        assignmentBackButton.setBounds(378, 91, width, height); 
         // Make the button transparent
         assignmentBackButton.setOpaque(false);
         assignmentBackButton.setContentAreaFilled(false);
@@ -973,19 +962,16 @@ public class TeacherGUI implements ActionListener{
         rightSidePanel.add(performanceIndexField);
 
         // Load image from file
-        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png"); // Replace with the path to your image file
-        
+        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png"); 
         // Resize the image
         int width = 50; // Desired width of the image
         int height = 50; // Desired height of the image
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
-        
         // Create JButton with just the image
         JButton assignmentBackButton = new JButton(scaledIcon);
-        assignmentBackButton.setBounds(378, 91, width, height); // Adjust position and size of the button
+        assignmentBackButton.setBounds(378, 91, width, height);
         // Make the button transparent
         assignmentBackButton.setOpaque(false);
         assignmentBackButton.setContentAreaFilled(false);
@@ -1041,19 +1027,16 @@ public class TeacherGUI implements ActionListener{
         rightSidePanel.add(teacherIDField);
 
         // Load image from file
-        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png"); // Replace with the path to your image file
-        
-        // Resize the image
-        int width = 50; // Desired width of the image
-        int height = 50; // Desired height of the image
+        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png");
+        // for Resizing the image
+        int width = 50;
+        int height = 50; 
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
-        
         // Create JButton with just the image
         JButton assignmentBackButton = new JButton(scaledIcon);
-        assignmentBackButton.setBounds(378, 91, width, height); // Adjust position and size of the button
+        assignmentBackButton.setBounds(378, 91, width, height);
         // Make the button transparent
         assignmentBackButton.setOpaque(false);
         assignmentBackButton.setContentAreaFilled(false);
@@ -1109,19 +1092,17 @@ public class TeacherGUI implements ActionListener{
         rightSidePanel.add(teacherIDField);
 
         // Load image from file
-        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png"); // Replace with the path to your image file
+        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png");
         
-        // Resize the image
-        int width = 50; // Desired width of the image
-        int height = 50; // Desired height of the image
+        // for Resizing the image
+        int width = 50; 
+        int height = 50; 
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
-        
         // Create JButton with just the image
         JButton assignmentBackButton = new JButton(scaledIcon);
-        assignmentBackButton.setBounds(378, 91, width, height); // Adjust position and size of the button
+        assignmentBackButton.setBounds(378, 91, width, height);
         // Make the button transparent
         assignmentBackButton.setOpaque(false);
         assignmentBackButton.setContentAreaFilled(false);
@@ -1201,19 +1182,16 @@ public class TeacherGUI implements ActionListener{
         rightSidePanel.add(newPerformanceIndexField);
 
         // Load image from file
-        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png"); // Replace with the path to your image file
-        
-        // Resize the image
-        int width = 50; // Desired width of the image
-        int height = 50; // Desired height of the image
+        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png"); 
+        // Resizing the image
+        int width = 50;
+        int height = 50; 
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
-        
         // Create JButton with just the image
         JButton assignmentBackButton = new JButton(scaledIcon);
-        assignmentBackButton.setBounds(378, 91, width, height); // Adjust position and size of the button
+        assignmentBackButton.setBounds(378, 91, width, height);
         // Make the button transparent
         assignmentBackButton.setOpaque(false);
         assignmentBackButton.setContentAreaFilled(false);
@@ -1266,19 +1244,16 @@ public class TeacherGUI implements ActionListener{
         rightSidePanel.add(displayGradedScore);
 
         // Load image from file
-        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png"); // Replace with the path to your image file
-        
-        // Resize the image
-        int width = 50; // Desired width of the image
-        int height = 50; // Desired height of the image
+        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png");
+        // Resizing the image
+        int width = 50; 
+        int height = 50; 
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
-        
         // Create JButton with just the image
         JButton assignmentBackButton = new JButton(scaledIcon);
-        assignmentBackButton.setBounds(378, 91, width, height); // Adjust position and size of the button
+        assignmentBackButton.setBounds(378, 91, width, height); 
         // Make the button transparent
         assignmentBackButton.setOpaque(false);
         assignmentBackButton.setContentAreaFilled(false);
@@ -1336,19 +1311,16 @@ public class TeacherGUI implements ActionListener{
         rightSidePanel.add(teacherIDField);
 
         // Load image from file
-        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png"); // Replace with the path to your image file
-        
-        // Resize the image
-        int width = 50; // Desired width of the image
-        int height = 50; // Desired height of the image
+        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png");
+        // Resizing the image
+        int width = 50; 
+        int height = 50; 
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
-        
         // Create JButton with just the image
         JButton assignmentBackButton = new JButton(scaledIcon);
-        assignmentBackButton.setBounds(378, 91, width, height); // Adjust position and size of the button
+        assignmentBackButton.setBounds(378, 91, width, height);
         // Make the button transparent
         assignmentBackButton.setOpaque(false);
         assignmentBackButton.setContentAreaFilled(false);
@@ -1385,7 +1357,7 @@ public class TeacherGUI implements ActionListener{
         centerH1.setForeground(new java.awt.Color(105, 105, 105));
         rightSidePanel.add(centerH1);
 
-        // Loadong and displaying image with expection handeling by using try Catch
+       
         
         JLabel userID = new JLabel("User ID :");
         userID.setBounds(470, 389, 70, 30);
@@ -1489,11 +1461,12 @@ public class TeacherGUI implements ActionListener{
             rightSidePanel.add(collegeAddressValue);
         }
 
+         // Loadong and displaying image with expection handeling by using try Catch
         try {
             BufferedImage profileimage = ImageIO.read(new File("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\profilepic.png"));
             ImageIcon imageIcon = new ImageIcon(profileimage);
             JLabel imageLabel = new JLabel(imageIcon);
-            // Adjust position and size of image label
+            // Adjust position of image label
             imageLabel.setBounds(470, 157, imageIcon.getIconWidth(), imageIcon.getIconHeight());
             rightSidePanel.add(imageLabel);
             // Repaint the panel to reflect the changes
@@ -1506,19 +1479,16 @@ public class TeacherGUI implements ActionListener{
         }
         
         // Load image from file
-        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png"); // Replace with the path to your image file
-        
-        // Resize the image
-        int width = 50; // Desired width of the image
-        int height = 50; // Desired height of the image
+        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png");
+        // Resizing the image
+        int width = 50; 
+        int height = 50; 
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
-        
         // Create JButton with just the image
         JButton assignmentBackButton = new JButton(scaledIcon);
-        assignmentBackButton.setBounds(378, 91, width, height); // Adjust position and size of the button
+        assignmentBackButton.setBounds(378, 91, width, height); 
         // Make the button transparent
         assignmentBackButton.setOpaque(false);
         assignmentBackButton.setContentAreaFilled(false);
@@ -1549,6 +1519,7 @@ public class TeacherGUI implements ActionListener{
             mainPanel.repaint();
         }
 
+        // for LOGIN Page 
         if (e.getSource() == mainLoginButton) {
             try {
             int userID = Integer.parseInt(userIDField.getText());
@@ -1560,7 +1531,6 @@ public class TeacherGUI implements ActionListener{
                 // Clear text fields
                 userIDField.setText("");
                 passwordField.setText("");
-                
                 // Remove the current panel and add the new panels
                 mainPanel.remove(loginPageBackground);
                 mainPanel.add(leftSideMenuPanel);
@@ -1572,7 +1542,6 @@ public class TeacherGUI implements ActionListener{
                 // Clear text fields
                 userIDField.setText("");
                 passwordField.setText("");
-                
                 // Remove the current panel and add the new panels
                 mainPanel.remove(loginPageBackground);
                 mainPanel.add(leftSideMenuPanel);
@@ -1584,7 +1553,6 @@ public class TeacherGUI implements ActionListener{
                 // Clear text fields
                 userIDField.setText("");
                 passwordField.setText("");
-                
                 // Remove the current panel and add the new panels
                 mainPanel.remove(loginPageBackground);
                 mainPanel.add(leftSideMenuPanel);
