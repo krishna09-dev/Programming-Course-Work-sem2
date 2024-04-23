@@ -2334,7 +2334,7 @@ public class TeacherGUI implements ActionListener{
                 String employmentStatus = employmentStatusFieldOfAddLecturer.getText();
                 String workingHoursString = workingHoursFieldOfAddLecturer.getText();
                 int workingHours = Integer.parseInt(workingHoursFieldOfAddLecturer.getText());
-                String department = departmentFieldOfAddLecturer.getText(); // departmentFieldOfAddLecturer Department input is missing in GUI, you may add it
+                String department = departmentFieldOfAddLecturer.getText();
                 int yearsOfExperience = Integer.parseInt(yearsOfExperienceFieldOfAddLecturer.getText());
                 String yearsOfExperienceString = yearsOfExperienceFieldOfAddLecturer.getText();
         
