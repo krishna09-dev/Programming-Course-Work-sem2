@@ -22,23 +22,23 @@ import java.util.ArrayList;
 
 public class TeacherGUI implements ActionListener{
 
-    JFrame frame;
-    JTextField userIDField, passwordField;
+    private JFrame frame;
+    private JTextField userIDField, passwordField;
 
-    JButton startLoginButton, mainLoginButton, displayData, lecturer, addLecturer, tutor, addTutor, gradeAssignment, profile,gradeAssignmentOfAssignmentGUI,
+    private JButton startLoginButton, mainLoginButton, displayData, lecturer, addLecturer, tutor, addTutor, profile,gradeAssignmentOfAssignmentGUI,
     menuHome, menuLecturer, menuTutor, menuAssignments, menuProfile, menuLogOut, assignment, setSalaryOfTutor, removeTutor, displayTutorDataOfTutorGUI, displayTutorSalaryOfDisplayGUI, displayTutorSalaryOfTutorGUI,
-    displayGradedAssignmentsOfDisplayGUI, displayGradedAssignments,displayTutorDataOfDisplayGUI , displayLecturerDataOfLecturerGUI, displayLecturerDataOfDisplayGUI,displayGradedScoreOfAssignmentGUI,
+    displayGradedAssignmentsOfDisplayGUI,displayTutorDataOfDisplayGUI , displayLecturerDataOfLecturerGUI, displayLecturerDataOfDisplayGUI,displayGradedScoreOfAssignmentGUI,
     addLecturerButton,displayLecturerButton,clearButtonOfAddTutorOfAddTutor, addTutorButtonOfAddTutor,removeTutorButtonOfRemoveTutor,clearButtonOfRemoveTutor,
     displayTutorSalaryButton,clearButtonOfDisplayTutorSalary,displayTutorDataButton,clearButtonOfDisplayTutorData,setTutorSalaryButtonOfSetSalary,clearButtonOfSetTutorSalaryOfSetSalary,
     displayGradeAssignmentButton,gradeAssignmentButton,clearButtonOfGradeAssignment,clearButtonOfDisplayGradeAssignment,clearButtonOfDisplayLecturer,
     displayDataBackButton,lecturerGUIBackButton,addLecturerBackButton,displayLecturerDataBackButton,tutorGUIBackButton,addTutorBackButton,removeTutorBackButton,displayTutorSalaryBackButton,displayTutorDataBackButton,
     setSalaryBackButton,assignmentGUIBackButton,gradeAssignmentBackButton,displayGradedAssignmentsBackButton,profileGUIBackButton;
     
-    JPanel mainPanel, startBackground, loginPageBackground, dashBoardBackground, displayDataPanel, addlecturerPanel, lecturerPanel, leftSideMenuPanel, tutorPanel
-    ,addTutorPanel, removeTutorPanel, displayTutorSalaryPanel, setSalaryPanel, assignmentPanel, displayGradedAssignmentsPanel, profilePanel, profileGUIPanel,
+    private JPanel mainPanel, startBackground, loginPageBackground, dashBoardBackground, displayDataPanel, addlecturerPanel, lecturerPanel, leftSideMenuPanel, tutorPanel
+    ,addTutorPanel, removeTutorPanel, displayTutorSalaryPanel, setSalaryPanel, assignmentPanel, displayGradedAssignmentsPanel, profileGUIPanel,
     displayTutorDataPanel, displayLecturerDataPanel,gradedAssignmentsPanel;
     
-    JTextField teacherIDFieldOfAddLecturer,teacherNameFieldOfAddLecturer,addressFieldOfAddLecturer,workingTypeFieldOfAddLecturer,employmentStatusFieldOfAddLecturer,workingHoursFieldOfAddLecturer,
+    private JTextField teacherIDFieldOfAddLecturer,teacherNameFieldOfAddLecturer,addressFieldOfAddLecturer,workingTypeFieldOfAddLecturer,employmentStatusFieldOfAddLecturer,workingHoursFieldOfAddLecturer,
     yearsOfExperienceFieldOfAddLecturer,departmentFieldOfAddLecturer,teacherIDFieldDisplayLecturerData,addressFieldOfAddTutor,teacherNameFieldOfAddTutor ,teacherIDFieldOfAddTutor, workingTypeFieldOfAddTutor
     ,employmentStatusFieldOfAddTutor,workingHoursFieldOfAddTutor, salaryFieldOfAddTutor, specializationFieldOfAddTutor, performanceIndexFieldOfAddTutor, academicQualificationsFieldOfAddTutor
     ,teacherIDFieldOfRemoveTutor,teacherIDFieldOfDisplayTutorSalary,teacherIDFieldDisplayTutorData,teacherIDFieldOfSetSalary,newSalaryFieldOfSetSalary, newPerformanceIndexFieldOfSetSalary,
@@ -46,10 +46,10 @@ public class TeacherGUI implements ActionListener{
     
     private ArrayList<Teacher> teachersList;
 
-    String imagePathOfMainImage = "C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\startingpage.png";
-    String imagePathOfProfileImage = "C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\newprofile.png";
-    String imagePathOfBackButton = "C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png";
-    int thickness = 2;
+    private String imagePathOfMainImage = "C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\startingpage.png";
+    private String imagePathOfProfileImage = "C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\newprofile.png";
+    private String imagePathOfBackButton = "C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png";
+    private int thickness = 2;
     //Constructor
     public TeacherGUI() {
 
@@ -2274,7 +2274,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.revalidate();
             mainPanel.repaint();
         }
-        //------------------------------------------------------------------------------------------------------------------------------------------
         if (e.getSource() == displayTutorSalaryBackButton){
             mainPanel.remove(displayTutorSalaryPanel);
             mainPanel.add(leftSideMenuPanel);
@@ -2327,17 +2326,20 @@ public class TeacherGUI implements ActionListener{
         if (e.getSource() == addLecturerButton) {
             try {
                 // Storing input values from text fields to the local variables
+                String teacherIdSring = teacherIDFieldOfAddLecturer.getText();
                 int teacherId = Integer.parseInt(teacherIDFieldOfAddLecturer.getText());
                 String teacherName = teacherNameFieldOfAddLecturer.getText();
                 String address = addressFieldOfAddLecturer.getText();
                 String workingType = workingTypeFieldOfAddLecturer.getText();
                 String employmentStatus = employmentStatusFieldOfAddLecturer.getText();
+                String workingHoursString = workingHoursFieldOfAddLecturer.getText();
                 int workingHours = Integer.parseInt(workingHoursFieldOfAddLecturer.getText());
                 String department = departmentFieldOfAddLecturer.getText(); // departmentFieldOfAddLecturer Department input is missing in GUI, you may add it
                 int yearsOfExperience = Integer.parseInt(yearsOfExperienceFieldOfAddLecturer.getText());
+                String yearsOfExperienceString = yearsOfExperienceFieldOfAddLecturer.getText();
         
                 // Check if any text field is empty
-                if (teacherName.isEmpty() || address.isEmpty() || workingType.isEmpty() || employmentStatus.isEmpty()) {
+                if (teacherIdSring.isEmpty() || teacherName.isEmpty() || address.isEmpty() || workingType.isEmpty() || employmentStatus.isEmpty() || workingHoursString.isEmpty() || department.isEmpty() ||  yearsOfExperienceString.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
