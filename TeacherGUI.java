@@ -1,6 +1,7 @@
 // Purpose: This file contains the GUI for the Teacher Management System
 
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,16 +24,32 @@ public class TeacherGUI implements ActionListener{
 
     JFrame frame;
     JTextField userIDField, passwordField;
+
     JButton startLoginButton, mainLoginButton, displayData, lecturer, addLecturer, tutor, addTutor, gradeAssignment, profile,gradeAssignmentOfAssignmentGUI,
     menuHome, menuLecturer, menuTutor, menuAssignments, menuProfile, menuLogOut, assignment, setSalaryOfTutor, removeTutor, displayTutorDataOfTutorGUI, displayTutorSalaryOfDisplayGUI, displayTutorSalaryOfTutorGUI,
     displayGradedAssignmentsOfDisplayGUI, displayGradedAssignments,displayTutorDataOfDisplayGUI , displayLecturerDataOfLecturerGUI, displayLecturerDataOfDisplayGUI,displayGradedScoreOfAssignmentGUI,
-    addLecturerButton;
+    addLecturerButton,displayLecturerButton,clearButtonOfAddTutorOfAddTutor, addTutorButtonOfAddTutor,removeTutorButtonOfRemoveTutor,clearButtonOfRemoveTutor,
+    displayTutorSalaryButton,clearButtonOfDisplayTutorSalary,displayTutorDataButton,clearButtonOfDisplayTutorData,setTutorSalaryButtonOfSetSalary,clearButtonOfSetTutorSalaryOfSetSalary,
+    displayGradeAssignmentButton,gradeAssignmentButton,clearButtonOfGradeAssignment,clearButtonOfDisplayGradeAssignment,clearButtonOfDisplayLecturer,
+    displayDataBackButton,lecturerGUIBackButton,addLecturerBackButton,displayLecturerDataBackButton,tutorGUIBackButton,addTutorBackButton,removeTutorBackButton,displayTutorSalaryBackButton,displayTutorDataBackButton,
+    setSalaryBackButton,assignmentGUIBackButton,gradeAssignmentBackButton,displayGradedAssignmentsBackButton,profileGUIBackButton;
+    
     JPanel mainPanel, startBackground, loginPageBackground, dashBoardBackground, displayDataPanel, addlecturerPanel, lecturerPanel, leftSideMenuPanel, tutorPanel
     ,addTutorPanel, removeTutorPanel, displayTutorSalaryPanel, setSalaryPanel, assignmentPanel, displayGradedAssignmentsPanel, profilePanel, profileGUIPanel,
     displayTutorDataPanel, displayLecturerDataPanel,gradedAssignmentsPanel;
     
-    JTextField teacherIDFieldOfAddLecturer,teacherNameFieldOfAddLecturer,addressFieldOfAddLecturer,workingTypeFieldOfAddLecturer,employmentStatusFieldOfAddLecturer,workingHoursFieldOfAddLecturer,yearsOfExperienceFieldOfAddLecturer,departmentFieldOfAddLecturer;
+    JTextField teacherIDFieldOfAddLecturer,teacherNameFieldOfAddLecturer,addressFieldOfAddLecturer,workingTypeFieldOfAddLecturer,employmentStatusFieldOfAddLecturer,workingHoursFieldOfAddLecturer,
+    yearsOfExperienceFieldOfAddLecturer,departmentFieldOfAddLecturer,teacherIDFieldDisplayLecturerData,addressFieldOfAddTutor,teacherNameFieldOfAddTutor ,teacherIDFieldOfAddTutor, workingTypeFieldOfAddTutor
+    ,employmentStatusFieldOfAddTutor,workingHoursFieldOfAddTutor, salaryFieldOfAddTutor, specializationFieldOfAddTutor, performanceIndexFieldOfAddTutor, academicQualificationsFieldOfAddTutor
+    ,teacherIDFieldOfRemoveTutor,teacherIDFieldOfDisplayTutorSalary,teacherIDFieldDisplayTutorData,teacherIDFieldOfSetSalary,newSalaryFieldOfSetSalary, newPerformanceIndexFieldOfSetSalary,
+    teacherIDFieldOfDisplayGradedAssignment,teacherIDFieldOfGradeAssignment,gradedScoreFieldOfGradeAssignment,departmentFieldOfGradeAssignment,yearsOfExperienceFieldOfGradeAssignment;
+    
     private ArrayList<Teacher> teachersList;
+
+    String imagePathOfMainImage = "C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\startingpage.png";
+    String imagePathOfProfileImage = "C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\newprofile.png";
+    String imagePathOfBackButton = "C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png";
+    int thickness = 2;
     //Constructor
     public TeacherGUI() {
 
@@ -89,7 +106,6 @@ public class TeacherGUI implements ActionListener{
         leftSideH5.setFont(new java.awt.Font("Arial", 1, 12));
         leftSideH5.setForeground(new java.awt.Color(105, 105, 105));
         leftSidePanel.add(leftSideH5);
-        // add underline below this label <-----------------------pending to do--------------------------------------------------------------------------
 
         JLabel rightSideH1 = new JLabel("Islington College");
         rightSideH1.setBounds(1100, 32, 228, 38);
@@ -102,6 +118,7 @@ public class TeacherGUI implements ActionListener{
         startLoginButton.setFont(new java.awt.Font("Arial", 1, 25));
         startLoginButton.setForeground(new java.awt.Color(255, 255, 255));
         startLoginButton.setBackground(new java.awt.Color(105, 105, 105));
+        startLoginButton.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness)); // Set the border
         startLoginButton.addActionListener(this);
         startBackground.add(startLoginButton);
 
@@ -119,7 +136,7 @@ public class TeacherGUI implements ActionListener{
 
         // Loadong and displaying image with expection handeling by using try Catch
         try {
-            BufferedImage image = ImageIO.read(new File("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\startingpage.png"));
+            BufferedImage image = ImageIO.read(new File(imagePathOfMainImage));
             ImageIcon imageIcon = new ImageIcon(image);
             JLabel imageLabel = new JLabel(imageIcon);
             // Adjust position and size of image label
@@ -198,6 +215,8 @@ public class TeacherGUI implements ActionListener{
         userIDField.setBounds(530, 317, 250, 40);
         userIDField.setFont(new java.awt.Font("Arial", 1, 20));
         userIDField.setForeground(new java.awt.Color(105, 105, 105));
+        userIDField.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness)); // Set the border
+        //userIDField.setBackground(Color.LIGHT_GRAY);
         loginPageBackground.add(userIDField);
 
         JLabel password = new JLabel("Password");
@@ -210,6 +229,8 @@ public class TeacherGUI implements ActionListener{
         passwordField.setBounds(530, 395, 250, 40);
         passwordField.setFont(new java.awt.Font("Arial", 1, 20));
         passwordField.setForeground(new java.awt.Color(105, 105, 105));
+        passwordField.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness)); // Set the border
+        passwordField.setBackground(Color.LIGHT_GRAY);
         loginPageBackground.add(passwordField);
 
         mainLoginButton = new JButton("Log in");
@@ -217,6 +238,7 @@ public class TeacherGUI implements ActionListener{
         mainLoginButton.setFont(new java.awt.Font("Arial", 1, 20));
         mainLoginButton.setForeground(new java.awt.Color(255, 255, 255));
         mainLoginButton.setBackground(new java.awt.Color(105, 105, 105));
+        mainLoginButton.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness)); // Set the border
         mainLoginButton.addActionListener(this);
         loginPageBackground.add(mainLoginButton);
 
@@ -500,7 +522,7 @@ public class TeacherGUI implements ActionListener{
         rightSidePanel.add(displayTutorSalaryOfDisplayGUI);
 
         // Load image from file
-        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png"); // Replace with the path to your image file
+        ImageIcon icon = new ImageIcon(imagePathOfBackButton);
         
         // Resize the image
         int width = 50; // Desired width of the image
@@ -511,13 +533,14 @@ public class TeacherGUI implements ActionListener{
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         
         // Create JButton with just the image
-        JButton assignmentBackButton = new JButton(scaledIcon);
-        assignmentBackButton.setBounds(378, 91, width, height); // Adjust position and size of the button
+        displayDataBackButton = new JButton(scaledIcon);
+        displayDataBackButton.setBounds(378, 91, width, height);
         // Make the button transparent
-        assignmentBackButton.setOpaque(false);
-        assignmentBackButton.setContentAreaFilled(false);
-        assignmentBackButton.setBorderPainted(false);
-        rightSidePanel.add(assignmentBackButton);
+        displayDataBackButton.setOpaque(false);
+        displayDataBackButton.setContentAreaFilled(false);
+        displayDataBackButton.setBorderPainted(false);
+        displayDataBackButton.addActionListener(this);
+        rightSidePanel.add(displayDataBackButton);
 
         //Panel Settings
         rightSidePanel.setBounds(0, 0, 1500, 832);
@@ -568,7 +591,7 @@ public class TeacherGUI implements ActionListener{
         rightSidePanel.add(displayLecturerDataOfLecturerGUI);
 
         // Load image from file
-        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png"); // Replace with the path to your image file
+        ImageIcon icon = new ImageIcon(imagePathOfBackButton);
         
         // Resize the image
         int width = 50;
@@ -577,13 +600,14 @@ public class TeacherGUI implements ActionListener{
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         // Create JButton with just the image
-        JButton assignmentBackButton = new JButton(scaledIcon);
-        assignmentBackButton.setBounds(378, 91, width, height); 
+        JButton lecturerGUIBackButton = new JButton(scaledIcon);
+        lecturerGUIBackButton.setBounds(378, 91, width, height); 
         // Make the button transparent
-        assignmentBackButton.setOpaque(false);
-        assignmentBackButton.setContentAreaFilled(false);
-        assignmentBackButton.setBorderPainted(false);
-        rightSidePanel.add(assignmentBackButton);
+        lecturerGUIBackButton.setOpaque(false);
+        lecturerGUIBackButton.setContentAreaFilled(false);
+        lecturerGUIBackButton.setBorderPainted(false);
+        lecturerGUIBackButton.addActionListener(this);
+        rightSidePanel.add(lecturerGUIBackButton);
 
         rightSidePanel.setBounds(0, 0, 1500, 832);
         rightSidePanel.setLayout(null);
@@ -658,65 +682,74 @@ public class TeacherGUI implements ActionListener{
         workingHours.setForeground(new Color(105, 105, 105));
         rightSidePanel.add(workingHours);
 
-        JLabel yearsOfExperience = new JLabel("Years Of Experience :");
-        yearsOfExperience.setBounds(379, 463, 282, 30);
-        yearsOfExperience.setFont(new Font("Arial", 1, 20));
-        yearsOfExperience.setForeground(new Color(105, 105, 105));
-        rightSidePanel.add(yearsOfExperience);
-
         JLabel department = new JLabel("Department :");
-        department.setBounds(379, 503, 282, 30);
+        department.setBounds(379, 463, 282, 30);
         department.setFont(new Font("Arial", 1, 20));
         department.setForeground(new Color(105, 105, 105));
         rightSidePanel.add(department);
+
+        JLabel yearsOfExperience = new JLabel("Years Of Experience :");
+        yearsOfExperience.setBounds(379, 503, 282, 30);
+        yearsOfExperience.setFont(new Font("Arial", 1, 20));
+        yearsOfExperience.setForeground(new Color(105, 105, 105));
+        rightSidePanel.add(yearsOfExperience);
         
         teacherIDFieldOfAddLecturer = new JTextField();
         teacherIDFieldOfAddLecturer.setBounds(593, 228, 282, 30);
         teacherIDFieldOfAddLecturer.setFont(new Font("Arial", 1, 20));
         teacherIDFieldOfAddLecturer.setForeground(new Color(105, 105, 105));
+        teacherIDFieldOfAddLecturer.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
         rightSidePanel.add(teacherIDFieldOfAddLecturer);
 
         teacherNameFieldOfAddLecturer = new JTextField();
         teacherNameFieldOfAddLecturer.setBounds(593, 268, 282, 30);
         teacherNameFieldOfAddLecturer.setFont(new Font("Arial", 1, 20));
         teacherNameFieldOfAddLecturer.setForeground(new Color(105, 105, 105));
+        teacherNameFieldOfAddLecturer.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
         rightSidePanel.add(teacherNameFieldOfAddLecturer);
 
         addressFieldOfAddLecturer = new JTextField();
         addressFieldOfAddLecturer.setBounds(593, 307, 282, 30);
         addressFieldOfAddLecturer.setFont(new Font("Arial", 1, 20));
         addressFieldOfAddLecturer.setForeground(new Color(105, 105, 105));
+        addressFieldOfAddLecturer.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
         rightSidePanel.add(addressFieldOfAddLecturer);
 
         workingTypeFieldOfAddLecturer = new JTextField();
         workingTypeFieldOfAddLecturer.setBounds(593, 347, 282, 30);
         workingTypeFieldOfAddLecturer.setFont(new Font("Arial", 1, 20));
         workingTypeFieldOfAddLecturer.setForeground(new Color(105, 105, 105));
+        workingTypeFieldOfAddLecturer.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
         rightSidePanel.add(workingTypeFieldOfAddLecturer);
 
         employmentStatusFieldOfAddLecturer = new JTextField();
         employmentStatusFieldOfAddLecturer.setBounds(593, 388, 282, 30);
         employmentStatusFieldOfAddLecturer.setFont(new Font("Arial", 1, 20));
         employmentStatusFieldOfAddLecturer.setForeground(new Color(105, 105, 105));
+        employmentStatusFieldOfAddLecturer.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
         rightSidePanel.add(employmentStatusFieldOfAddLecturer);
 
         workingHoursFieldOfAddLecturer = new JTextField();
         workingHoursFieldOfAddLecturer.setBounds(593, 427, 282, 30);
         workingHoursFieldOfAddLecturer.setFont(new Font("Arial", 1, 20));
         workingHoursFieldOfAddLecturer.setForeground(new Color(105, 105, 105));
+        workingHoursFieldOfAddLecturer.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
         rightSidePanel.add(workingHoursFieldOfAddLecturer);
 
-        yearsOfExperienceFieldOfAddLecturer = new JTextField();
-        yearsOfExperienceFieldOfAddLecturer.setBounds(593, 467, 282, 30);
-        yearsOfExperienceFieldOfAddLecturer.setFont(new Font("Arial", 1, 20));
-        yearsOfExperienceFieldOfAddLecturer.setForeground(new Color(105, 105, 105));
-        rightSidePanel.add(yearsOfExperienceFieldOfAddLecturer);
-
         departmentFieldOfAddLecturer = new JTextField();
-        departmentFieldOfAddLecturer.setBounds(593, 507, 282, 30);
+        departmentFieldOfAddLecturer.setBounds(593, 467, 282, 30);
         departmentFieldOfAddLecturer.setFont(new Font("Arial", 1, 20));
         departmentFieldOfAddLecturer.setForeground(new Color(105, 105, 105));
+        departmentFieldOfAddLecturer.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
         rightSidePanel.add(departmentFieldOfAddLecturer);
+
+        yearsOfExperienceFieldOfAddLecturer = new JTextField();
+        yearsOfExperienceFieldOfAddLecturer.setBounds(593, 507, 282, 30);
+        yearsOfExperienceFieldOfAddLecturer.setFont(new Font("Arial", 1, 20));
+        yearsOfExperienceFieldOfAddLecturer.setForeground(new Color(105, 105, 105));
+        yearsOfExperienceFieldOfAddLecturer.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
+        rightSidePanel.add(yearsOfExperienceFieldOfAddLecturer);
+
 
         addLecturerButton = new JButton("Add");
         addLecturerButton.setBounds(794, 545, 92, 30);
@@ -734,8 +767,8 @@ public class TeacherGUI implements ActionListener{
         rightSidePanel.add(clearButton);
 
         // Load image from file
-        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png"); 
-        // Resize the image
+        ImageIcon icon = new ImageIcon(imagePathOfBackButton);
+
         int width = 50; // Desired width of the image
         int height = 50; // Desired height of the image
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
@@ -743,13 +776,14 @@ public class TeacherGUI implements ActionListener{
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         
         // Create JButton with just the image
-        JButton assignmentBackButton = new JButton(scaledIcon);
-        assignmentBackButton.setBounds(378, 91, width, height); 
+        addLecturerBackButton = new JButton(scaledIcon);
+        addLecturerBackButton.setBounds(378, 91, width, height); 
         // Make the button transparent
-        assignmentBackButton.setOpaque(false);
-        assignmentBackButton.setContentAreaFilled(false);
-        assignmentBackButton.setBorderPainted(false);
-        rightSidePanel.add(assignmentBackButton);
+        addLecturerBackButton.setOpaque(false);
+        addLecturerBackButton.setContentAreaFilled(false);
+        addLecturerBackButton.setBorderPainted(false);
+        addLecturerBackButton.addActionListener(this);
+        rightSidePanel.add(addLecturerBackButton);
 
         rightSidePanel.setBounds(0, 0, 1500, 832);
         rightSidePanel.setLayout(null);
@@ -793,20 +827,21 @@ public class TeacherGUI implements ActionListener{
         teacherID.setForeground(new Color(105, 105, 105));
         rightSidePanel.add(teacherID);
 
-        JTextField teacherIDFieldDisplayLecturerData = new JTextField();
+        teacherIDFieldDisplayLecturerData = new JTextField();
         teacherIDFieldDisplayLecturerData.setBounds(526, 240, 282, 30);
         teacherIDFieldDisplayLecturerData.setFont(new Font("Arial", 1, 20));
         teacherIDFieldDisplayLecturerData.setForeground(new Color(105, 105, 105));
+        teacherIDFieldDisplayLecturerData.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
         rightSidePanel.add(teacherIDFieldDisplayLecturerData);
 
-        JButton displayLecturerButton = new JButton("Display");
+        displayLecturerButton = new JButton("Display");
         displayLecturerButton.setBounds(726, 283, 92, 30);
         displayLecturerButton.setFont(new Font("Arial", 1, 15));
         displayLecturerButton.setForeground(new Color(255,255,255));
         displayLecturerButton.setBackground(new Color(105, 105, 105));
         rightSidePanel.add(displayLecturerButton);
 
-        JButton clearButtonOfDisplayLecturer = new JButton("Clear");
+        clearButtonOfDisplayLecturer = new JButton("Clear");
         clearButtonOfDisplayLecturer.setBounds(378, 283, 92, 30);
         clearButtonOfDisplayLecturer.setFont(new Font("Arial", 1, 15));
         clearButtonOfDisplayLecturer.setForeground(new Color(255,255,255));
@@ -814,8 +849,7 @@ public class TeacherGUI implements ActionListener{
         rightSidePanel.add(clearButtonOfDisplayLecturer);
 
         // Load image from file
-        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png");
-        
+        ImageIcon icon = new ImageIcon(imagePathOfBackButton);        
         // for Resizing the image
         int width = 50; 
         int height = 50; 
@@ -823,13 +857,14 @@ public class TeacherGUI implements ActionListener{
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         // Create JButton with just the image
-        JButton displayTutorDataButton = new JButton(scaledIcon);
-        displayTutorDataButton.setBounds(378, 91, width, height);
+        displayLecturerDataBackButton = new JButton(scaledIcon);
+        displayLecturerDataBackButton.setBounds(378, 91, width, height);
         // Make the button transparent
-        displayTutorDataButton.setOpaque(false);
-        displayTutorDataButton.setContentAreaFilled(false);
-        displayTutorDataButton.setBorderPainted(false);
-        rightSidePanel.add(displayTutorDataButton);
+        displayLecturerDataBackButton.setOpaque(false);
+        displayLecturerDataBackButton.setContentAreaFilled(false);
+        displayLecturerDataBackButton.setBorderPainted(false);
+        displayLecturerDataBackButton.addActionListener(this);
+        rightSidePanel.add(displayLecturerDataBackButton);
 
         rightSidePanel.setBounds(0, 0, 1500, 832);
         rightSidePanel.setLayout(null);
@@ -903,8 +938,7 @@ public class TeacherGUI implements ActionListener{
         rightSidePanel.add(displayTutorSalaryOfTutorGUI);
 
         // Load image from file
-        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png"); // Replace with the path to your image file
-        
+        ImageIcon icon = new ImageIcon(imagePathOfBackButton);        
         // Resize the image
         int width = 50; // Desired width of the image
         int height = 50; // Desired height of the image
@@ -914,13 +948,14 @@ public class TeacherGUI implements ActionListener{
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         
         // Create JButton with just the image
-        JButton assignmentBackButton = new JButton(scaledIcon);
-        assignmentBackButton.setBounds(378, 91, width, height); // Adjust position and size of the button
+        tutorGUIBackButton = new JButton(scaledIcon);
+        tutorGUIBackButton.setBounds(378, 91, width, height); // Adjust position and size of the button
         // Make the button transparent
-        assignmentBackButton.setOpaque(false);
-        assignmentBackButton.setContentAreaFilled(false);
-        assignmentBackButton.setBorderPainted(false);
-        rightSidePanel.add(assignmentBackButton);
+        tutorGUIBackButton.setOpaque(false);
+        tutorGUIBackButton.setContentAreaFilled(false);
+        tutorGUIBackButton.setBorderPainted(false);
+        tutorGUIBackButton.addActionListener(this);
+        rightSidePanel.add(tutorGUIBackButton);
 
         //Panel Settings
         rightSidePanel.setBounds(0, 0, 1500, 832);
@@ -1020,96 +1055,109 @@ public class TeacherGUI implements ActionListener{
         performanceIndex.setForeground(new Color(105, 105, 105));
         rightSidePanel.add(performanceIndex);
         
-        JTextField teacherIDField = new JTextField();
-        teacherIDField.setBounds(630, 228, 282, 30);
-        teacherIDField.setFont(new Font("Arial", 1, 20));
-        teacherIDField.setForeground(new Color(105, 105, 105));
-        rightSidePanel.add(teacherIDField);
+        teacherIDFieldOfAddTutor = new JTextField();
+        teacherIDFieldOfAddTutor.setBounds(630, 228, 282, 30);
+        teacherIDFieldOfAddTutor.setFont(new Font("Arial", 1, 20));
+        teacherIDFieldOfAddTutor.setForeground(new Color(105, 105, 105));
+        teacherIDFieldOfAddTutor.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
+        rightSidePanel.add(teacherIDFieldOfAddTutor);
 
-        JTextField teacherNameField = new JTextField();
-        teacherNameField.setBounds(630, 268, 282, 30);
-        teacherNameField.setFont(new Font("Arial", 1, 20));
-        teacherNameField.setForeground(new Color(105, 105, 105));
-        rightSidePanel.add(teacherNameField);
+        teacherNameFieldOfAddTutor = new JTextField();
+        teacherNameFieldOfAddTutor.setBounds(630, 268, 282, 30);
+        teacherNameFieldOfAddTutor.setFont(new Font("Arial", 1, 20));
+        teacherNameFieldOfAddTutor.setForeground(new Color(105, 105, 105));
+        teacherNameFieldOfAddTutor.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
+        rightSidePanel.add(teacherNameFieldOfAddTutor);
 
-        JTextField addressField = new JTextField();
-        addressField.setBounds(630, 307, 282, 30);
-        addressField.setFont(new Font("Arial", 1, 20));
-        addressField.setForeground(new Color(105, 105, 105));
-        rightSidePanel.add(addressField);
+        addressFieldOfAddTutor = new JTextField();
+        addressFieldOfAddTutor.setBounds(630, 307, 282, 30);
+        addressFieldOfAddTutor.setFont(new Font("Arial", 1, 20));
+        addressFieldOfAddTutor.setForeground(new Color(105, 105, 105));
+        addressFieldOfAddTutor.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
+        rightSidePanel.add(addressFieldOfAddTutor);
 
-        JTextField workingTypeField = new JTextField();
-        workingTypeField.setBounds(630, 347, 282, 30);
-        workingTypeField.setFont(new Font("Arial", 1, 20));
-        workingTypeField.setForeground(new Color(105, 105, 105));
-        rightSidePanel.add(workingTypeField);
+        workingTypeFieldOfAddTutor = new JTextField();
+        workingTypeFieldOfAddTutor.setBounds(630, 347, 282, 30);
+        workingTypeFieldOfAddTutor.setFont(new Font("Arial", 1, 20));
+        workingTypeFieldOfAddTutor.setForeground(new Color(105, 105, 105));
+        workingTypeFieldOfAddTutor.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
+        rightSidePanel.add(workingTypeFieldOfAddTutor);
 
-        JTextField employmentStatusField = new JTextField();
-        employmentStatusField.setBounds(630, 388, 282, 30);
-        employmentStatusField.setFont(new Font("Arial", 1, 20));
-        employmentStatusField.setForeground(new Color(105, 105, 105));
-        rightSidePanel.add(employmentStatusField);
+        employmentStatusFieldOfAddTutor = new JTextField();
+        employmentStatusFieldOfAddTutor.setBounds(630, 388, 282, 30);
+        employmentStatusFieldOfAddTutor.setFont(new Font("Arial", 1, 20));
+        employmentStatusFieldOfAddTutor.setForeground(new Color(105, 105, 105));
+        employmentStatusFieldOfAddTutor.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
+        rightSidePanel.add(employmentStatusFieldOfAddTutor);
 
-        JTextField workingHoursField = new JTextField();
-        workingHoursField.setBounds(630, 427, 282, 30);
-        workingHoursField.setFont(new Font("Arial", 1, 20));
-        workingHoursField.setForeground(new Color(105, 105, 105));
-        rightSidePanel.add(workingHoursField);
+        workingHoursFieldOfAddTutor = new JTextField();
+        workingHoursFieldOfAddTutor.setBounds(630, 427, 282, 30);
+        workingHoursFieldOfAddTutor.setFont(new Font("Arial", 1, 20));
+        workingHoursFieldOfAddTutor.setForeground(new Color(105, 105, 105));
+        workingHoursFieldOfAddTutor.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
+        rightSidePanel.add(workingHoursFieldOfAddTutor);
 
-        JTextField salaryField = new JTextField();
-        salaryField.setBounds(630, 467, 282, 30);
-        salaryField.setFont(new Font("Arial", 1, 20));
-        salaryField.setForeground(new Color(105, 105, 105));
-        rightSidePanel.add(salaryField);
+        salaryFieldOfAddTutor = new JTextField();
+        salaryFieldOfAddTutor.setBounds(630, 467, 282, 30);
+        salaryFieldOfAddTutor.setFont(new Font("Arial", 1, 20));
+        salaryFieldOfAddTutor.setForeground(new Color(105, 105, 105));
+        salaryFieldOfAddTutor.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
+        rightSidePanel.add(salaryFieldOfAddTutor);
 
-        JTextField specializationField = new JTextField();
-        specializationField.setBounds(630, 507, 282, 30);
-        specializationField.setFont(new Font("Arial", 1, 20));
-        specializationField.setForeground(new Color(105, 105, 105));
-        rightSidePanel.add(specializationField);
+        specializationFieldOfAddTutor = new JTextField();
+        specializationFieldOfAddTutor.setBounds(630, 507, 282, 30);
+        specializationFieldOfAddTutor.setFont(new Font("Arial", 1, 20));
+        specializationFieldOfAddTutor.setForeground(new Color(105, 105, 105));
+        specializationFieldOfAddTutor.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
+        rightSidePanel.add(specializationFieldOfAddTutor);
 
-        JTextField academicQualificationsField = new JTextField();
-        academicQualificationsField.setBounds(630, 547, 282, 30);
-        academicQualificationsField.setFont(new Font("Arial", 1, 20));
-        academicQualificationsField.setForeground(new Color(105, 105, 105));
-        rightSidePanel.add(academicQualificationsField);
+        academicQualificationsFieldOfAddTutor = new JTextField();
+        academicQualificationsFieldOfAddTutor.setBounds(630, 547, 282, 30);
+        academicQualificationsFieldOfAddTutor.setFont(new Font("Arial", 1, 20));
+        academicQualificationsFieldOfAddTutor.setForeground(new Color(105, 105, 105));
+        academicQualificationsFieldOfAddTutor.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
+        rightSidePanel.add(academicQualificationsFieldOfAddTutor);
 
-        JTextField performanceIndexField = new JTextField();
-        performanceIndexField.setBounds(630, 587, 282, 30);
-        performanceIndexField.setFont(new Font("Arial", 1, 20));
-        performanceIndexField.setForeground(new Color(105, 105, 105));
-        rightSidePanel.add(performanceIndexField);
+        performanceIndexFieldOfAddTutor = new JTextField();
+        performanceIndexFieldOfAddTutor.setBounds(630, 587, 282, 30);
+        performanceIndexFieldOfAddTutor.setFont(new Font("Arial", 1, 20));
+        performanceIndexFieldOfAddTutor.setForeground(new Color(105, 105, 105));
+        performanceIndexFieldOfAddTutor.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
+        rightSidePanel.add(performanceIndexFieldOfAddTutor);
 
-        JButton addTutorButton = new JButton("Add");
-        addTutorButton.setBounds(816, 628, 92, 30);
-        addTutorButton.setFont(new Font("Arial", 1, 15));
-        addTutorButton.setForeground(new Color(255,255,255));
-        addTutorButton.setBackground(new Color(105, 105, 105));
-        rightSidePanel.add(addTutorButton);
+        addTutorButtonOfAddTutor = new JButton("Add");
+        addTutorButtonOfAddTutor.setBounds(816, 628, 92, 30);
+        addTutorButtonOfAddTutor.setFont(new Font("Arial", 1, 15));
+        addTutorButtonOfAddTutor.setForeground(new Color(255,255,255));
+        addTutorButtonOfAddTutor.setBackground(new Color(105, 105, 105));
+        addTutorButtonOfAddTutor.addActionListener(this);
+        rightSidePanel.add(addTutorButtonOfAddTutor);
 
-        JButton clearButtonOfAddTutor = new JButton("Clear");
-        clearButtonOfAddTutor.setBounds(378, 628, 92, 30);
-        clearButtonOfAddTutor.setFont(new Font("Arial", 1, 15));
-        clearButtonOfAddTutor.setForeground(new Color(255,255,255));
-        clearButtonOfAddTutor.setBackground(new Color(105, 105, 105));
-        rightSidePanel.add(clearButtonOfAddTutor);
+        clearButtonOfAddTutorOfAddTutor = new JButton("Clear");
+        clearButtonOfAddTutorOfAddTutor.setBounds(378, 628, 92, 30);
+        clearButtonOfAddTutorOfAddTutor.setFont(new Font("Arial", 1, 15));
+        clearButtonOfAddTutorOfAddTutor.setForeground(new Color(255,255,255));
+        clearButtonOfAddTutorOfAddTutor.setBackground(new Color(105, 105, 105));
+        clearButtonOfAddTutorOfAddTutor.addActionListener(this);
+        rightSidePanel.add(clearButtonOfAddTutorOfAddTutor);
 
         // Load image from file
-        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png"); 
-        // Resize the image
+        ImageIcon icon = new ImageIcon(imagePathOfBackButton);
+
         int width = 50; // Desired width of the image
         int height = 50; // Desired height of the image
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         // Create JButton with just the image
-        JButton assignmentBackButton = new JButton(scaledIcon);
-        assignmentBackButton.setBounds(378, 91, width, height);
+        addTutorBackButton = new JButton(scaledIcon);
+        addTutorBackButton.setBounds(378, 91, width, height);
         // Make the button transparent
-        assignmentBackButton.setOpaque(false);
-        assignmentBackButton.setContentAreaFilled(false);
-        assignmentBackButton.setBorderPainted(false);
-        rightSidePanel.add(assignmentBackButton);
+        addTutorBackButton.setOpaque(false);
+        addTutorBackButton.setContentAreaFilled(false);
+        addTutorBackButton.setBorderPainted(false);
+        addTutorBackButton.addActionListener(this);
+        rightSidePanel.add(addTutorBackButton);
 
         rightSidePanel.setBounds(0, 0, 1500, 832);
         rightSidePanel.setLayout(null);
@@ -1153,20 +1201,22 @@ public class TeacherGUI implements ActionListener{
         teacherID.setForeground(new Color(105, 105, 105));
         rightSidePanel.add(teacherID);
 
-        JTextField teacherIDField = new JTextField();
-        teacherIDField.setBounds(526, 228, 282, 30);
-        teacherIDField.setFont(new Font("Arial", 1, 20));
-        teacherIDField.setForeground(new Color(105, 105, 105));
-        rightSidePanel.add(teacherIDField);
+        teacherIDFieldOfRemoveTutor = new JTextField();
+        teacherIDFieldOfRemoveTutor.setBounds(526, 228, 282, 30);
+        teacherIDFieldOfRemoveTutor.setFont(new Font("Arial", 1, 20));
+        teacherIDFieldOfRemoveTutor.setForeground(new Color(105, 105, 105));
+        teacherIDFieldOfRemoveTutor.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
+        rightSidePanel.add(teacherIDFieldOfRemoveTutor);
 
-        JButton removeTutorButton = new JButton("Remove");
-        removeTutorButton.setBounds(726, 283, 92, 30);
-        removeTutorButton.setFont(new Font("Arial", 1, 15));
-        removeTutorButton.setForeground(new Color(255,255,255));
-        removeTutorButton.setBackground(new Color(105, 105, 105));
-        rightSidePanel.add(removeTutorButton);
+        removeTutorButtonOfRemoveTutor = new JButton("Remove");
+        removeTutorButtonOfRemoveTutor.setBounds(726, 283, 92, 30);
+        removeTutorButtonOfRemoveTutor.setFont(new Font("Arial", 1, 15));
+        removeTutorButtonOfRemoveTutor.setForeground(new Color(255,255,255));
+        removeTutorButtonOfRemoveTutor.setBackground(new Color(105, 105, 105));
+        removeTutorButtonOfRemoveTutor.addActionListener(this);
+        rightSidePanel.add(removeTutorButtonOfRemoveTutor);
 
-        JButton clearButtonOfRemoveTutor = new JButton("Clear");
+        clearButtonOfRemoveTutor = new JButton("Clear");
         clearButtonOfRemoveTutor.setBounds(378, 283, 92, 30);
         clearButtonOfRemoveTutor.setFont(new Font("Arial", 1, 15));
         clearButtonOfRemoveTutor.setForeground(new Color(255,255,255));
@@ -1174,21 +1224,22 @@ public class TeacherGUI implements ActionListener{
         rightSidePanel.add(clearButtonOfRemoveTutor);
 
         // Load image from file
-        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png");
-        // for Resizing the image
+        ImageIcon icon = new ImageIcon(imagePathOfBackButton);        
+
         int width = 50;
         int height = 50; 
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         // Create JButton with just the image
-        JButton assignmentBackButton = new JButton(scaledIcon);
-        assignmentBackButton.setBounds(378, 91, width, height);
+        removeTutorBackButton = new JButton(scaledIcon);
+        removeTutorBackButton.setBounds(378, 91, width, height);
         // Make the button transparent
-        assignmentBackButton.setOpaque(false);
-        assignmentBackButton.setContentAreaFilled(false);
-        assignmentBackButton.setBorderPainted(false);
-        rightSidePanel.add(assignmentBackButton);
+        removeTutorBackButton.setOpaque(false);
+        removeTutorBackButton.setContentAreaFilled(false);
+        removeTutorBackButton.setBorderPainted(false);
+        removeTutorBackButton.addActionListener(this);
+        rightSidePanel.add(removeTutorBackButton);
 
         rightSidePanel.setBounds(0, 0, 1500, 832);
         rightSidePanel.setLayout(null);
@@ -1232,29 +1283,31 @@ public class TeacherGUI implements ActionListener{
         teacherID.setForeground(new Color(105, 105, 105));
         rightSidePanel.add(teacherID);
 
-        JTextField teacherIDField = new JTextField();
-        teacherIDField.setBounds(526, 228, 282, 30);
-        teacherIDField.setFont(new Font("Arial", 1, 20));
-        teacherIDField.setForeground(new Color(105, 105, 105));
-        rightSidePanel.add(teacherIDField);
+        teacherIDFieldOfDisplayTutorSalary = new JTextField();
+        teacherIDFieldOfDisplayTutorSalary.setBounds(526, 228, 282, 30);
+        teacherIDFieldOfDisplayTutorSalary.setFont(new Font("Arial", 1, 20));
+        teacherIDFieldOfDisplayTutorSalary.setForeground(new Color(105, 105, 105));
+        teacherIDFieldOfDisplayTutorSalary.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
+        rightSidePanel.add(teacherIDFieldOfDisplayTutorSalary);
 
-        JButton displayTutorSalaryButton = new JButton("Display");
+        displayTutorSalaryButton = new JButton("Display");
         displayTutorSalaryButton.setBounds(726, 283, 92, 30);
         displayTutorSalaryButton.setFont(new Font("Arial", 1, 15));
         displayTutorSalaryButton.setForeground(new Color(255,255,255));
         displayTutorSalaryButton.setBackground(new Color(105, 105, 105));
+        displayTutorSalaryButton.addActionListener(this);
         rightSidePanel.add(displayTutorSalaryButton);
 
-        JButton clearButtonOfDisplayTutorSalary = new JButton("Clear");
+        clearButtonOfDisplayTutorSalary = new JButton("Clear");
         clearButtonOfDisplayTutorSalary.setBounds(378, 283, 92, 30);
         clearButtonOfDisplayTutorSalary.setFont(new Font("Arial", 1, 15));
         clearButtonOfDisplayTutorSalary.setForeground(new Color(255,255,255));
         clearButtonOfDisplayTutorSalary.setBackground(new Color(105, 105, 105));
+        clearButtonOfDisplayTutorSalary.addActionListener(this);
         rightSidePanel.add(clearButtonOfDisplayTutorSalary);
 
         // Load image from file
-        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png");
-        
+        ImageIcon icon = new ImageIcon(imagePathOfBackButton);        
         // for Resizing the image
         int width = 50; 
         int height = 50; 
@@ -1262,13 +1315,14 @@ public class TeacherGUI implements ActionListener{
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         // Create JButton with just the image
-        JButton assignmentBackButton = new JButton(scaledIcon);
-        assignmentBackButton.setBounds(378, 91, width, height);
+        displayTutorSalaryBackButton = new JButton(scaledIcon);
+        displayTutorSalaryBackButton.setBounds(378, 91, width, height);
         // Make the button transparent
-        assignmentBackButton.setOpaque(false);
-        assignmentBackButton.setContentAreaFilled(false);
-        assignmentBackButton.setBorderPainted(false);
-        rightSidePanel.add(assignmentBackButton);
+        displayTutorSalaryBackButton.setOpaque(false);
+        displayTutorSalaryBackButton.setContentAreaFilled(false);
+        displayTutorSalaryBackButton.setBorderPainted(false);
+        displayTutorSalaryBackButton.addActionListener(this);
+        rightSidePanel.add(displayTutorSalaryBackButton);
 
         rightSidePanel.setBounds(0, 0, 1500, 832);
         rightSidePanel.setLayout(null);
@@ -1312,29 +1366,31 @@ public class TeacherGUI implements ActionListener{
         teacherID.setForeground(new Color(105, 105, 105));
         rightSidePanel.add(teacherID);
 
-        JTextField teacherIDFieldDisplayTutorData = new JTextField();
-        teacherIDFieldDisplayTutorData.setBounds(526, 240, 282, 30);
+        teacherIDFieldDisplayTutorData = new JTextField();
+        teacherIDFieldDisplayTutorData.setBounds(526, 238, 282, 30);
         teacherIDFieldDisplayTutorData.setFont(new Font("Arial", 1, 20));
         teacherIDFieldDisplayTutorData.setForeground(new Color(105, 105, 105));
+        teacherIDFieldDisplayTutorData.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
         rightSidePanel.add(teacherIDFieldDisplayTutorData);
 
-        JButton displayTutorDataButton = new JButton("Display");
+        displayTutorDataButton = new JButton("Display");
         displayTutorDataButton.setBounds(726, 283, 92, 30);
         displayTutorDataButton.setFont(new Font("Arial", 1, 15));
         displayTutorDataButton.setForeground(new Color(255,255,255));
         displayTutorDataButton.setBackground(new Color(105, 105, 105));
+        displayTutorDataButton.addActionListener(this);
         rightSidePanel.add(displayTutorDataButton);
 
-        JButton clearButtonOfDisplayTutorData = new JButton("Clear");
+        clearButtonOfDisplayTutorData = new JButton("Clear");
         clearButtonOfDisplayTutorData.setBounds(378, 283, 92, 30);
         clearButtonOfDisplayTutorData.setFont(new Font("Arial", 1, 15));
         clearButtonOfDisplayTutorData.setForeground(new Color(255,255,255));
         clearButtonOfDisplayTutorData.setBackground(new Color(105, 105, 105));
+        clearButtonOfDisplayTutorData.addActionListener(this);
         rightSidePanel.add(clearButtonOfDisplayTutorData);
 
         // Load image from file
-        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png");
-        
+        ImageIcon icon = new ImageIcon(imagePathOfBackButton);        
         // for Resizing the image
         int width = 50; 
         int height = 50; 
@@ -1342,13 +1398,14 @@ public class TeacherGUI implements ActionListener{
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         // Create JButton with just the image
-        JButton backButtonOfdisplayTutorDataButton = new JButton(scaledIcon);
-        backButtonOfdisplayTutorDataButton.setBounds(378, 91, width, height);
+        displayTutorDataBackButton = new JButton(scaledIcon);
+        displayTutorDataBackButton.setBounds(378, 91, width, height);
         // Make the button transparent
-        backButtonOfdisplayTutorDataButton.setOpaque(false);
-        backButtonOfdisplayTutorDataButton.setContentAreaFilled(false);
-        backButtonOfdisplayTutorDataButton.setBorderPainted(false);
-        rightSidePanel.add(backButtonOfdisplayTutorDataButton);
+        displayTutorDataBackButton.setOpaque(false);
+        displayTutorDataBackButton.setContentAreaFilled(false);
+        displayTutorDataBackButton.setBorderPainted(false);
+        displayTutorDataBackButton.addActionListener(this);
+        rightSidePanel.add(displayTutorDataBackButton);
 
         rightSidePanel.setBounds(0, 0, 1500, 832);
         rightSidePanel.setLayout(null);
@@ -1404,54 +1461,57 @@ public class TeacherGUI implements ActionListener{
         newPerformanceIndex.setForeground(new Color(105, 105, 105));
         rightSidePanel.add(newPerformanceIndex);
 
-        JTextField teacherIDField = new JTextField();
-        teacherIDField.setBounds(625, 228, 282, 30);
-        teacherIDField.setFont(new Font("Arial", 1, 20));
-        teacherIDField.setForeground(new Color(105, 105, 105));
-        rightSidePanel.add(teacherIDField);
+        teacherIDFieldOfSetSalary = new JTextField();
+        teacherIDFieldOfSetSalary.setBounds(625, 228, 282, 30);
+        teacherIDFieldOfSetSalary.setFont(new Font("Arial", 1, 20));
+        teacherIDFieldOfSetSalary.setForeground(new Color(105, 105, 105));
+        teacherIDFieldOfSetSalary.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
+        rightSidePanel.add(teacherIDFieldOfSetSalary);
 
-        JTextField newSalaryField = new JTextField();
-        newSalaryField.setBounds(625, 268, 282, 30);
-        newSalaryField.setFont(new Font("Arial", 1, 20));
-        newSalaryField.setForeground(new Color(105, 105, 105));
-        rightSidePanel.add(newSalaryField);
+        newSalaryFieldOfSetSalary = new JTextField();
+        newSalaryFieldOfSetSalary.setBounds(625, 268, 282, 30);
+        newSalaryFieldOfSetSalary.setFont(new Font("Arial", 1, 20));
+        newSalaryFieldOfSetSalary.setForeground(new Color(105, 105, 105));
+        newSalaryFieldOfSetSalary.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
+        rightSidePanel.add(newSalaryFieldOfSetSalary);
 
-        JTextField newPerformanceIndexField = new JTextField();
-        newPerformanceIndexField.setBounds(625, 307, 282, 30);
-        newPerformanceIndexField.setFont(new Font("Arial", 1, 20));
-        newPerformanceIndexField.setForeground(new Color(105, 105, 105));
-        rightSidePanel.add(newPerformanceIndexField);
+        newPerformanceIndexFieldOfSetSalary = new JTextField();
+        newPerformanceIndexFieldOfSetSalary.setBounds(625, 307, 282, 30);
+        newPerformanceIndexFieldOfSetSalary.setFont(new Font("Arial", 1, 20));
+        newPerformanceIndexFieldOfSetSalary.setForeground(new Color(105, 105, 105));
+        newPerformanceIndexFieldOfSetSalary.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
+        rightSidePanel.add(newPerformanceIndexFieldOfSetSalary);
 
-        JButton setTutorSalaryButton = new JButton("Update");
-        setTutorSalaryButton.setBounds(825, 369, 92, 30);
-        setTutorSalaryButton.setFont(new Font("Arial", 1, 15));
-        setTutorSalaryButton.setForeground(new Color(255,255,255));
-        setTutorSalaryButton.setBackground(new Color(105, 105, 105));
-        rightSidePanel.add(setTutorSalaryButton);
+        setTutorSalaryButtonOfSetSalary = new JButton("Update");
+        setTutorSalaryButtonOfSetSalary.setBounds(825, 369, 92, 30);
+        setTutorSalaryButtonOfSetSalary.setFont(new Font("Arial", 1, 15));
+        setTutorSalaryButtonOfSetSalary.setForeground(new Color(255,255,255));
+        setTutorSalaryButtonOfSetSalary.setBackground(new Color(105, 105, 105));
+        rightSidePanel.add(setTutorSalaryButtonOfSetSalary);
 
-        JButton clearButtonOfSetTutorSalary = new JButton("Clear");
-        clearButtonOfSetTutorSalary.setBounds(378, 369, 92, 30);
-        clearButtonOfSetTutorSalary.setFont(new Font("Arial", 1, 15));
-        clearButtonOfSetTutorSalary.setForeground(new Color(255,255,255));
-        clearButtonOfSetTutorSalary.setBackground(new Color(105, 105, 105));
-        rightSidePanel.add(clearButtonOfSetTutorSalary);
+        clearButtonOfSetTutorSalaryOfSetSalary = new JButton("Clear");
+        clearButtonOfSetTutorSalaryOfSetSalary.setBounds(378, 369, 92, 30);
+        clearButtonOfSetTutorSalaryOfSetSalary.setFont(new Font("Arial", 1, 15));
+        clearButtonOfSetTutorSalaryOfSetSalary.setForeground(new Color(255,255,255));
+        clearButtonOfSetTutorSalaryOfSetSalary.setBackground(new Color(105, 105, 105));
+        rightSidePanel.add(clearButtonOfSetTutorSalaryOfSetSalary);
 
         // Load image from file
-        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png"); 
-        // Resizing the image
+        ImageIcon icon = new ImageIcon(imagePathOfBackButton);
         int width = 50;
         int height = 50; 
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         // Create JButton with just the image
-        JButton assignmentBackButton = new JButton(scaledIcon);
-        assignmentBackButton.setBounds(378, 91, width, height);
+        setSalaryBackButton = new JButton(scaledIcon);
+        setSalaryBackButton.setBounds(378, 91, width, height);
         // Make the button transparent
-        assignmentBackButton.setOpaque(false);
-        assignmentBackButton.setContentAreaFilled(false);
-        assignmentBackButton.setBorderPainted(false);
-        rightSidePanel.add(assignmentBackButton);
+        setSalaryBackButton.setOpaque(false);
+        setSalaryBackButton.setContentAreaFilled(false);
+        setSalaryBackButton.setBorderPainted(false);
+        setSalaryBackButton.addActionListener(this);
+        rightSidePanel.add(setSalaryBackButton);
 
         rightSidePanel.setBounds(0, 0, 1500, 832);
         rightSidePanel.setLayout(null);
@@ -1500,21 +1560,21 @@ public class TeacherGUI implements ActionListener{
         rightSidePanel.add(displayGradedScoreOfAssignmentGUI);
 
         // Load image from file
-        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png");
-        // Resizing the image
+        ImageIcon icon = new ImageIcon(imagePathOfBackButton);
         int width = 50; 
         int height = 50; 
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         // Create JButton with just the image
-        JButton assignmentBackButton = new JButton(scaledIcon);
-        assignmentBackButton.setBounds(378, 91, width, height); 
+        assignmentGUIBackButton = new JButton(scaledIcon);
+        assignmentGUIBackButton.setBounds(378, 91, width, height); 
         // Make the button transparent
-        assignmentBackButton.setOpaque(false);
-        assignmentBackButton.setContentAreaFilled(false);
-        assignmentBackButton.setBorderPainted(false);
-        rightSidePanel.add(assignmentBackButton);
+        assignmentGUIBackButton.setOpaque(false);
+        assignmentGUIBackButton.setContentAreaFilled(false);
+        assignmentGUIBackButton.setBorderPainted(false);
+        assignmentGUIBackButton.addActionListener(this);
+        rightSidePanel.add(assignmentGUIBackButton);
         
         //panel settings
         rightSidePanel.setBounds(0, 0, 1500, 832);
@@ -1578,38 +1638,42 @@ public class TeacherGUI implements ActionListener{
         yearsOfExperience.setForeground(new Color(105, 105, 105));
         rightSidePanel.add(yearsOfExperience);
         
-        JTextField teacherIDField = new JTextField();
-        teacherIDField.setBounds(630, 228, 282, 30);
-        teacherIDField.setFont(new Font("Arial", 1, 20));
-        teacherIDField.setForeground(new Color(105, 105, 105));
-        rightSidePanel.add(teacherIDField);
+        teacherIDFieldOfGradeAssignment = new JTextField();
+        teacherIDFieldOfGradeAssignment.setBounds(630, 228, 282, 30);
+        teacherIDFieldOfGradeAssignment.setFont(new Font("Arial", 1, 20));
+        teacherIDFieldOfGradeAssignment.setForeground(new Color(105, 105, 105));
+        teacherIDFieldOfGradeAssignment.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
+        rightSidePanel.add(teacherIDFieldOfGradeAssignment);
 
-        JTextField gradedScoreField = new JTextField();
-        gradedScoreField.setBounds(630, 268, 282, 30);
-        gradedScoreField.setFont(new Font("Arial", 1, 20));
-        gradedScoreField.setForeground(new Color(105, 105, 105));
-        rightSidePanel.add(gradedScoreField);
+        gradedScoreFieldOfGradeAssignment = new JTextField();
+        gradedScoreFieldOfGradeAssignment.setBounds(630, 268, 282, 30);
+        gradedScoreFieldOfGradeAssignment.setFont(new Font("Arial", 1, 20));
+        gradedScoreFieldOfGradeAssignment.setForeground(new Color(105, 105, 105));
+        gradedScoreFieldOfGradeAssignment.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
+        rightSidePanel.add(gradedScoreFieldOfGradeAssignment);
 
-        JTextField departmentField = new JTextField();
-        departmentField.setBounds(630, 307, 282, 30);
-        departmentField.setFont(new Font("Arial", 1, 20));
-        departmentField.setForeground(new Color(105, 105, 105));
-        rightSidePanel.add(departmentField);
+        departmentFieldOfGradeAssignment = new JTextField();
+        departmentFieldOfGradeAssignment.setBounds(630, 307, 282, 30);
+        departmentFieldOfGradeAssignment.setFont(new Font("Arial", 1, 20));
+        departmentFieldOfGradeAssignment.setForeground(new Color(105, 105, 105));
+        departmentFieldOfGradeAssignment.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
+        rightSidePanel.add(departmentFieldOfGradeAssignment);
 
-        JTextField yearsOfExperienceField = new JTextField();
-        yearsOfExperienceField.setBounds(630, 347, 282, 30);
-        yearsOfExperienceField.setFont(new Font("Arial", 1, 20));
-        yearsOfExperienceField.setForeground(new Color(105, 105, 105));
-        rightSidePanel.add(yearsOfExperienceField);
+        yearsOfExperienceFieldOfGradeAssignment = new JTextField();
+        yearsOfExperienceFieldOfGradeAssignment.setBounds(630, 347, 282, 30);
+        yearsOfExperienceFieldOfGradeAssignment.setFont(new Font("Arial", 1, 20));
+        yearsOfExperienceFieldOfGradeAssignment.setForeground(new Color(105, 105, 105));
+        yearsOfExperienceFieldOfGradeAssignment.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
+        rightSidePanel.add(yearsOfExperienceFieldOfGradeAssignment);
 
-        JButton gradeAssignmentButton = new JButton("Grade");
+        gradeAssignmentButton = new JButton("Grade");
         gradeAssignmentButton.setBounds(820, 395, 92, 30);
         gradeAssignmentButton.setFont(new Font("Arial", 1, 15));
         gradeAssignmentButton.setForeground(new Color(255,255,255));
         gradeAssignmentButton.setBackground(new Color(105, 105, 105));
         rightSidePanel.add(gradeAssignmentButton);
 
-        JButton clearButtonOfGradeAssignment = new JButton("Clear");
+        clearButtonOfGradeAssignment = new JButton("Clear");
         clearButtonOfGradeAssignment.setBounds(379, 395, 92, 30);
         clearButtonOfGradeAssignment.setFont(new Font("Arial", 1, 15));
         clearButtonOfGradeAssignment.setForeground(new Color(255,255,255));
@@ -1617,21 +1681,21 @@ public class TeacherGUI implements ActionListener{
         rightSidePanel.add(clearButtonOfGradeAssignment);
 
         // Load image from file
-        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png"); 
-        // Resize the image
+        ImageIcon icon = new ImageIcon(imagePathOfBackButton);    
         int width = 50; // Desired width of the image
         int height = 50; // Desired height of the image
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         // Create JButton with just the image
-        JButton assignmentBackButton = new JButton(scaledIcon);
-        assignmentBackButton.setBounds(378, 91, width, height);
+        gradeAssignmentBackButton = new JButton(scaledIcon);
+        gradeAssignmentBackButton.setBounds(378, 91, width, height);
         // Make the button transparent
-        assignmentBackButton.setOpaque(false);
-        assignmentBackButton.setContentAreaFilled(false);
-        assignmentBackButton.setBorderPainted(false);
-        rightSidePanel.add(assignmentBackButton);
+        gradeAssignmentBackButton.setOpaque(false);
+        gradeAssignmentBackButton.setContentAreaFilled(false);
+        gradeAssignmentBackButton.setBorderPainted(false);
+        gradeAssignmentBackButton.addActionListener(this);
+        rightSidePanel.add(gradeAssignmentBackButton);
 
         rightSidePanel.setBounds(0, 0, 1500, 832);
         rightSidePanel.setLayout(null);
@@ -1675,20 +1739,21 @@ public class TeacherGUI implements ActionListener{
         teacherID.setForeground(new Color(105, 105, 105));
         rightSidePanel.add(teacherID);
 
-        JTextField teacherIDField = new JTextField();
-        teacherIDField.setBounds(520, 228, 282, 30);
-        teacherIDField.setFont(new Font("Arial", 1, 20));
-        teacherIDField.setForeground(new Color(105, 105, 105));
-        rightSidePanel.add(teacherIDField);
+        teacherIDFieldOfDisplayGradedAssignment = new JTextField();
+        teacherIDFieldOfDisplayGradedAssignment.setBounds(520, 228, 282, 30);
+        teacherIDFieldOfDisplayGradedAssignment.setFont(new Font("Arial", 1, 20));
+        teacherIDFieldOfDisplayGradedAssignment.setForeground(new Color(105, 105, 105));
+        teacherIDFieldOfDisplayGradedAssignment.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
+        rightSidePanel.add(teacherIDFieldOfDisplayGradedAssignment);
 
-        JButton displayGradeAssignmentButton = new JButton("Display");
+        displayGradeAssignmentButton = new JButton("Display");
         displayGradeAssignmentButton.setBounds(720, 275, 92, 30);
         displayGradeAssignmentButton.setFont(new Font("Arial", 1, 15));
         displayGradeAssignmentButton.setForeground(new Color(255,255,255));
         displayGradeAssignmentButton.setBackground(new Color(105, 105, 105));
         rightSidePanel.add(displayGradeAssignmentButton);
 
-        JButton clearButtonOfDisplayGradeAssignment = new JButton("Clear");
+        clearButtonOfDisplayGradeAssignment = new JButton("Clear");
         clearButtonOfDisplayGradeAssignment.setBounds(379, 275, 92, 30);
         clearButtonOfDisplayGradeAssignment.setFont(new Font("Arial", 1, 15));
         clearButtonOfDisplayGradeAssignment.setForeground(new Color(255,255,255));
@@ -1696,21 +1761,21 @@ public class TeacherGUI implements ActionListener{
         rightSidePanel.add(clearButtonOfDisplayGradeAssignment);
 
         // Load image from file
-        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png");
-        // Resizing the image
+        ImageIcon icon = new ImageIcon(imagePathOfBackButton);     
         int width = 50; 
         int height = 50; 
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         // Create JButton with just the image
-        JButton assignmentBackButton = new JButton(scaledIcon);
-        assignmentBackButton.setBounds(378, 91, width, height);
+        displayGradedAssignmentsBackButton = new JButton(scaledIcon);
+        displayGradedAssignmentsBackButton.setBounds(378, 91, width, height);
+        displayGradedAssignmentsBackButton.addActionListener(this);
         // Make the button transparent
-        assignmentBackButton.setOpaque(false);
-        assignmentBackButton.setContentAreaFilled(false);
-        assignmentBackButton.setBorderPainted(false);
-        rightSidePanel.add(assignmentBackButton);
+        displayGradedAssignmentsBackButton.setOpaque(false);
+        displayGradedAssignmentsBackButton.setContentAreaFilled(false);
+        displayGradedAssignmentsBackButton.setBorderPainted(false);
+        rightSidePanel.add(displayGradedAssignmentsBackButton);
 
         //panel settings
         rightSidePanel.setBounds(0, 0, 1500, 832);
@@ -1742,8 +1807,6 @@ public class TeacherGUI implements ActionListener{
         centerH1.setForeground(new java.awt.Color(105, 105, 105));
         rightSidePanel.add(centerH1);
 
-       
-        
         JLabel userID = new JLabel("User ID :");
         userID.setBounds(470, 389, 70, 30);
         userID.setFont(new java.awt.Font("Arial", 1, 15));
@@ -1792,18 +1855,25 @@ public class TeacherGUI implements ActionListener{
         collegeAddress.setForeground(new java.awt.Color(105, 105, 105));
         rightSidePanel.add(collegeAddress);
 
-        //<-----------------------------------------------to be tested---------------------------------------------------------------------------------->
-        
-       
-
          // Loadong and displaying image with expection handeling by using try Catch
         try {
-            BufferedImage profileimage = ImageIO.read(new File("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\profilepic.png"));
-            ImageIcon imageIcon = new ImageIcon(profileimage);
+            BufferedImage profileImage = ImageIO.read(new File(imagePathOfProfileImage));
+        
+            // Desired width and height
+            int desiredWidth = 200; // Set your desired width
+            int desiredHeight = 200; // Set your desired height
+        
+            // Resize the image
+            Image scaledImage = profileImage.getScaledInstance(desiredWidth, desiredHeight, Image.SCALE_SMOOTH);
+        
+            // Create ImageIcon from scaled image
+            ImageIcon imageIcon = new ImageIcon(scaledImage);
             JLabel imageLabel = new JLabel(imageIcon);
+        
             // Adjust position of image label
-            imageLabel.setBounds(470, 157, imageIcon.getIconWidth(), imageIcon.getIconHeight());
+            imageLabel.setBounds(470, 157, desiredWidth, desiredHeight);
             rightSidePanel.add(imageLabel);
+        
             // Repaint the panel to reflect the changes
             rightSidePanel.repaint();
         } catch (IOException ex) {
@@ -1813,22 +1883,24 @@ public class TeacherGUI implements ActionListener{
             rightSidePanel.add(imageText);
         }
         
+        
+        
         // Load image from file
-        ImageIcon icon = new ImageIcon("C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png");
-        // Resizing the image
+        ImageIcon icon = new ImageIcon(imagePathOfBackButton);     
         int width = 50; 
         int height = 50; 
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         // Create JButton with just the image
-        JButton assignmentBackButton = new JButton(scaledIcon);
-        assignmentBackButton.setBounds(378, 91, width, height); 
+        profileGUIBackButton = new JButton(scaledIcon);
+        profileGUIBackButton.setBounds(378, 91, width, height); 
         // Make the button transparent
-        assignmentBackButton.setOpaque(false);
-        assignmentBackButton.setContentAreaFilled(false);
-        assignmentBackButton.setBorderPainted(false);
-        rightSidePanel.add(assignmentBackButton);
+        profileGUIBackButton.addActionListener(this);
+        profileGUIBackButton.setOpaque(false);
+        profileGUIBackButton.setContentAreaFilled(false);
+        profileGUIBackButton.setBorderPainted(false);
+        rightSidePanel.add(profileGUIBackButton);
 
         //panel settings
         rightSidePanel.setBounds(0, 0, 1500, 832);
@@ -1862,8 +1934,7 @@ public class TeacherGUI implements ActionListener{
             
             if ((userID == 100 && password.equals("admin1"))) {
                 // Clear text fields
-                userIDField.setText("");
-                passwordField.setText("");
+                clearInputFields();
                 // Remove the current panel and add the new panels
                 mainPanel.remove(loginPageBackground);
                 mainPanel.add(leftSideMenuPanel);
@@ -1872,12 +1943,15 @@ public class TeacherGUI implements ActionListener{
                 mainPanel.repaint();
             }else {
                 JOptionPane.showMessageDialog(null, "Invalid Username or Password");
+                // Clear text fields
+                clearInputFields();
             }
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Please enter a valid user ID (numeric value)");
+                // Clear text fields
+                clearInputFields();
             }
-        }
-        
+        }  
         if (e.getSource() == displayData) {
             // Remove the current pannel and add new panel
             mainPanel.remove(dashBoardBackground);
@@ -2149,12 +2223,110 @@ public class TeacherGUI implements ActionListener{
             mainPanel.revalidate();
             mainPanel.repaint();
         }
+       //-----------------------------------------------------------------------------------------------------------------------
+        if (e.getSource() == lecturerGUIBackButton){
+            mainPanel.remove(lecturerPanel);
+            mainPanel.add(leftSideMenuPanel);
+            mainPanel.add(dashBoardBackground);
+            mainPanel.revalidate();
+            mainPanel.repaint();
+        }
+        if (e.getSource() == displayDataBackButton){
+            // Remove the current pannel and add new panel
+            mainPanel.remove(displayDataPanel);
+            mainPanel.add(leftSideMenuPanel);
+            mainPanel.add(dashBoardBackground);
+            mainPanel.revalidate();
+            mainPanel.repaint();
+        }
+        if (e.getSource() == addLecturerBackButton){
+            mainPanel.remove(addlecturerPanel);
+            mainPanel.add(leftSideMenuPanel);
+            mainPanel.add(lecturerPanel);
+            mainPanel.revalidate();
+            mainPanel.repaint();
+        }
+        if (e.getSource() == displayLecturerDataBackButton){
+            mainPanel.remove(displayLecturerDataPanel);
+            mainPanel.add(leftSideMenuPanel);
+            mainPanel.add(lecturerPanel);
+            mainPanel.revalidate();
+            mainPanel.repaint();
+        }
+        if (e.getSource() == tutorGUIBackButton){
+            mainPanel.remove(tutorPanel);
+            mainPanel.add(leftSideMenuPanel);
+            mainPanel.add(dashBoardBackground);
+            mainPanel.revalidate();
+            mainPanel.repaint();
+        }
+        if (e.getSource() == addTutorBackButton){
+            mainPanel.remove(addTutorPanel);
+            mainPanel.add(leftSideMenuPanel);
+            mainPanel.add(tutorPanel);
+            mainPanel.revalidate();
+            mainPanel.repaint();
+        }
+        if (e.getSource() == removeTutorBackButton){
+            mainPanel.remove(removeTutorPanel);
+            mainPanel.add(leftSideMenuPanel);
+            mainPanel.add(tutorPanel);
+            mainPanel.revalidate();
+            mainPanel.repaint();
+        }
+        //------------------------------------------------------------------------------------------------------------------------------------------
+        if (e.getSource() == displayTutorSalaryBackButton){
+            mainPanel.remove(displayTutorSalaryPanel);
+            mainPanel.add(leftSideMenuPanel);
+            mainPanel.add(tutorPanel);
+            mainPanel.revalidate();
+            mainPanel.repaint();
+        }
+        if (e.getSource() == displayTutorDataBackButton){
+            mainPanel.remove(displayTutorDataPanel);
+            mainPanel.add(leftSideMenuPanel);
+            mainPanel.add(tutorPanel);
+            mainPanel.revalidate();
+            mainPanel.repaint();
+        }
+        if (e.getSource() == setSalaryBackButton){
+            mainPanel.remove(setSalaryPanel);
+            mainPanel.add(leftSideMenuPanel);
+            mainPanel.add(tutorPanel);
+            mainPanel.revalidate();
+            mainPanel.repaint();
+        }
+        if (e.getSource() == assignmentGUIBackButton){
+            mainPanel.remove(assignmentPanel);
+            mainPanel.add(leftSideMenuPanel);
+            mainPanel.add(dashBoardBackground);
+            mainPanel.revalidate();
+            mainPanel.repaint();
+        }
+        if (e.getSource() == gradeAssignmentBackButton){
+            mainPanel.remove(gradedAssignmentsPanel);
+            mainPanel.add(leftSideMenuPanel);
+            mainPanel.add(assignmentPanel);
+            mainPanel.revalidate();
+            mainPanel.repaint();
+        }
+        if (e.getSource() == displayGradedAssignmentsBackButton){
+            mainPanel.remove(displayGradedAssignmentsPanel);
+            mainPanel.add(leftSideMenuPanel);
+            mainPanel.add(assignmentPanel);
+            mainPanel.revalidate();
+            mainPanel.repaint();
+        }
+        if (e.getSource() == profileGUIBackButton){
+            mainPanel.remove(profileGUIPanel);
+            mainPanel.add(leftSideMenuPanel);
+            mainPanel.add(dashBoardBackground);
+            mainPanel.revalidate();
+            mainPanel.repaint();
+        }
         if (e.getSource() == addLecturerButton) {
             try {
-                
-                
-
-                // Retrieve input values from text fields
+                // Storing input values from text fields to the local variables
                 int teacherId = Integer.parseInt(teacherIDFieldOfAddLecturer.getText());
                 String teacherName = teacherNameFieldOfAddLecturer.getText();
                 String address = addressFieldOfAddLecturer.getText();
@@ -2163,49 +2335,236 @@ public class TeacherGUI implements ActionListener{
                 int workingHours = Integer.parseInt(workingHoursFieldOfAddLecturer.getText());
                 String department = departmentFieldOfAddLecturer.getText(); // departmentFieldOfAddLecturer Department input is missing in GUI, you may add it
                 int yearsOfExperience = Integer.parseInt(yearsOfExperienceFieldOfAddLecturer.getText());
-
+        
                 // Check if any text field is empty
-                if (teacherName.isEmpty() || address.isEmpty() || workingType.isEmpty() ||
-                    employmentStatus.isEmpty()) {
+                if (teacherName.isEmpty() || address.isEmpty() || workingType.isEmpty() || employmentStatus.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
-
+        
                 // Check if the ArrayList is empty
                 if (teachersList.isEmpty()) {
-                    //JOptionPane.showMessageDialog(null, "Teachers list is empty.", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-
-                // Check for duplicate teacher ID
-                for (Teacher teacher : teachersList) {
-                    if (teacher.getTeacherId() == teacherId) {
-                        JOptionPane.showMessageDialog(null, "Teacher ID already exists.", "Error", JOptionPane.ERROR_MESSAGE);
-                        return;
-                    }
-                }
-
-                // Check if the instance is of Lecturer class
-                if (!(new Lecturer(0, "", "", "", "", 0, "", 0) instanceof Lecturer)) {
-                    JOptionPane.showMessageDialog(null, "Invalid instance type.", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-
-                // Create a new Lecturer object
-                Lecturer newLecturer = new Lecturer(teacherId, teacherName, address, workingType, employmentStatus, workingHours, department, yearsOfExperience);
-
-                // Add the new Lecturer to the ArrayList
-                teachersList.add(newLecturer);
-
-                // Optionally, you can clear the input fields after adding the Lecturer
+                    // Create a new Lecturer object
+                    Lecturer newLecturer = new Lecturer(teacherId, teacherName, address, workingType, employmentStatus, workingHours, department, yearsOfExperience);
                 
+                    // Add the new Lecturer to the ArrayList
+                    teachersList.add(newLecturer);
+
+                     // Clear the input fields after adding the Lecturer
+                    clearInputFields();
+
+                    // Display success message
+                    JOptionPane.showMessageDialog(null, "Lecturer added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+      
+                } else {
+                    // Check for duplicate teacher ID
+                    for (Teacher teacher : teachersList) {
+                        if (teacher.getTeacherId() == teacherId) {
+                            if (teacher instanceof Lecturer) {
+                                JOptionPane.showMessageDialog(null, "Teacher ID already exists.", "Error", JOptionPane.ERROR_MESSAGE);
+                                return;
+                            }else{
+                                // Create a new Lecturer object
+                                Lecturer newLecturer = new Lecturer(teacherId, teacherName, address, workingType, employmentStatus, workingHours, department, yearsOfExperience);
+                            
+                                // Add the new Lecturer to the ArrayList
+                                teachersList.add(newLecturer);
+
+                                // Clear the input fields after adding the Lecturer
+                                clearInputFields();
+
+                                // Display success message
+                                JOptionPane.showMessageDialog(null, "Lecturer added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+                            }
+                            
+                        }
+                    }
+        
+                    // Create a new Lecturer object
+                    Lecturer newLecturer = new Lecturer(teacherId, teacherName, address, workingType, employmentStatus, workingHours, department, yearsOfExperience);
+                
+                    // Add the new Lecturer to the ArrayList
+                    teachersList.add(newLecturer);
+
+                    // Clear the input fields after adding the Lecturer
+                    clearInputFields();
+
+                    // Display success message
+                    JOptionPane.showMessageDialog(null, "Lecturer added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+   
+                
+                    // Optionally, you can clear the input fields after adding the Lecturer
+                }
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Invalid input format for numeric fields.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
-    }
-    
 
+        //Adding action to addTutor
+        if (e.getSource() == addTutorButtonOfAddTutor) {
+            try {
+                // Retrieve input values from text fields
+                int teacherId = Integer.parseInt(teacherIDFieldOfAddTutor.getText());
+                String teacherName = teacherNameFieldOfAddTutor.getText();
+                String address = addressFieldOfAddTutor.getText();
+                String workingType = workingTypeFieldOfAddTutor.getText();
+                String employmentStatus = employmentStatusFieldOfAddTutor.getText();
+                int workingHours = Integer.parseInt(workingHoursFieldOfAddTutor.getText());
+                double salary = Double.parseDouble(salaryFieldOfAddTutor.getText());
+                String specialization = specializationFieldOfAddTutor.getText();
+                String academicQualifications = academicQualificationsFieldOfAddTutor.getText();
+                int performanceIndex = Integer.parseInt(performanceIndexFieldOfAddTutor.getText());
+        
+                // Check if any text field is empty
+                if (teacherName.isEmpty() || address.isEmpty() || workingType.isEmpty() || employmentStatus.isEmpty()
+                        || specialization.isEmpty() || academicQualifications.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+        
+                // Check if the ArrayList is empty
+                if (teachersList.isEmpty()) {
+                    // Create a new Tutor object
+                    Tutor newTutor = new Tutor(teacherId, teacherName, address, workingType, employmentStatus, workingHours,
+                            salary, specialization, academicQualifications, performanceIndex);
+        
+                    // Add the new Tutor to the ArrayList
+                    teachersList.add(newTutor);
+        
+                    // Clear the input fields after adding the Tutor
+                    clearInputFields();
+        
+                    // Display success message
+                    JOptionPane.showMessageDialog(null, "Tutor added successfully.", "Success",
+                            JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    // Check for duplicate teacher ID
+                    for (Teacher teacher : teachersList) {
+                        if (teacher.getTeacherId() == teacherId) {
+                            if (teacher instanceof Tutor) {
+                                JOptionPane.showMessageDialog(null, "Teacher ID already exists.", "Error",
+                                        JOptionPane.ERROR_MESSAGE);
+                                return;
+                            } else {
+                                // Create a new Tutor object
+                                Tutor newTutor = new Tutor(teacherId, teacherName, address, workingType, employmentStatus,
+                                        workingHours, salary, specialization, academicQualifications, performanceIndex);
+        
+                                // Add the new Tutor to the ArrayList
+                                teachersList.add(newTutor);
+        
+                                // Clear the input fields after adding the Tutor
+                                clearInputFields();
+        
+                                // Display success message
+                                JOptionPane.showMessageDialog(null, "Tutor added successfully.", "Success",
+                                JOptionPane.INFORMATION_MESSAGE);
+                                return;
+                            }
+        
+                        }
+                    }
+        
+                    // Create a new Tutor object
+                    Tutor newTutor = new Tutor(teacherId, teacherName, address, workingType, employmentStatus, workingHours,
+                            salary, specialization, academicQualifications, performanceIndex);
+        
+                    // Add the new Tutor to the ArrayList
+                    teachersList.add(newTutor);
+        
+                    // Clear the input fields after adding the Tutor
+                    clearInputFields();
+        
+                    // Display success message
+                    JOptionPane.showMessageDialog(null, "Tutor added successfully.", "Success",
+                            JOptionPane.INFORMATION_MESSAGE);
+                }
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Invalid input format for numeric fields.", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        if (e.getSource() == removeTutorButtonOfRemoveTutor) {
+            try {
+                int teacherId = Integer.parseInt(teacherIDFieldOfRemoveTutor.getText());
+        
+                // Check if the ArrayList is empty
+                if (teachersList.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "No tutors available to remove.", "Error",
+                            JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+        
+                // Check if the teacher ID exists
+                boolean teacherFound = false;
+                for (Teacher teacher : teachersList) {
+                    if (teacher.getTeacherId() == teacherId) {
+                        if (teacher instanceof Tutor) {
+                            teacherFound = true;
+                            teachersList.remove(teacher);
+                            JOptionPane.showMessageDialog(null, "Tutor removed successfully.", "Success",
+                            JOptionPane.INFORMATION_MESSAGE);
+                            break;
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Teacher ID does not belong to a Tutor.", "Error",
+                            JOptionPane.ERROR_MESSAGE);
+                            break;
+                        }
+                        
+                    }
+                }
+        
+                if (!teacherFound) {
+                    JOptionPane.showMessageDialog(null, "Teacher ID not found.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+        
+                // Clear the input field after removing the Tutor
+                clearInputFields();
+
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Invalid input format for teacher ID.", "Error",
+                JOptionPane.ERROR_MESSAGE);
+            }
+        }  
+          
+    }
+        
+    // Method to clear input fields
+private void clearInputFields() {
+    userIDField.setText("");
+    passwordField.setText("");
+    teacherIDFieldOfAddLecturer.setText("");
+    teacherNameFieldOfAddLecturer.setText("");
+    addressFieldOfAddLecturer.setText("");
+    workingTypeFieldOfAddLecturer.setText("");
+    employmentStatusFieldOfAddLecturer.setText("");
+    workingHoursFieldOfAddLecturer.setText("");
+    departmentFieldOfAddLecturer.setText("");
+    yearsOfExperienceFieldOfAddLecturer.setText("");
+    teacherIDFieldDisplayLecturerData.setText("");
+    addressFieldOfAddTutor.setText("");
+    teacherNameFieldOfAddTutor.setText("");
+    teacherIDFieldOfAddTutor.setText("");
+    workingTypeFieldOfAddTutor.setText("");
+    employmentStatusFieldOfAddTutor.setText("");
+    workingHoursFieldOfAddTutor.setText("");
+    salaryFieldOfAddTutor.setText("");
+    specializationFieldOfAddTutor.setText("");
+    performanceIndexFieldOfAddTutor.setText("");
+    academicQualificationsFieldOfAddTutor.setText("");
+    teacherIDFieldOfRemoveTutor.setText("");
+    teacherIDFieldOfDisplayTutorSalary.setText("");
+    teacherIDFieldDisplayTutorData.setText("");
+    teacherIDFieldOfSetSalary.setText("");
+    newSalaryFieldOfSetSalary.setText("");
+    newPerformanceIndexFieldOfSetSalary.setText("");
+    teacherIDFieldOfGradeAssignment.setText("");
+    gradedScoreFieldOfGradeAssignment.setText("");
+    departmentFieldOfGradeAssignment.setText("");
+    yearsOfExperienceFieldOfGradeAssignment.setText("");
+    teacherIDFieldOfDisplayGradedAssignment.setText("");
+   
+}
     // Main Method
     public static void main(String[] args) {
         new TeacherGUI();
