@@ -25,23 +25,24 @@ public class TeacherGUI implements ActionListener{
     private JFrame frame;
     private JTextField userIDField, passwordField;
 
-    private JButton startLoginButton, mainLoginButton, displayData, lecturer, addLecturer, tutor, addTutor, profile,gradeAssignmentOfAssignmentGUI,
-    menuHome, menuLecturer, menuTutor, menuAssignments, menuProfile, menuLogOut, assignment, setSalaryOfTutor, removeTutor, displayTutorDataOfTutorGUI, displayTutorSalaryOfDisplayGUI, displayTutorSalaryOfTutorGUI,
-    displayGradedAssignmentsOfDisplayGUI,displayTutorDataOfDisplayGUI , displayLecturerDataOfLecturerGUI, displayLecturerDataOfDisplayGUI,displayGradedScoreOfAssignmentGUI,
-    addLecturerButton,displayLecturerButton,clearButtonOfAddTutorOfAddTutor, addTutorButtonOfAddTutor,removeTutorButtonOfRemoveTutor,clearButtonOfRemoveTutor,
-    displayTutorSalaryButton,clearButtonOfDisplayTutorSalary,displayTutorDataButton,clearButtonOfDisplayTutorData,setTutorSalaryButtonOfSetSalary,clearButtonOfSetTutorSalaryOfSetSalary,
-    displayGradeAssignmentButton,gradeAssignmentButton,clearButtonOfGradeAssignment,clearButtonOfDisplayGradeAssignment,clearButtonOfDisplayLecturer,
-    displayDataBackButton,lecturerGUIBackButton,addLecturerBackButton,displayLecturerDataBackButton,tutorGUIBackButton,addTutorBackButton,removeTutorBackButton,displayTutorSalaryBackButton,displayTutorDataBackButton,
-    setSalaryBackButton,assignmentGUIBackButton,gradeAssignmentBackButton,displayGradedAssignmentsBackButton,profileGUIBackButton;
+    private JButton startLoginButton,mainLoginButton,displayData,lecturer,addLecturer,tutor,addTutor,profile,gradeAssignmentOfAssignmentGUI,
+    menuHome,menuLecturer,menuTutor,menuAssignments,menuProfile,menuLogOut,assignment,setSalaryOfTutor,removeTutor,displayTutorDataOfTutorGUI,
+    displayTutorSalaryOfDisplayGUI,displayTutorSalaryOfTutorGUI,displayGradedAssignmentsOfDisplayGUI,displayTutorDataOfDisplayGUI,displayLecturerDataOfLecturerGUI,
+    displayLecturerDataOfDisplayGUI,displayGradedScoreOfAssignmentGUI,addLecturerButton,displayLecturerButton,clearButtonOfAddTutorOfAddTutor,addTutorButtonOfAddTutor,
+    removeTutorButtonOfRemoveTutor,clearButtonOfRemoveTutor,displayTutorSalaryButton,clearButtonOfDisplayTutorSalary,displayTutorDataButton,clearButtonOfDisplayTutorData,
+    setTutorSalaryButtonOfSetSalary,clearButtonOfSetTutorSalaryOfSetSalary,displayGradeAssignmentButton,gradeAssignmentButton,clearButtonOfGradeAssignment,
+    clearButtonOfDisplayGradeAssignment,clearButtonOfDisplayLecturer,displayDataBackButton,lecturerGUIBackButton,addLecturerBackButton,displayLecturerDataBackButton,
+    tutorGUIBackButton,addTutorBackButton,removeTutorBackButton,displayTutorSalaryBackButton,displayTutorDataBackButton,setSalaryBackButton,assignmentGUIBackButton,
+    gradeAssignmentBackButton,displayGradedAssignmentsBackButton,profileGUIBackButton,clearButtonOfAddLecturer;
     
-    private JPanel mainPanel, startBackground, loginPageBackground, dashBoardBackground, displayDataPanel, addlecturerPanel, lecturerPanel, leftSideMenuPanel, tutorPanel
-    ,addTutorPanel, removeTutorPanel, displayTutorSalaryPanel, setSalaryPanel, assignmentPanel, displayGradedAssignmentsPanel, profileGUIPanel,
-    displayTutorDataPanel, displayLecturerDataPanel,gradedAssignmentsPanel;
+    private JPanel mainPanel,startBackground,loginPageBackground,dashBoardBackground,displayDataPanel,addlecturerPanel,lecturerPanel,leftSideMenuPanel,tutorPanel
+    ,addTutorPanel,removeTutorPanel,displayTutorSalaryPanel,setSalaryPanel,assignmentPanel,displayGradedAssignmentsPanel,profileGUIPanel,displayTutorDataPanel,
+    displayLecturerDataPanel,gradedAssignmentsPanel;
     
     private JTextField teacherIDFieldOfAddLecturer,teacherNameFieldOfAddLecturer,addressFieldOfAddLecturer,workingTypeFieldOfAddLecturer,employmentStatusFieldOfAddLecturer,workingHoursFieldOfAddLecturer,
-    yearsOfExperienceFieldOfAddLecturer,departmentFieldOfAddLecturer,teacherIDFieldDisplayLecturerData,addressFieldOfAddTutor,teacherNameFieldOfAddTutor ,teacherIDFieldOfAddTutor, workingTypeFieldOfAddTutor
-    ,employmentStatusFieldOfAddTutor,workingHoursFieldOfAddTutor, salaryFieldOfAddTutor, specializationFieldOfAddTutor, performanceIndexFieldOfAddTutor, academicQualificationsFieldOfAddTutor
-    ,teacherIDFieldOfRemoveTutor,teacherIDFieldOfDisplayTutorSalary,teacherIDFieldDisplayTutorData,teacherIDFieldOfSetSalary,newSalaryFieldOfSetSalary, newPerformanceIndexFieldOfSetSalary,
+    yearsOfExperienceFieldOfAddLecturer,departmentFieldOfAddLecturer,teacherIDFieldDisplayLecturerData,addressFieldOfAddTutor,teacherNameFieldOfAddTutor,teacherIDFieldOfAddTutor,workingTypeFieldOfAddTutor
+    ,employmentStatusFieldOfAddTutor,workingHoursFieldOfAddTutor,salaryFieldOfAddTutor,specializationFieldOfAddTutor,performanceIndexFieldOfAddTutor,academicQualificationsFieldOfAddTutor
+    ,teacherIDFieldOfRemoveTutor,teacherIDFieldOfDisplayTutorSalary,teacherIDFieldDisplayTutorData,teacherIDFieldOfSetSalary,newSalaryFieldOfSetSalary,newPerformanceIndexFieldOfSetSalary,
     teacherIDFieldOfDisplayGradedAssignment,teacherIDFieldOfGradeAssignment,gradedScoreFieldOfGradeAssignment,departmentFieldOfGradeAssignment,yearsOfExperienceFieldOfGradeAssignment;
     
     private ArrayList<Teacher> teachersList;
@@ -50,6 +51,7 @@ public class TeacherGUI implements ActionListener{
     private String imagePathOfProfileImage = "C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\newprofile.png";
     private String imagePathOfBackButton = "C:\\Users\\offic\\OneDrive\\Documents\\GitHub\\Programming-Course-Work-sem2\\images\\backicon.png";
     private int thickness = 2;
+
     //Constructor
     public TeacherGUI() {
 
@@ -759,12 +761,13 @@ public class TeacherGUI implements ActionListener{
         addLecturerButton.addActionListener(this);
         rightSidePanel.add(addLecturerButton);
 
-        JButton clearButton = new JButton("Clear");
-        clearButton.setBounds(378, 545, 92, 30);
-        clearButton.setFont(new Font("Arial", 1, 15));
-        clearButton.setForeground(new Color(255,255,255));
-        clearButton.setBackground(new Color(105, 105, 105));
-        rightSidePanel.add(clearButton);
+        clearButtonOfAddLecturer = new JButton("Clear");
+        clearButtonOfAddLecturer.setBounds(378, 545, 92, 30);
+        clearButtonOfAddLecturer.setFont(new Font("Arial", 1, 15));
+        clearButtonOfAddLecturer.setForeground(new Color(255,255,255));
+        clearButtonOfAddLecturer.setBackground(new Color(105, 105, 105));
+        clearButtonOfAddLecturer.addActionListener(this);
+        rightSidePanel.add(clearButtonOfAddLecturer);
 
         // Load image from file
         ImageIcon icon = new ImageIcon(imagePathOfBackButton);
@@ -1037,7 +1040,7 @@ public class TeacherGUI implements ActionListener{
         salary.setForeground(new Color(105, 105, 105));
         rightSidePanel.add(salary);
 
-        JLabel specialization = new JLabel("Employment Status :");
+        JLabel specialization = new JLabel("specialization :");
         specialization.setBounds(379, 503, 282, 30);
         specialization.setFont(new Font("Arial", 1, 20));
         specialization.setForeground(new Color(105, 105, 105));
@@ -1925,8 +1928,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.revalidate();
             mainPanel.repaint();
         }
-
-        // for LOGIN Page 
         if (e.getSource() == mainLoginButton) {
             try {
             int userID = Integer.parseInt(userIDField.getText());
@@ -2326,38 +2327,52 @@ public class TeacherGUI implements ActionListener{
         if (e.getSource() == addLecturerButton) {
             try {
                 // Storing input values from text fields to the local variables
-                String teacherIdSring = teacherIDFieldOfAddLecturer.getText();
-                int teacherId = Integer.parseInt(teacherIDFieldOfAddLecturer.getText());
+                String teacherIdString = teacherIDFieldOfAddLecturer.getText();
+                int teacherId;
+                if (teacherIdString.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Please fill in the Teacher ID field.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } else {
+                    teacherId = Integer.parseInt(teacherIdString);
+                }
                 String teacherName = teacherNameFieldOfAddLecturer.getText();
                 String address = addressFieldOfAddLecturer.getText();
                 String workingType = workingTypeFieldOfAddLecturer.getText();
                 String employmentStatus = employmentStatusFieldOfAddLecturer.getText();
                 String workingHoursString = workingHoursFieldOfAddLecturer.getText();
-                int workingHours = Integer.parseInt(workingHoursFieldOfAddLecturer.getText());
+                int workingHours;
+                if (workingHoursString.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Please fill in the Working Hours field.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } else {
+                    workingHours = Integer.parseInt(workingHoursString);
+                }
                 String department = departmentFieldOfAddLecturer.getText();
-                int yearsOfExperience = Integer.parseInt(yearsOfExperienceFieldOfAddLecturer.getText());
                 String yearsOfExperienceString = yearsOfExperienceFieldOfAddLecturer.getText();
-        
+                int yearsOfExperience;
+                if (yearsOfExperienceString.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Please fill in the Years of Experience field.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } else {
+                    yearsOfExperience = Integer.parseInt(yearsOfExperienceString);
+                }
                 // Check if any text field is empty
-                if (teacherIdSring.isEmpty() || teacherName.isEmpty() || address.isEmpty() || workingType.isEmpty() || employmentStatus.isEmpty() || workingHoursString.isEmpty() || department.isEmpty() ||  yearsOfExperienceString.isEmpty()) {
+                if (teacherName.isEmpty() || address.isEmpty() || workingType.isEmpty() || employmentStatus.isEmpty() ||
+                        department.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
-        
                 // Check if the ArrayList is empty
                 if (teachersList.isEmpty()) {
                     // Create a new Lecturer object
-                    Lecturer newLecturer = new Lecturer(teacherId, teacherName, address, workingType, employmentStatus, workingHours, department, yearsOfExperience);
-                
+                    Lecturer newLecturer = new Lecturer(teacherId, teacherName, address, workingType, employmentStatus,
+                                                        workingHours, department, yearsOfExperience);
                     // Add the new Lecturer to the ArrayList
                     teachersList.add(newLecturer);
-
-                     // Clear the input fields after adding the Lecturer
+                    // Clear the input fields after adding the Lecturer
                     clearInputFields();
-
                     // Display success message
                     JOptionPane.showMessageDialog(null, "Lecturer added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
-      
                 } else {
                     // Check for duplicate teacher ID
                     for (Teacher teacher : teachersList) {
@@ -2365,208 +2380,155 @@ public class TeacherGUI implements ActionListener{
                             if (teacher instanceof Lecturer) {
                                 JOptionPane.showMessageDialog(null, "Teacher ID already exists.", "Error", JOptionPane.ERROR_MESSAGE);
                                 return;
-                            }else{
-                                // Create a new Lecturer object
-                                Lecturer newLecturer = new Lecturer(teacherId, teacherName, address, workingType, employmentStatus, workingHours, department, yearsOfExperience);
-                            
-                                // Add the new Lecturer to the ArrayList
-                                teachersList.add(newLecturer);
-
-                                // Clear the input fields after adding the Lecturer
-                                clearInputFields();
-
-                                // Display success message
-                                JOptionPane.showMessageDialog(null, "Lecturer added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
                             }
-                            
                         }
                     }
-        
                     // Create a new Lecturer object
-                    Lecturer newLecturer = new Lecturer(teacherId, teacherName, address, workingType, employmentStatus, workingHours, department, yearsOfExperience);
-                
+                    Lecturer newLecturer = new Lecturer(teacherId, teacherName, address, workingType, employmentStatus,
+                                                        workingHours, department, yearsOfExperience);
                     // Add the new Lecturer to the ArrayList
                     teachersList.add(newLecturer);
-
                     // Clear the input fields after adding the Lecturer
                     clearInputFields();
-
                     // Display success message
                     JOptionPane.showMessageDialog(null, "Lecturer added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
-   
-                
-                    // Optionally, you can clear the input fields after adding the Lecturer
                 }
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Invalid input format for numeric fields.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
-
-        //Adding action to addTutor
+        if(e.getSource() == clearButtonOfAddLecturer){
+            clearInputFields();
+        }
         if (e.getSource() == addTutorButtonOfAddTutor) {
             try {
                 // Retrieve input values from text fields
-                int teacherId = Integer.parseInt(teacherIDFieldOfAddTutor.getText());
-                String teacherName = teacherNameFieldOfAddTutor.getText();
-                String address = addressFieldOfAddTutor.getText();
-                String workingType = workingTypeFieldOfAddTutor.getText();
-                String employmentStatus = employmentStatusFieldOfAddTutor.getText();
-                int workingHours = Integer.parseInt(workingHoursFieldOfAddTutor.getText());
-                double salary = Double.parseDouble(salaryFieldOfAddTutor.getText());
-                String specialization = specializationFieldOfAddTutor.getText();
-                String academicQualifications = academicQualificationsFieldOfAddTutor.getText();
-                int performanceIndex = Integer.parseInt(performanceIndexFieldOfAddTutor.getText());
-        
-                // Check if any text field is empty
-                if (teacherName.isEmpty() || address.isEmpty() || workingType.isEmpty() || employmentStatus.isEmpty()
-                        || specialization.isEmpty() || academicQualifications.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-        
-                // Check if the ArrayList is empty
-                if (teachersList.isEmpty()) {
-                    // Create a new Tutor object
-                    Tutor newTutor = new Tutor(teacherId, teacherName, address, workingType, employmentStatus, workingHours,
-                            salary, specialization, academicQualifications, performanceIndex);
-        
-                    // Add the new Tutor to the ArrayList
-                    teachersList.add(newTutor);
-        
-                    // Clear the input fields after adding the Tutor
-                    clearInputFields();
-        
-                    // Display success message
-                    JOptionPane.showMessageDialog(null, "Tutor added successfully.", "Success",
-                            JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    // Check for duplicate teacher ID
-                    for (Teacher teacher : teachersList) {
-                        if (teacher.getTeacherId() == teacherId) {
-                            if (teacher instanceof Tutor) {
-                                JOptionPane.showMessageDialog(null, "Teacher ID already exists.", "Error",
-                                        JOptionPane.ERROR_MESSAGE);
-                                return;
-                            } else {
-                                // Create a new Tutor object
-                                Tutor newTutor = new Tutor(teacherId, teacherName, address, workingType, employmentStatus,
-                                        workingHours, salary, specialization, academicQualifications, performanceIndex);
-        
-                                // Add the new Tutor to the ArrayList
-                                teachersList.add(newTutor);
-        
-                                // Clear the input fields after adding the Tutor
-                                clearInputFields();
-        
-                                // Display success message
-                                JOptionPane.showMessageDialog(null, "Tutor added successfully.", "Success",
-                                JOptionPane.INFORMATION_MESSAGE);
-                                return;
-                            }
-        
-                        }
-                    }
-        
-                    // Create a new Tutor object
-                    Tutor newTutor = new Tutor(teacherId, teacherName, address, workingType, employmentStatus, workingHours,
-                            salary, specialization, academicQualifications, performanceIndex);
-        
-                    // Add the new Tutor to the ArrayList
-                    teachersList.add(newTutor);
-        
-                    // Clear the input fields after adding the Tutor
-                    clearInputFields();
-        
-                    // Display success message
-                    JOptionPane.showMessageDialog(null, "Tutor added successfully.", "Success",
-                            JOptionPane.INFORMATION_MESSAGE);
-                }
-            } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "Invalid input format for numeric fields.", "Error",
-                        JOptionPane.ERROR_MESSAGE);
+            String teacherIdString = teacherIDFieldOfAddTutor.getText();
+            int teacherId;
+            if (teacherIdString.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please fill in the Teacher ID field.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            } else {
+                teacherId = Integer.parseInt(teacherIdString);
             }
-        }
-        if (e.getSource() == removeTutorButtonOfRemoveTutor) {
-            try {
-                int teacherId = Integer.parseInt(teacherIDFieldOfRemoveTutor.getText());
-        
+
+            String teacherName = teacherNameFieldOfAddTutor.getText();
+            String address = addressFieldOfAddTutor.getText();
+            String workingType = workingTypeFieldOfAddTutor.getText();
+            String employmentStatus = employmentStatusFieldOfAddTutor.getText();
+
+            String workingHoursString = workingHoursFieldOfAddTutor.getText();
+            int workingHours;
+            if (workingHoursString.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please fill in the Working Hours field.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            } else {
+                workingHours = Integer.parseInt(workingHoursString);
+            }
+
+            String salaryString = salaryFieldOfAddTutor.getText();
+            double salary;
+            if (salaryString.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please fill in the Salary field.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            } else {
+                salary = Double.parseDouble(salaryString);
+            }
+
+            String specialization = specializationFieldOfAddTutor.getText();
+            String academicQualifications = academicQualificationsFieldOfAddTutor.getText();
+
+            String performanceIndexString = performanceIndexFieldOfAddTutor.getText();
+            int performanceIndex;
+            if (performanceIndexString.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please fill in the Performance Index field.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            } else {
+                performanceIndex = Integer.parseInt(performanceIndexString);
+            }
+
+            // Check if any text field is empty
+            if (teacherName.isEmpty() || address.isEmpty() || workingType.isEmpty() || employmentStatus.isEmpty() ||
+                    specialization.isEmpty() || academicQualifications.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
                 // Check if the ArrayList is empty
                 if (teachersList.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "No tutors available to remove.", "Error",
-                            JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-        
-                // Check if the teacher ID exists
-                boolean teacherFound = false;
+                // Create a new Tutor object
+                    Tutor newTutor = new Tutor(teacherId, teacherName, address, workingType, employmentStatus, workingHours,
+                                                salary, specialization, academicQualifications, performanceIndex);
+                // Add the new Tutor to the ArrayList
+                teachersList.add(newTutor);
+                // Clear the input fields after adding the Tutor
+                clearInputFields();
+                // Display success message
+                JOptionPane.showMessageDialog(null, "Tutor added successfully.", "Success",JOptionPane.INFORMATION_MESSAGE);
+            } 
+            else {
+                // Check for duplicate teacher ID
                 for (Teacher teacher : teachersList) {
                     if (teacher.getTeacherId() == teacherId) {
                         if (teacher instanceof Tutor) {
-                            teacherFound = true;
-                            teachersList.remove(teacher);
-                            JOptionPane.showMessageDialog(null, "Tutor removed successfully.", "Success",
-                            JOptionPane.INFORMATION_MESSAGE);
-                            break;
-                        }else{
-                            JOptionPane.showMessageDialog(null, "Teacher ID does not belong to a Tutor.", "Error",
-                            JOptionPane.ERROR_MESSAGE);
-                            break;
+                            JOptionPane.showMessageDialog(null, "Teacher ID already exists.", "Error",JOptionPane.ERROR_MESSAGE);
+                            return;
                         }
-                        
                     }
                 }
-        
-                if (!teacherFound) {
-                    JOptionPane.showMessageDialog(null, "Teacher ID not found.", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-        
-                // Clear the input field after removing the Tutor
+                // Create a new Tutor object
+                Tutor newTutor = new Tutor(teacherId, teacherName, address, workingType, employmentStatus, workingHours,
+                                            salary, specialization, academicQualifications, performanceIndex);
+                // Add the new Tutor to the ArrayList
+                teachersList.add(newTutor);
+                // Clear the input fields after adding the Tutor
                 clearInputFields();
-
-            } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "Invalid input format for teacher ID.", "Error",
-                JOptionPane.ERROR_MESSAGE);
+                // Display success message
+                JOptionPane.showMessageDialog(null, "Tutor added successfully.", "Success",JOptionPane.INFORMATION_MESSAGE);
             }
-        }  
-          
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Invalid input format for numeric fields.", "Error",JOptionPane.ERROR_MESSAGE);
+            }
+        }       
+        if(e.getSource() == clearButtonOfAddTutorOfAddTutor){
+            clearInputFields();
+        }   
     }
         
     // Method to clear input fields
-private void clearInputFields() {
-    userIDField.setText("");
-    passwordField.setText("");
-    teacherIDFieldOfAddLecturer.setText("");
-    teacherNameFieldOfAddLecturer.setText("");
-    addressFieldOfAddLecturer.setText("");
-    workingTypeFieldOfAddLecturer.setText("");
-    employmentStatusFieldOfAddLecturer.setText("");
-    workingHoursFieldOfAddLecturer.setText("");
-    departmentFieldOfAddLecturer.setText("");
-    yearsOfExperienceFieldOfAddLecturer.setText("");
-    teacherIDFieldDisplayLecturerData.setText("");
-    addressFieldOfAddTutor.setText("");
-    teacherNameFieldOfAddTutor.setText("");
-    teacherIDFieldOfAddTutor.setText("");
-    workingTypeFieldOfAddTutor.setText("");
-    employmentStatusFieldOfAddTutor.setText("");
-    workingHoursFieldOfAddTutor.setText("");
-    salaryFieldOfAddTutor.setText("");
-    specializationFieldOfAddTutor.setText("");
-    performanceIndexFieldOfAddTutor.setText("");
-    academicQualificationsFieldOfAddTutor.setText("");
-    teacherIDFieldOfRemoveTutor.setText("");
-    teacherIDFieldOfDisplayTutorSalary.setText("");
-    teacherIDFieldDisplayTutorData.setText("");
-    teacherIDFieldOfSetSalary.setText("");
-    newSalaryFieldOfSetSalary.setText("");
-    newPerformanceIndexFieldOfSetSalary.setText("");
-    teacherIDFieldOfGradeAssignment.setText("");
-    gradedScoreFieldOfGradeAssignment.setText("");
-    departmentFieldOfGradeAssignment.setText("");
-    yearsOfExperienceFieldOfGradeAssignment.setText("");
-    teacherIDFieldOfDisplayGradedAssignment.setText("");
-   
-}
+    private void clearInputFields() {
+        userIDField.setText("");
+        passwordField.setText("");
+        teacherIDFieldOfAddLecturer.setText("");
+        teacherNameFieldOfAddLecturer.setText("");
+        addressFieldOfAddLecturer.setText("");
+        workingTypeFieldOfAddLecturer.setText("");
+        employmentStatusFieldOfAddLecturer.setText("");
+        workingHoursFieldOfAddLecturer.setText("");
+        departmentFieldOfAddLecturer.setText("");
+        yearsOfExperienceFieldOfAddLecturer.setText("");
+        teacherIDFieldDisplayLecturerData.setText("");
+        addressFieldOfAddTutor.setText("");
+        teacherNameFieldOfAddTutor.setText("");
+        teacherIDFieldOfAddTutor.setText("");
+        workingTypeFieldOfAddTutor.setText("");
+        employmentStatusFieldOfAddTutor.setText("");
+        workingHoursFieldOfAddTutor.setText("");
+        salaryFieldOfAddTutor.setText("");
+        specializationFieldOfAddTutor.setText("");
+        performanceIndexFieldOfAddTutor.setText("");
+        academicQualificationsFieldOfAddTutor.setText("");
+        teacherIDFieldOfRemoveTutor.setText("");
+        teacherIDFieldOfDisplayTutorSalary.setText("");
+        teacherIDFieldDisplayTutorData.setText("");
+        teacherIDFieldOfSetSalary.setText("");
+        newSalaryFieldOfSetSalary.setText("");
+        newPerformanceIndexFieldOfSetSalary.setText("");
+        teacherIDFieldOfGradeAssignment.setText("");
+        gradedScoreFieldOfGradeAssignment.setText("");
+        departmentFieldOfGradeAssignment.setText("");
+        yearsOfExperienceFieldOfGradeAssignment.setText("");
+        teacherIDFieldOfDisplayGradedAssignment.setText("");
+    }
     // Main Method
     public static void main(String[] args) {
         new TeacherGUI();
