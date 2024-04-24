@@ -183,7 +183,7 @@ public class TeacherGUI implements ActionListener{
     }
 
     //Login page GUI in user-defined Method
-    public void showLoginPage(){
+    private void showLoginPage(){
         
         //BackgroundPannel for Login page
         loginPageBackground = new JPanel();
@@ -259,7 +259,7 @@ public class TeacherGUI implements ActionListener{
     }
 
     //Side Menu GUI User-defined Method 
-    public void sideMenu(){
+    private void sideMenu(){
 
         leftSideMenuPanel = new JPanel();
 
@@ -397,7 +397,7 @@ public class TeacherGUI implements ActionListener{
     }
     
     //Dashoard GUI User-defined Method 
-    public void showDashBoard(){
+    private void showDashBoard(){
         //backgroundpanel for DashBoard
         dashBoardBackground = new JPanel();
 
@@ -470,7 +470,7 @@ public class TeacherGUI implements ActionListener{
     }
 
     //DisplayData GUI User-defined Method 
-    public void displayData(){
+    private void displayData(){
 
         //backgroundpanel for DIsplayDataPanel
         displayDataPanel = new JPanel();
@@ -556,7 +556,7 @@ public class TeacherGUI implements ActionListener{
 
     }
 
-    public void LecturerGUI(){
+    private void LecturerGUI(){
 
         //backgroundpanel for DIsplayDataPanel
         lecturerPanel = new JPanel();
@@ -622,7 +622,7 @@ public class TeacherGUI implements ActionListener{
 
     }
 
-    public void AddLecturer(){
+    private void AddLecturer(){
 
         //backgroundpanel for DIsplayDataPanel
         addlecturerPanel = new JPanel();
@@ -798,7 +798,7 @@ public class TeacherGUI implements ActionListener{
         addlecturerPanel.setBackground(new java.awt.Color(255, 255, 255));
     }
 
-    public void DisplayLecturerData(){
+    private void DisplayLecturerData(){
 
         //backgroundpanel for DIsplayDataPanel
         displayLecturerDataPanel = new JPanel();
@@ -842,6 +842,7 @@ public class TeacherGUI implements ActionListener{
         displayLecturerButton.setFont(new Font("Arial", 1, 15));
         displayLecturerButton.setForeground(new Color(255,255,255));
         displayLecturerButton.setBackground(new Color(105, 105, 105));
+        displayLecturerButton.addActionListener(this);
         rightSidePanel.add(displayLecturerButton);
 
         clearButtonOfDisplayLecturer = new JButton("Clear");
@@ -849,6 +850,7 @@ public class TeacherGUI implements ActionListener{
         clearButtonOfDisplayLecturer.setFont(new Font("Arial", 1, 15));
         clearButtonOfDisplayLecturer.setForeground(new Color(255,255,255));
         clearButtonOfDisplayLecturer.setBackground(new Color(105, 105, 105));
+        clearButtonOfDisplayLecturer.addActionListener(this);
         rightSidePanel.add(clearButtonOfDisplayLecturer);
 
         // Load image from file
@@ -879,7 +881,7 @@ public class TeacherGUI implements ActionListener{
         displayLecturerDataPanel.setBackground(new java.awt.Color(255, 255, 255));
     }
 
-    public void TutorGUI(){
+    private void TutorGUI(){
 
         //backgroundpanel for DIsplayDataPanel
         tutorPanel = new JPanel();
@@ -972,7 +974,7 @@ public class TeacherGUI implements ActionListener{
 
     }
 
-    public void AddTutorGUI(){
+    private void AddTutorGUI(){
 
         //backgroundpanel for DIsplayDataPanel
         addTutorPanel = new JPanel();
@@ -1172,7 +1174,7 @@ public class TeacherGUI implements ActionListener{
         addTutorPanel.setBackground(new java.awt.Color(255, 255, 255));
     }
 
-    public void RemoveTutorGUI(){
+    private void RemoveTutorGUI(){
 
         //backgroundpanel for DIsplayDataPanel
         removeTutorPanel = new JPanel();
@@ -1224,6 +1226,7 @@ public class TeacherGUI implements ActionListener{
         clearButtonOfRemoveTutor.setFont(new Font("Arial", 1, 15));
         clearButtonOfRemoveTutor.setForeground(new Color(255,255,255));
         clearButtonOfRemoveTutor.setBackground(new Color(105, 105, 105));
+        clearButtonOfRemoveTutor.addActionListener(this);
         rightSidePanel.add(clearButtonOfRemoveTutor);
 
         // Load image from file
@@ -1254,7 +1257,7 @@ public class TeacherGUI implements ActionListener{
         removeTutorPanel.setBackground(new java.awt.Color(255, 255, 255));
     }
 
-    public void DisplayTutorSalaryGUI(){
+    private void DisplayTutorSalaryGUI(){
 
         //backgroundpanel for DIsplayDataPanel
         displayTutorSalaryPanel = new JPanel();
@@ -1337,7 +1340,7 @@ public class TeacherGUI implements ActionListener{
         displayTutorSalaryPanel.setBackground(new java.awt.Color(255, 255, 255));
     }
 
-    public void DisplayTutorDataGUI(){
+    private void DisplayTutorDataGUI(){
 
         //backgroundpanel for DIsplayDataPanel
         displayTutorDataPanel = new JPanel();
@@ -1420,7 +1423,7 @@ public class TeacherGUI implements ActionListener{
         displayTutorDataPanel.setBackground(new java.awt.Color(255, 255, 255));
     }
 
-    public void SetSalaryGUI(){
+    private void SetSalaryGUI(){
 
         //backgroundpanel for DIsplayDataPanel
         setSalaryPanel = new JPanel();
@@ -1490,6 +1493,7 @@ public class TeacherGUI implements ActionListener{
         setTutorSalaryButtonOfSetSalary.setFont(new Font("Arial", 1, 15));
         setTutorSalaryButtonOfSetSalary.setForeground(new Color(255,255,255));
         setTutorSalaryButtonOfSetSalary.setBackground(new Color(105, 105, 105));
+        setTutorSalaryButtonOfSetSalary.addActionListener(this);
         rightSidePanel.add(setTutorSalaryButtonOfSetSalary);
 
         clearButtonOfSetTutorSalary = new JButton("Clear");
@@ -1497,6 +1501,7 @@ public class TeacherGUI implements ActionListener{
         clearButtonOfSetTutorSalary.setFont(new Font("Arial", 1, 15));
         clearButtonOfSetTutorSalary.setForeground(new Color(255,255,255));
         clearButtonOfSetTutorSalary.setBackground(new Color(105, 105, 105));
+        clearButtonOfSetTutorSalary.addActionListener(this);
         rightSidePanel.add(clearButtonOfSetTutorSalary);
 
         // Load image from file
@@ -1526,7 +1531,7 @@ public class TeacherGUI implements ActionListener{
         setSalaryPanel.setBackground(new java.awt.Color(255, 255, 255));
     }
 
-    public void AssignmentGUI(){
+    private void AssignmentGUI(){
 
         //backgroundpanel for DIsplayDataPanel
         assignmentPanel = new JPanel();
@@ -1591,7 +1596,7 @@ public class TeacherGUI implements ActionListener{
 
     }
     
-    public void GradedAssignments(){
+    private void GradedAssignments(){
 
         //backgroundpanel for DIsplayDataPanel
         gradedAssignmentsPanel = new JPanel();
@@ -1674,6 +1679,7 @@ public class TeacherGUI implements ActionListener{
         gradeAssignmentButton.setFont(new Font("Arial", 1, 15));
         gradeAssignmentButton.setForeground(new Color(255,255,255));
         gradeAssignmentButton.setBackground(new Color(105, 105, 105));
+        gradeAssignmentButton.addActionListener(this);
         rightSidePanel.add(gradeAssignmentButton);
 
         clearButtonOfGradeAssignment = new JButton("Clear");
@@ -1681,6 +1687,7 @@ public class TeacherGUI implements ActionListener{
         clearButtonOfGradeAssignment.setFont(new Font("Arial", 1, 15));
         clearButtonOfGradeAssignment.setForeground(new Color(255,255,255));
         clearButtonOfGradeAssignment.setBackground(new Color(105, 105, 105));
+        clearButtonOfGradeAssignment.addActionListener(this);
         rightSidePanel.add(clearButtonOfGradeAssignment);
 
         // Load image from file
@@ -1710,7 +1717,7 @@ public class TeacherGUI implements ActionListener{
         gradedAssignmentsPanel.setBackground(new java.awt.Color(255, 255, 255));
     }
 
-    public void DisplayGradedAssignments(){
+    private void DisplayGradedAssignments(){
 
         //backgroundpanel for DIsplayDataPanel
         displayGradedAssignmentsPanel = new JPanel();
@@ -1754,6 +1761,7 @@ public class TeacherGUI implements ActionListener{
         displayGradeAssignmentButton.setFont(new Font("Arial", 1, 15));
         displayGradeAssignmentButton.setForeground(new Color(255,255,255));
         displayGradeAssignmentButton.setBackground(new Color(105, 105, 105));
+        displayGradeAssignmentButton.addActionListener(this);
         rightSidePanel.add(displayGradeAssignmentButton);
 
         clearButtonOfDisplayGradeAssignment = new JButton("Clear");
@@ -1761,6 +1769,7 @@ public class TeacherGUI implements ActionListener{
         clearButtonOfDisplayGradeAssignment.setFont(new Font("Arial", 1, 15));
         clearButtonOfDisplayGradeAssignment.setForeground(new Color(255,255,255));
         clearButtonOfDisplayGradeAssignment.setBackground(new Color(105, 105, 105));
+        clearButtonOfDisplayGradeAssignment.addActionListener(this);
         rightSidePanel.add(clearButtonOfDisplayGradeAssignment);
 
         // Load image from file
@@ -1791,7 +1800,7 @@ public class TeacherGUI implements ActionListener{
         displayGradedAssignmentsPanel.setBackground(new java.awt.Color(255, 255, 255));
     }
 
-    public void ProfileGUI() {
+    private void ProfileGUI() {
         //backgroundpanel for DIsplayDataPanel
         profileGUIPanel = new JPanel();
 
@@ -2324,6 +2333,7 @@ public class TeacherGUI implements ActionListener{
             mainPanel.revalidate();
             mainPanel.repaint();
         }
+
         if (e.getSource() == addLecturerButton) {
             try {
                 // Storing input values from text fields to the local variables
@@ -2382,6 +2392,7 @@ public class TeacherGUI implements ActionListener{
         if(e.getSource() == clearButtonOfAddLecturer){
             clearInputFields();
         }
+
         if (e.getSource() == addTutorButtonOfAddTutor) {
             try {
                 // Retrieve input values from text fields
@@ -2444,7 +2455,8 @@ public class TeacherGUI implements ActionListener{
         }       
         if(e.getSource() == clearButtonOfAddTutorOfAddTutor){
             clearInputFields();
-        }   
+        }
+
         if (e.getSource() == removeTutorButtonOfRemoveTutor) {
             try {
                 String teacherIdString = teacherIDFieldOfAddLecturer.getText();
@@ -2493,6 +2505,7 @@ public class TeacherGUI implements ActionListener{
         if(e.getSource() == clearButtonOfRemoveTutor){
             clearInputFields();
         }     
+
         if (e.getSource() == setTutorSalaryButtonOfSetSalary) {
             try {
                 String teacherIdString = teacherIDFieldOfAddLecturer.getText();
@@ -2563,7 +2576,7 @@ public class TeacherGUI implements ActionListener{
                 if (yearsOfExperience < 0) {
                     JOptionPane.showMessageDialog(null, "Years of experience must be a Greater or Equal to Zero.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
-                
+
                 // Check if the ArrayList is empty
                 if (teachersList.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "No teachers available to grade assignments.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -2635,6 +2648,7 @@ public class TeacherGUI implements ActionListener{
         yearsOfExperienceFieldOfGradeAssignment.setText("");
         teacherIDFieldOfDisplayGradedAssignment.setText("");
     }
+    
     // Main Method
     public static void main(String[] args) {
         new TeacherGUI();
