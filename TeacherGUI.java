@@ -2681,7 +2681,6 @@ public class TeacherGUI implements ActionListener{
                 int teacherId = Integer.parseInt(teacherIdString);
                 String gradedScoreString = gradedScoreFieldOfGradeAssignment.getText();
                 int gradedScore = Integer.parseInt(gradedScoreString);
-                
                 String department = departmentFieldOfGradeAssignment.getText();
                 String yearsOfExperienceString = yearsOfExperienceFieldOfGradeAssignment.getText();
                 int yearsOfExperience = Integer.parseInt(yearsOfExperienceString);
@@ -2698,32 +2697,46 @@ public class TeacherGUI implements ActionListener{
                     JOptionPane.showMessageDialog(null, "Years of experience must be a Greater or Equal to Zero.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
 
-                // Check if the ArrayList is empty
-                if (teachersList.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "No teachers available to grade assignments.", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-                // Check if the teacher ID exists
-                boolean teacherFound = false;
-                for (Teacher teacher : teachersList) {
-                    if (teacher.getTeacherId() == teacherId) {
-                        // Check if the teacher is a Lecturer by checking the instance of the object
-                        if (teacher instanceof Lecturer) {
-                            teacherFound = true;
-                            // Cast the teacher object to a Lecturer object (Downcasting)
-                            Lecturer lecturer = (Lecturer) teacher;
-                            lecturer.gradeAssignment(gradedScore, department, yearsOfExperience); // Call the method to grade assignments
-                            JOptionPane.showMessageDialog(null, "Assignments graded successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Teacher ID does not belong to a Lecturer.", "Error", JOptionPane.ERROR_MESSAGE);
-                        }
-                        break;
+                // Create a message to show the user the details they are about to add
+                String confirmMessage = "Are you sure you want to add the following tutor?\n\n"
+                + "Teacher ID: " + teacherId + "\n" 
+                + "Graded Score: " + gradedScore + "\n"
+                + "Department: " + department + "\n"
+                + "Years of Experience: " + yearsOfExperience;
+                // Customize the buttons to "Yes" and "Edit"
+                Object[] options = {"Yes", "Edit"};
+                // Show confirm dialog with customized buttons
+                int option = JOptionPane.showOptionDialog(null, confirmMessage, "Are you sure to add Tutor", JOptionPane.YES_NO_OPTION, 
+                    JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+                // Check user's choice
+                if (option == JOptionPane.YES_OPTION) {
+                    // Check if the ArrayList is empty
+                    if (teachersList.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "No teachers available to grade assignments.", "Error", JOptionPane.ERROR_MESSAGE);
+                        return;
                     }
+                    // Check if the teacher ID exists
+                    boolean teacherFound = false;
+                    for (Teacher teacher : teachersList) {
+                        if (teacher.getTeacherId() == teacherId) {
+                            // Check if the teacher is a Lecturer by checking the instance of the object
+                            if (teacher instanceof Lecturer) {
+                                teacherFound = true;
+                                // Cast the teacher object to a Lecturer object (Downcasting)
+                                Lecturer lecturer = (Lecturer) teacher;
+                                lecturer.gradeAssignment(gradedScore, department, yearsOfExperience); // Call the method to grade assignments
+                                JOptionPane.showMessageDialog(null, "Assignments graded successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Teacher ID does not belong to a Lecturer.", "Error", JOptionPane.ERROR_MESSAGE);
+                            }
+                            break;
+                        }
+                    }
+                    if (!teacherFound) {
+                        JOptionPane.showMessageDialog(null, "Teacher ID not found.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                    clearInputFields(); // Clear the input fields after grading assignments
                 }
-                if (!teacherFound) {
-                    JOptionPane.showMessageDialog(null, "Teacher ID not found.", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-                clearInputFields(); // Clear the input fields after grading assignments
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Invalid input format for numeric fields.", "Error", JOptionPane.ERROR_MESSAGE);
             }
