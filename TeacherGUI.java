@@ -2398,37 +2398,58 @@ public class TeacherGUI implements ActionListener{
                     JOptionPane.showMessageDialog(null, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
-                // Check if the ArrayList is empty
-                if (teachersList.isEmpty()) {
-                    // Create a new Lecturer object
-                    Lecturer newLecturer = new Lecturer(teacherId, teacherName, address, workingType, employmentStatus,
-                                                        workingHours, department, yearsOfExperience);
-                    // Add the new Lecturer to the ArrayList
-                    teachersList.add(newLecturer);
-                    // Clear the input fields after adding the Lecturer
-                    clearInputFields();
-                    // Display success message
-                    JOptionPane.showMessageDialog(null, "Lecturer added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    // Check for duplicate teacher ID
-                    for (Teacher teacher : teachersList) {
-                        if (teacher.getTeacherId() == teacherId) {
-                            if (teacher instanceof Lecturer) {
-                                JOptionPane.showMessageDialog(null, "Teacher ID already exists.", "Error", JOptionPane.ERROR_MESSAGE);
-                                return;
+                // Create a message to show the user the details they are about to add
+                String confirmMessage = "Are you sure you want to add the following lecturer?\n\n" +
+                "Teacher ID: " + teacherId + "\n" +
+                "Name: " + teacherName + "\n" +
+                "Address: " + address + "\n" +
+                "Working Type: " + workingType + "\n" +
+                "Employment Status: " + employmentStatus + "\n" +
+                "Working Hours: " + workingHours + "\n" +
+                "Department: " + department + "\n" +
+                "Years of Experience: " + yearsOfExperience;
+
+                // Customize the buttons to "Yes" and "Edit"
+                Object[] options = {"Yes", "Edit"};
+                // Show confirm dialog with customized buttons
+                int option = JOptionPane.showOptionDialog(null, confirmMessage, "Are you sure to add Lecturer", JOptionPane.YES_NO_OPTION, 
+                                                   JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+                // Check user's choice
+                if (option == JOptionPane.YES_OPTION) {
+                    // Check if the ArrayList is empty
+                    if (teachersList.isEmpty()) {
+                        // Create a new Lecturer object
+                        Lecturer newLecturer = new Lecturer(teacherId, teacherName, address, workingType, employmentStatus,
+                                                            workingHours, department, yearsOfExperience);
+                        // Add the new Lecturer to the ArrayList
+                        teachersList.add(newLecturer);
+                        // Clear the input fields after adding the Lecturer
+                        clearInputFields();
+                        // Display success message
+                        JOptionPane.showMessageDialog(null, "Lecturer added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        // Check for duplicate teacher ID
+                        for (Teacher teacher : teachersList) {
+                            if (teacher.getTeacherId() == teacherId) {
+                                if (teacher instanceof Lecturer) {
+                                    JOptionPane.showMessageDialog(null, "Teacher ID already exists.", "Error", JOptionPane.ERROR_MESSAGE);
+                                    return;
+                                }
                             }
                         }
+
+                        // Create a new Lecturer object
+                        Lecturer newLecturer = new Lecturer(teacherId, teacherName, address, workingType, employmentStatus,
+                                                            workingHours, department, yearsOfExperience);
+                        // Add the new Lecturer to the ArrayList
+                        teachersList.add(newLecturer);
+                        // Clear the input fields after adding the Lecturer
+                        clearInputFields();
+                        // Display success message
+                        JOptionPane.showMessageDialog(null, "Lecturer added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
                     }
-                    // Create a new Lecturer object
-                    Lecturer newLecturer = new Lecturer(teacherId, teacherName, address, workingType, employmentStatus,
-                                                        workingHours, department, yearsOfExperience);
-                    // Add the new Lecturer to the ArrayList
-                    teachersList.add(newLecturer);
-                    // Clear the input fields after adding the Lecturer
-                    clearInputFields();
-                    // Display success message
-                    JOptionPane.showMessageDialog(null, "Lecturer added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
                 }
+
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Invalid input format for numeric fields.", "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -2440,63 +2461,87 @@ public class TeacherGUI implements ActionListener{
         if (e.getSource() == addTutorButtonOfAddTutor) {
             try {
                 // Retrieve input values from text fields
-            String teacherIdString = teacherIDFieldOfAddTutor.getText();
-            int teacherId = Integer.parseInt(teacherIdString);
-            String teacherName = teacherNameFieldOfAddTutor.getText();
-            String address = addressFieldOfAddTutor.getText();
-            String workingType = workingTypeFieldOfAddTutor.getText();
-            String employmentStatus = employmentStatusFieldOfAddTutor.getText();
-            String workingHoursString = workingHoursFieldOfAddTutor.getText();
-            int workingHours = Integer.parseInt(workingHoursString);
-            String salaryString = salaryFieldOfAddTutor.getText();
-            double salary = Double.parseDouble(salaryString);
-            String specialization = specializationFieldOfAddTutor.getText();
-            String academicQualifications = academicQualificationsFieldOfAddTutor.getText();
-            String performanceIndexString = performanceIndexFieldOfAddTutor.getText();
-            int performanceIndex = Integer.parseInt(performanceIndexString);
-
-            // Check if any text field is empty
-            if (teacherIdString.isEmpty() || teacherName.isEmpty() || address.isEmpty() || workingType.isEmpty() || employmentStatus.isEmpty() || workingHoursString.isEmpty() ||
-            salaryString.isEmpty() || specialization.isEmpty() || academicQualifications.isEmpty() || performanceIndexString.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-                // Check if the ArrayList is empty
-            if (teachersList.isEmpty()) {
-            // Create a new Tutor object
-                Tutor newTutor = new Tutor(teacherId, teacherName, address, workingType, employmentStatus, workingHours,
-                                            salary, specialization, academicQualifications, performanceIndex);
-            // Add the new Tutor to the ArrayList
-            teachersList.add(newTutor);
-            // Clear the input fields after adding the Tutor
-            clearInputFields();
-            // Display success message
-            JOptionPane.showMessageDialog(null, "Tutor added successfully.", "Success",JOptionPane.INFORMATION_MESSAGE);
-            } 
-            else {
-                // Check for duplicate teacher ID
-                for (Teacher teacher : teachersList) {
-                    if (teacher.getTeacherId() == teacherId) {
-                        if (teacher instanceof Tutor) {
-                            JOptionPane.showMessageDialog(null, "Teacher ID already exists.", "Error",JOptionPane.ERROR_MESSAGE);
-                            return;
+                String teacherIdString = teacherIDFieldOfAddTutor.getText();
+                int teacherId = Integer.parseInt(teacherIdString);
+                String teacherName = teacherNameFieldOfAddTutor.getText();
+                String address = addressFieldOfAddTutor.getText();
+                String workingType = workingTypeFieldOfAddTutor.getText();
+                String employmentStatus = employmentStatusFieldOfAddTutor.getText();
+                String workingHoursString = workingHoursFieldOfAddTutor.getText();
+                int workingHours = Integer.parseInt(workingHoursString);
+                String salaryString = salaryFieldOfAddTutor.getText();
+                double salary = Double.parseDouble(salaryString);
+                String specialization = specializationFieldOfAddTutor.getText();
+                String academicQualifications = academicQualificationsFieldOfAddTutor.getText();
+                String performanceIndexString = performanceIndexFieldOfAddTutor.getText();
+                int performanceIndex = Integer.parseInt(performanceIndexString);
+        
+                // Check if any text field is empty
+                if (teacherIdString.isEmpty() || teacherName.isEmpty() || address.isEmpty() || workingType.isEmpty() || employmentStatus.isEmpty() || workingHoursString.isEmpty() ||
+                    salaryString.isEmpty() || specialization.isEmpty() || academicQualifications.isEmpty() || performanceIndexString.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+        
+                // Create a message to show the user the details they are about to add
+                String confirmMessage = "Are you sure you want to add the following tutor?\n\n" +
+                    "Teacher ID: " + teacherId + "\n" +
+                    "Name: " + teacherName + "\n" +
+                    "Address: " + address + "\n" +
+                    "Working Type: " + workingType + "\n" +
+                    "Employment Status: " + employmentStatus + "\n" +
+                    "Working Hours: " + workingHours + "\n" +
+                    "Salary: " + salary + "\n" +
+                    "Specialization: " + specialization + "\n" +
+                    "Academic Qualifications: " + academicQualifications + "\n" +
+                    "Performance Index: " + performanceIndex;
+        
+                // Customize the buttons to "Yes" and "Edit"
+                Object[] options = {"Yes", "Edit"};
+                // Show confirm dialog with customized buttons
+                int option = JOptionPane.showOptionDialog(null, confirmMessage, "Are you sure to add Tutor", JOptionPane.YES_NO_OPTION, 
+                    JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+        
+                // Check user's choice
+                if (option == JOptionPane.YES_OPTION) {
+                    // Check if the ArrayList is empty
+                    if (teachersList.isEmpty()) {
+                        // Create a new Tutor object
+                        Tutor newTutor = new Tutor(teacherId, teacherName, address, workingType, employmentStatus, workingHours,
+                                                    salary, specialization, academicQualifications, performanceIndex);
+                        // Add the new Tutor to the ArrayList
+                        teachersList.add(newTutor);
+                        // Clear the input fields after adding the Tutor
+                        clearInputFields();
+                        // Display success message
+                        JOptionPane.showMessageDialog(null, "Tutor added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        // Check for duplicate teacher ID
+                        for (Teacher teacher : teachersList) {
+                            if (teacher.getTeacherId() == teacherId) {
+                                if (teacher instanceof Tutor) {
+                                    JOptionPane.showMessageDialog(null, "Teacher ID already exists.", "Error", JOptionPane.ERROR_MESSAGE);
+                                    return;
+                                }
+                            }
                         }
+                        // Create a new Tutor object
+                        Tutor newTutor = new Tutor(teacherId, teacherName, address, workingType, employmentStatus, workingHours,
+                                                    salary, specialization, academicQualifications, performanceIndex);
+                        // Add the new Tutor to the ArrayList
+                        teachersList.add(newTutor);
+                        // Clear the input fields after adding the Tutor
+                        clearInputFields();
+                        // Display success message
+                        JOptionPane.showMessageDialog(null, "Tutor added successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
                     }
                 }
-                // Create a new Tutor object
-                Tutor newTutor = new Tutor(teacherId, teacherName, address, workingType, employmentStatus, workingHours,
-                                            salary, specialization, academicQualifications, performanceIndex);
-                // Add the new Tutor to the ArrayList
-                teachersList.add(newTutor);
-                // Clear the input fields after adding the Tutor
-                clearInputFields();
-                // Display success message
-                JOptionPane.showMessageDialog(null, "Tutor added successfully.", "Success",JOptionPane.INFORMATION_MESSAGE);
-            }
+        
             } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "Invalid input format for numeric fields.", "Error",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Invalid input format for numeric fields.", "Error", JOptionPane.ERROR_MESSAGE);
             }
-        }       
+        }
+               
         if(e.getSource() == clearButtonOfAddTutorOfAddTutor){
             clearInputFields();
         }
@@ -2514,38 +2559,55 @@ public class TeacherGUI implements ActionListener{
                     JOptionPane.showMessageDialog(null, "No tutors available to remove.", "Error",JOptionPane.ERROR_MESSAGE);
                     return;
                 }
-                // Check if the teacher ID exists
-                boolean teacherFound = false;
-                for (Teacher teacher : teachersList) {
-                    if (teacher.getTeacherId() == teacherId) {
-                        // Check if the teacher is a Tutor by checking the instance of the object
-                        if (teacher instanceof Tutor) {
-                            teacherFound = true;
-                            // Cast the teacher object to a Tutor object(Downcasting)
-                            Tutor tutor = (Tutor) teacher;
-                            if (tutor.getIsCertified()) {
-                                // If the tutor is certified, inform the user that they cannot be removed
-                                JOptionPane.showMessageDialog(null, "Certified tutors cannot be removed.", "Error", JOptionPane.ERROR_MESSAGE);
+                // Create a message to show the user the details they are about to add
+                String confirmMessage = "Are you sure you want to add the following tutor?\n\n" + "Teacher ID: " + teacherId;
+                // Customize the buttons to "Yes" and "Edit"
+                Object[] options = {"Yes", "Edit"};
+                // Show confirm dialog with customized buttons
+                int option = JOptionPane.showOptionDialog(null, confirmMessage, "Are you sure to add Tutor", JOptionPane.YES_NO_OPTION, 
+                    JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+        
+                // Check user's choice
+                if (option == JOptionPane.YES_OPTION) {
+                    // Check if the teacher ID exists
+                    Teacher tutorToRemove = null; // Variable to store the tutor to be removed
+                    for (Teacher teacher : teachersList) {
+                        if (teacher.getTeacherId() == teacherId) {
+                            // Check if the teacher is a Tutor by checking the instance of the object
+                            if (teacher instanceof Tutor) {
+                                // Cast the teacher object to a Tutor object(Downcasting)
+                                Tutor tutor = (Tutor) teacher;
+                                if (tutor.getIsCertified()) {
+                                    // If the tutor is certified, inform the user that they cannot be removed
+                                    JOptionPane.showMessageDialog(null, "Certified tutors cannot be removed.", "Error", JOptionPane.ERROR_MESSAGE);
+                                    return;
+                                } else {
+                                    // If the tutor is not certified, store it for removal
+                                    tutorToRemove = teacher;
+                                    break; // Exit the loop once the tutor is found
+                                }
                             } else {
-                                // If the tutor is not certified, remove them
-                                tutor.removeTutor(); // Call the method to remove the tutor
-                                teachersList.remove(teacher);
-                                JOptionPane.showMessageDialog(null, "Tutor removed successfully.", "Success",JOptionPane.INFORMATION_MESSAGE);
+                                JOptionPane.showMessageDialog(null, "Teacher ID does not belong to a Tutor.", "Error",JOptionPane.ERROR_MESSAGE);
+                                return;
                             }
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Teacher ID does not belong to a Tutor.", "Error",JOptionPane.ERROR_MESSAGE);
-                        } 
+                        }
                     }
+                    if (tutorToRemove == null) {
+                        JOptionPane.showMessageDialog(null, "Teacher ID not found.", "Error", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+                    // Remove the tutor
+                    ((Tutor) tutorToRemove).removeTutor(); // Call the method to remove the tutor
+                    teachersList.remove(tutorToRemove);
+                    JOptionPane.showMessageDialog(null, "Tutor removed successfully.", "Success",JOptionPane.INFORMATION_MESSAGE);
+                    // Clear the input field after removing the Tutor
+                    clearInputFields();
                 }
-                if (!teacherFound) {
-                    JOptionPane.showMessageDialog(null, "Teacher ID not found.", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-                // Clear the input field after removing the Tutor
-                clearInputFields();
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Invalid input format for teacher ID.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
+            } 
         }
+        
         if(e.getSource() == clearButtonOfRemoveTutor){
             clearInputFields();
         }     
@@ -2563,33 +2625,48 @@ public class TeacherGUI implements ActionListener{
                     JOptionPane.showMessageDialog(null, "Please Fill All the Feilds.", "Error",JOptionPane.ERROR_MESSAGE);
                     return;
                 }
+
                 // Check if the ArrayList is empty
                 if (teachersList.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "No tutors available to set salary.", "Error",JOptionPane.ERROR_MESSAGE);
                     return;
                 }
-                // Check if the teacher ID exists
-                boolean teacherFound = false;
-                for (Teacher teacher : teachersList) {
-                    if (teacher.getTeacherId() == teacherId) {
-                        // Check if the teacher is a Tutor by checking the instance of the object
-                        if (teacher instanceof Tutor) {
-                            teacherFound = true;
-                            // Cast the teacher object to a Tutor object(Downcasting)
-                            Tutor tutor = (Tutor) teacher;
-                            tutor.setSalary(newSalary, newPerformanceIndex); // Call the method to set the salary
-                            JOptionPane.showMessageDialog(null, "Salary updated successfully.", "Success",JOptionPane.INFORMATION_MESSAGE);
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Teacher ID does not belong to a Tutor.", "Error",JOptionPane.ERROR_MESSAGE);
+                // Create a message to show the user the details they are about to add
+                String confirmMessage = "Are you sure you want to add the following tutor?\n\n"
+                + "Teacher ID: " + teacherId + "\n" 
+                + "New Salary: " + newSalary + "\n" 
+                + "New Performance Index: " + newPerformanceIndex;
+                // Customize the buttons to "Yes" and "Edit"
+                Object[] options = {"Yes", "Edit"};
+                // Show confirm dialog with customized buttons
+                int option = JOptionPane.showOptionDialog(null, confirmMessage, "Are you sure to add Tutor", JOptionPane.YES_NO_OPTION, 
+                    JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+        
+                // Check user's choice
+                if (option == JOptionPane.YES_OPTION) {
+                    // Check if the teacher ID exists
+                    boolean teacherFound = false;
+                    for (Teacher teacher : teachersList) {
+                        if (teacher.getTeacherId() == teacherId) {
+                            // Check if the teacher is a Tutor by checking the instance of the object
+                            if (teacher instanceof Tutor) {
+                                teacherFound = true;
+                                // Cast the teacher object to a Tutor object(Downcasting)
+                                Tutor tutor = (Tutor) teacher;
+                                tutor.setSalary(newSalary, newPerformanceIndex); // Call the method to set the salary
+                                JOptionPane.showMessageDialog(null, "Salary updated successfully.", "Success",JOptionPane.INFORMATION_MESSAGE);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Teacher ID does not belong to a Tutor.", "Error",JOptionPane.ERROR_MESSAGE);
+                            }
+                            break;
                         }
-                        break;
                     }
+                    if (!teacherFound) {
+                        JOptionPane.showMessageDialog(null, "Teacher ID not found.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                    // Clear the input fields after updating the salary
+                    clearInputFields();
                 }
-                if (!teacherFound) {
-                    JOptionPane.showMessageDialog(null, "Teacher ID not found.", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-                // Clear the input fields after updating the salary
-                clearInputFields();
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Invalid input format for numeric fields.", "Error",JOptionPane.ERROR_MESSAGE);
             }
