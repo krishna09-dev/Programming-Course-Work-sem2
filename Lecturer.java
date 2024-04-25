@@ -40,7 +40,7 @@ public class Lecturer extends Teacher {
 
     // Method to grade assignments
     public void gradeAssignment(int gradedScore, String department , int yearsOfExperience) {
-        if (yearsOfExperience >= 5 && this.department==department) {
+        if (yearsOfExperience >= 5 && this.department.equals(department)) {
             if (gradedScore >= 70) {
                 System.out.println("Grade obtained is A");
             } else if (gradedScore >= 60) {
