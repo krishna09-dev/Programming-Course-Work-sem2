@@ -33,17 +33,18 @@ public class TeacherGUI implements ActionListener{
     setTutorSalaryButtonOfSetSalary,clearButtonOfSetTutorSalary,displayGradeAssignmentButton,gradeAssignmentButton,clearButtonOfGradeAssignment,
     clearButtonOfDisplayGradeAssignment,clearButtonOfDisplayLecturer,displayDataBackButton,lecturerGUIBackButton,addLecturerBackButton,displayLecturerDataBackButton,
     tutorGUIBackButton,addTutorBackButton,removeTutorBackButton,displayTutorSalaryBackButton,displayTutorDataBackButton,setSalaryBackButton,assignmentGUIBackButton,
-    gradeAssignmentBackButton,displayGradedAssignmentsBackButton,profileGUIBackButton,clearButtonOfAddLecturer;
+    gradeAssignmentBackButton,displayGradedAssignmentsBackButton,profileGUIBackButton,clearButtonOfAddLecturer,showLoginPageBackButton;
     
     private JPanel mainPanel,startBackground,loginPageBackground,dashBoardBackground,displayDataPanel,addlecturerPanel,lecturerPanel,leftSideMenuPanel,tutorPanel
     ,addTutorPanel,removeTutorPanel,displayTutorSalaryPanel,setSalaryPanel,assignmentPanel,displayGradedAssignmentsPanel,profileGUIPanel,displayTutorDataPanel,
     displayLecturerDataPanel,gradedAssignmentsPanel;
     
-    private JTextField teacherIDFieldOfAddLecturer,teacherNameFieldOfAddLecturer,addressFieldOfAddLecturer,workingTypeFieldOfAddLecturer,employmentStatusFieldOfAddLecturer,workingHoursFieldOfAddLecturer,
-    yearsOfExperienceFieldOfAddLecturer,departmentFieldOfAddLecturer,teacherIDFieldDisplayLecturerData,addressFieldOfAddTutor,teacherNameFieldOfAddTutor,teacherIDFieldOfAddTutor,workingTypeFieldOfAddTutor
-    ,employmentStatusFieldOfAddTutor,workingHoursFieldOfAddTutor,salaryFieldOfAddTutor,specializationFieldOfAddTutor,performanceIndexFieldOfAddTutor,academicQualificationsFieldOfAddTutor
-    ,teacherIDFieldOfRemoveTutor,teacherIDFieldOfDisplayTutorSalary,teacherIDFieldDisplayTutorData,teacherIDFieldOfSetSalary,newSalaryFieldOfSetSalary,newPerformanceIndexFieldOfSetSalary,
-    teacherIDFieldOfDisplayGradedAssignment,teacherIDFieldOfGradeAssignment,gradedScoreFieldOfGradeAssignment,departmentFieldOfGradeAssignment,yearsOfExperienceFieldOfGradeAssignment;
+    private JTextField teacherIDFieldOfAddLecturer,teacherNameFieldOfAddLecturer,addressFieldOfAddLecturer,workingTypeFieldOfAddLecturer,employmentStatusFieldOfAddLecturer,
+    workingHoursFieldOfAddLecturer,yearsOfExperienceFieldOfAddLecturer,departmentFieldOfAddLecturer,teacherIDFieldDisplayLecturerData,addressFieldOfAddTutor,
+    teacherNameFieldOfAddTutor,teacherIDFieldOfAddTutor,workingTypeFieldOfAddTutor,employmentStatusFieldOfAddTutor,workingHoursFieldOfAddTutor,salaryFieldOfAddTutor,
+    specializationFieldOfAddTutor,performanceIndexFieldOfAddTutor,academicQualificationsFieldOfAddTutor,teacherIDFieldOfRemoveTutor,teacherIDFieldOfDisplayTutorSalary,
+    teacherIDFieldDisplayTutorData,teacherIDFieldOfSetSalary,newSalaryFieldOfSetSalary,newPerformanceIndexFieldOfSetSalary,teacherIDFieldOfDisplayGradedAssignment,
+    teacherIDFieldOfGradeAssignment,gradedScoreFieldOfGradeAssignment,departmentFieldOfGradeAssignment,yearsOfExperienceFieldOfGradeAssignment;
     
     private ArrayList<Teacher> teachersList;
 
@@ -216,10 +217,9 @@ public class TeacherGUI implements ActionListener{
 
         userIDField = new JTextField();
         userIDField.setBounds(530, 317, 250, 40);
-        userIDField.setFont(new java.awt.Font("Arial", 1, 20));
-        userIDField.setForeground(new java.awt.Color(105, 105, 105));
-        userIDField.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness)); // Set the border
-        //userIDField.setBackground(Color.LIGHT_GRAY);
+        userIDField.setFont(new Font("Arial", 1, 20));
+        userIDField.setForeground(new Color(105, 105, 105));
+        userIDField.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
         loginPageBackground.add(userIDField);
 
         JLabel password = new JLabel("Password");
@@ -230,17 +230,16 @@ public class TeacherGUI implements ActionListener{
 
         passwordField = new JTextField();
         passwordField.setBounds(530, 395, 250, 40);
-        passwordField.setFont(new java.awt.Font("Arial", 1, 20));
-        passwordField.setForeground(new java.awt.Color(105, 105, 105));
-        passwordField.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness)); // Set the border
-        passwordField.setBackground(Color.LIGHT_GRAY);
+        passwordField.setFont(new Font("Arial", 1, 20));
+        passwordField.setForeground(new Color(105, 105, 105));
+        passwordField.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness));
         loginPageBackground.add(passwordField);
 
         mainLoginButton = new JButton("Log in");
         mainLoginButton.setBounds(520, 477, 205, 63);
-        mainLoginButton.setFont(new java.awt.Font("Arial", 1, 20));
-        mainLoginButton.setForeground(new java.awt.Color(255, 255, 255));
-        mainLoginButton.setBackground(new java.awt.Color(105, 105, 105));
+        mainLoginButton.setFont(new Font("Arial", 1, 20));
+        mainLoginButton.setForeground(new Color(255, 255, 255));
+        mainLoginButton.setBackground(new Color(105, 105, 105));
         mainLoginButton.setBorder(BorderFactory.createLineBorder(Color.BLACK,thickness)); // Set the border
         mainLoginButton.addActionListener(this);
         loginPageBackground.add(mainLoginButton);
@@ -251,6 +250,22 @@ public class TeacherGUI implements ActionListener{
         centerSideH3.setForeground(new java.awt.Color(101, 151, 128));
         loginPageBackground.add(centerSideH3);
 
+        // Load image from file
+        ImageIcon icon = new ImageIcon(imagePathOfBackButton);
+        int width = 50;
+        int height = 50; 
+        Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        // Create ImageIcon from the scaled image
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+        // Create JButton with just the image
+        showLoginPageBackButton = new JButton(scaledIcon);
+        showLoginPageBackButton.setBounds(51, 70, width, height);
+        // Make the button transparent
+        showLoginPageBackButton.setOpaque(false);
+        showLoginPageBackButton.setContentAreaFilled(false);
+        showLoginPageBackButton.setBorderPainted(false);
+        showLoginPageBackButton.addActionListener(this);
+        loginPageBackground.add(showLoginPageBackButton);
 
         //Panel Setting
         loginPageBackground.setBounds(0, 0, 1280, 832);
@@ -285,7 +300,6 @@ public class TeacherGUI implements ActionListener{
         int newHeight = 25; 
         Image scaledhomeImage = homeimage.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
         
-
         //Buttons for Menu
         menuHome = new JButton("Home", new ImageIcon(scaledhomeImage));
         menuHome.setBounds(0, 150, 321, 49);
@@ -526,15 +540,11 @@ public class TeacherGUI implements ActionListener{
 
         // Load image from file
         ImageIcon icon = new ImageIcon(imagePathOfBackButton);
-        
-        // Resize the image
-        int width = 50; // Desired width of the image
-        int height = 50; // Desired height of the image
+        int width = 50;
+        int height = 50; 
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
-        
         // Create JButton with just the image
         displayDataBackButton = new JButton(scaledIcon);
         displayDataBackButton.setBounds(378, 91, width, height);
@@ -595,8 +605,6 @@ public class TeacherGUI implements ActionListener{
 
         // Load image from file
         ImageIcon icon = new ImageIcon(imagePathOfBackButton);
-        
-        // Resize the image
         int width = 50;
         int height = 50; 
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
@@ -772,9 +780,8 @@ public class TeacherGUI implements ActionListener{
 
         // Load image from file
         ImageIcon icon = new ImageIcon(imagePathOfBackButton);
-
-        int width = 50; // Desired width of the image
-        int height = 50; // Desired height of the image
+        int width = 50;
+        int height = 50;
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
@@ -855,8 +862,7 @@ public class TeacherGUI implements ActionListener{
         rightSidePanel.add(clearButtonOfDisplayLecturer);
 
         // Load image from file
-        ImageIcon icon = new ImageIcon(imagePathOfBackButton);        
-        // for Resizing the image
+        ImageIcon icon = new ImageIcon(imagePathOfBackButton);    
         int width = 50; 
         int height = 50; 
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
@@ -945,17 +951,14 @@ public class TeacherGUI implements ActionListener{
 
         // Load image from file
         ImageIcon icon = new ImageIcon(imagePathOfBackButton);        
-        // Resize the image
-        int width = 50; // Desired width of the image
-        int height = 50; // Desired height of the image
+        int width = 50; 
+        int height = 50; 
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
-        
         // Create JButton with just the image
         tutorGUIBackButton = new JButton(scaledIcon);
-        tutorGUIBackButton.setBounds(378, 91, width, height); // Adjust position and size of the button
+        tutorGUIBackButton.setBounds(378, 91, width, height);
         // Make the button transparent
         tutorGUIBackButton.setOpaque(false);
         tutorGUIBackButton.setContentAreaFilled(false);
@@ -1149,9 +1152,8 @@ public class TeacherGUI implements ActionListener{
 
         // Load image from file
         ImageIcon icon = new ImageIcon(imagePathOfBackButton);
-
-        int width = 50; // Desired width of the image
-        int height = 50; // Desired height of the image
+        int width = 50;
+        int height = 50; 
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
@@ -1232,7 +1234,6 @@ public class TeacherGUI implements ActionListener{
 
         // Load image from file
         ImageIcon icon = new ImageIcon(imagePathOfBackButton);        
-
         int width = 50;
         int height = 50; 
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
@@ -1315,7 +1316,6 @@ public class TeacherGUI implements ActionListener{
 
         // Load image from file
         ImageIcon icon = new ImageIcon(imagePathOfBackButton);        
-        // for Resizing the image
         int width = 50; 
         int height = 50; 
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
@@ -1398,7 +1398,6 @@ public class TeacherGUI implements ActionListener{
 
         // Load image from file
         ImageIcon icon = new ImageIcon(imagePathOfBackButton);        
-        // for Resizing the image
         int width = 50; 
         int height = 50; 
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
@@ -1693,8 +1692,8 @@ public class TeacherGUI implements ActionListener{
 
         // Load image from file
         ImageIcon icon = new ImageIcon(imagePathOfBackButton);    
-        int width = 50; // Desired width of the image
-        int height = 50; // Desired height of the image
+        int width = 50; 
+        int height = 50;
         Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
@@ -1868,25 +1867,66 @@ public class TeacherGUI implements ActionListener{
         collegeAddress.setForeground(new java.awt.Color(105, 105, 105));
         rightSidePanel.add(collegeAddress);
 
+        JLabel UserIDValue = new JLabel("100");
+        UserIDValue.setBounds(640, 389, 100, 30);
+        UserIDValue.setFont(new java.awt.Font("Arial", 1, 15));
+        UserIDValue.setForeground(new java.awt.Color(105, 105, 105));
+        rightSidePanel.add(UserIDValue);
+
+        JLabel UserNameValue = new JLabel("Admin");
+        UserNameValue.setBounds(640, 429, 100, 30);
+        UserNameValue.setFont(new java.awt.Font("Arial", 1, 15));
+        UserNameValue.setForeground(new java.awt.Color(105, 105, 105));
+        rightSidePanel.add(UserNameValue);
+
+        JLabel StaffIDValue = new JLabel("1001");
+        StaffIDValue.setBounds(640, 469, 100, 30);
+        StaffIDValue.setFont(new java.awt.Font("Arial", 1, 15));
+        StaffIDValue.setForeground(new java.awt.Color(105, 105, 105));
+        rightSidePanel.add(StaffIDValue);
+
+        JLabel StaffEmailValue = new JLabel("email@gmail.com");
+        StaffEmailValue.setBounds(640, 509, 150, 30);
+        StaffEmailValue.setFont(new java.awt.Font("Arial", 1, 15));
+        StaffEmailValue.setForeground(new java.awt.Color(105, 105, 105));
+        rightSidePanel.add(StaffEmailValue);
+
+        JLabel StaffPhoneValue = new JLabel("9841234567");
+        StaffPhoneValue.setBounds(640, 549, 100, 30);
+        StaffPhoneValue.setFont(new java.awt.Font("Arial", 1, 15));
+        StaffPhoneValue.setForeground(new java.awt.Color(105, 105, 105));
+        rightSidePanel.add(StaffPhoneValue);
+
+        JLabel UniversityValue = new JLabel("London Metropolitan University");
+        UniversityValue.setBounds(640, 589, 300, 30);
+        UniversityValue.setFont(new java.awt.Font("Arial", 1, 15));
+        UniversityValue.setForeground(new java.awt.Color(105, 105, 105));
+        rightSidePanel.add(UniversityValue);
+
+        JLabel CollegeValue = new JLabel("Islington College");
+        CollegeValue.setBounds(640, 629, 150, 30);
+        CollegeValue.setFont(new java.awt.Font("Arial", 1, 15));
+        CollegeValue.setForeground(new java.awt.Color(105, 105, 105));
+        rightSidePanel.add(CollegeValue);
+
+        JLabel CollegeAddressValue = new JLabel("Kathmandu, Nepal");
+        CollegeAddressValue.setBounds(640, 669, 150, 30);
+        CollegeAddressValue.setFont(new java.awt.Font("Arial", 1, 15));
+        CollegeAddressValue.setForeground(new java.awt.Color(105, 105, 105));
+        rightSidePanel.add(CollegeAddressValue);
+
          // Loadong and displaying image with expection handeling by using try Catch
         try {
             BufferedImage profileImage = ImageIO.read(new File(imagePathOfProfileImage));
-        
-            // Desired width and height
-            int desiredWidth = 200; // Set your desired width
-            int desiredHeight = 200; // Set your desired height
-        
-            // Resize the image
+            int desiredWidth = 200; 
+            int desiredHeight = 200; 
             Image scaledImage = profileImage.getScaledInstance(desiredWidth, desiredHeight, Image.SCALE_SMOOTH);
-        
             // Create ImageIcon from scaled image
             ImageIcon imageIcon = new ImageIcon(scaledImage);
             JLabel imageLabel = new JLabel(imageIcon);
-        
             // Adjust position of image label
             imageLabel.setBounds(470, 157, desiredWidth, desiredHeight);
             rightSidePanel.add(imageLabel);
-        
             // Repaint the panel to reflect the changes
             rightSidePanel.repaint();
         } catch (IOException ex) {
@@ -1895,9 +1935,6 @@ public class TeacherGUI implements ActionListener{
             imageText.setBounds(470, 157, 100, 100);
             rightSidePanel.add(imageText);
         }
-        
-        
-        
         // Load image from file
         ImageIcon icon = new ImageIcon(imagePathOfBackButton);     
         int width = 50; 
@@ -2231,6 +2268,12 @@ public class TeacherGUI implements ActionListener{
             mainPanel.remove(leftSideMenuPanel);
             mainPanel.remove(profileGUIPanel);
             mainPanel.add(loginPageBackground);
+            mainPanel.revalidate();
+            mainPanel.repaint();
+        }
+        if (e.getSource() == showLoginPageBackButton){
+            mainPanel.remove(loginPageBackground);
+            mainPanel.add(startBackground);
             mainPanel.revalidate();
             mainPanel.repaint();
         }
@@ -2622,7 +2665,7 @@ public class TeacherGUI implements ActionListener{
                     JOptionPane.showMessageDialog(null, "Please enter a teacher ID.", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
-                // Find tutor by ID directly within the action performed method
+                // Find tutor by ID in the ArrayList
                 for (Teacher teacher : teachersList) {
                     if (teacher.getTeacherId() == teacherId && teacher instanceof Tutor) {
                         tutor = teacher;
@@ -2638,121 +2681,121 @@ public class TeacherGUI implements ActionListener{
                     tutorDataFrame.add(panel);
 
                     JLabel heading = new JLabel("Teacher Details");
-                    heading.setForeground(Color.WHITE); // Set text color
-                    heading.setFont(new Font("Arial", Font.BOLD, 25)); // Set font style and size
+                    heading.setForeground(Color.WHITE); 
+                    heading.setFont(new Font("Arial", Font.BOLD, 25));
                     heading.setBounds(271, 54, 358, 57);
                     panel.add(heading);
 
                     JLabel IDLabel = new JLabel("Teacher ID: ");
-                    IDLabel.setForeground(Color.WHITE); // Set text color
+                    IDLabel.setForeground(Color.WHITE); 
                     IDLabel.setBounds(80, 170, 120, 30);
-                    IDLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    IDLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(IDLabel);
 
                     JLabel nameLabel = new JLabel("Teacher Name: ");
-                    nameLabel.setForeground(Color.WHITE); // Set text color
+                    nameLabel.setForeground(Color.WHITE); 
                     nameLabel.setBounds(80, 199, 120, 30);
-                    nameLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    nameLabel.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(nameLabel);
 
                     JLabel addressLabel = new JLabel("Address: ");
-                    addressLabel.setForeground(Color.WHITE); // Set text color
+                    addressLabel.setForeground(Color.WHITE);
                     addressLabel.setBounds(80, 228, 120, 30);
-                    addressLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    addressLabel.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(addressLabel);
 
                     JLabel workingTypeLabel = new JLabel("Working Type: ");
-                    workingTypeLabel.setForeground(Color.WHITE); // Set text color
+                    workingTypeLabel.setForeground(Color.WHITE); 
                     workingTypeLabel.setBounds(80, 257, 120, 30);
-                    workingTypeLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    workingTypeLabel.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(workingTypeLabel);
 
                     JLabel employmentStatusLabel = new JLabel("Employment Status: ");
-                    employmentStatusLabel.setForeground(Color.WHITE); // Set text color
+                    employmentStatusLabel.setForeground(Color.WHITE);
                     employmentStatusLabel.setBounds(80, 286, 120, 30);
-                    employmentStatusLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    employmentStatusLabel.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(employmentStatusLabel);
 
                     JLabel workingHoursLabel = new JLabel("Working Hours: ");
-                    workingHoursLabel.setForeground(Color.WHITE); // Set text color
+                    workingHoursLabel.setForeground(Color.WHITE);
                     workingHoursLabel.setBounds(80, 315, 120, 30);
-                    workingHoursLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    workingHoursLabel.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(workingHoursLabel);
 
                     JLabel salaryLabel = new JLabel("Salary: ");
-                    salaryLabel.setForeground(Color.WHITE); // Set text color
+                    salaryLabel.setForeground(Color.WHITE); 
                     salaryLabel.setBounds(80, 344, 120, 30);
-                    salaryLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    salaryLabel.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(salaryLabel);
 
                     JLabel specializationLabel = new JLabel("Specialization: ");
-                    specializationLabel.setForeground(Color.WHITE); // Set text color
+                    specializationLabel.setForeground(Color.WHITE);
                     specializationLabel.setBounds(80, 373, 120, 30);
-                    specializationLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    specializationLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(specializationLabel);
 
-                    JLabel qualificationsLabel = new JLabel("Qualifications: " + ((Tutor) tutor).getAcademicQualifications());
-                    qualificationsLabel.setForeground(Color.WHITE); // Set text color
+                    JLabel qualificationsLabel = new JLabel("Qualifications: ");
+                    qualificationsLabel.setForeground(Color.WHITE); 
                     qualificationsLabel.setBounds(80, 402, 120, 30);
-                    qualificationsLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    qualificationsLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(qualificationsLabel);
 
-                    JLabel performanceIndexLabel = new JLabel("Performance Index: " + ((Tutor) tutor).getPerformanceIndex());
-                    performanceIndexLabel.setForeground(Color.WHITE); // Set text color
+                    JLabel performanceIndexLabel = new JLabel("Performance Index: ");
+                    performanceIndexLabel.setForeground(Color.WHITE);
                     performanceIndexLabel.setBounds(80, 431, 120, 30);
-                    performanceIndexLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    performanceIndexLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(performanceIndexLabel);
         
                     JLabel teacherID = new JLabel(Integer.toString(tutor.getTeacherId()));
-                    teacherID.setForeground(Color.WHITE); // Set text color
+                    teacherID.setForeground(Color.WHITE); 
                     teacherID.setBounds(200, 170, 120, 30);
-                    teacherID.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    teacherID.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(teacherID);
 
                     JLabel teacherName = new JLabel(tutor.getTeacherName());
-                    teacherName.setForeground(Color.WHITE); // Set text color
+                    teacherName.setForeground(Color.WHITE); 
                     teacherName.setBounds(200, 199, 120, 30);
-                    teacherName.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    teacherName.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(teacherName);
 
                     JLabel address = new JLabel(tutor.getAddress());
-                    address.setForeground(Color.WHITE); // Set text color
+                    address.setForeground(Color.WHITE); 
                     address.setBounds(200, 228, 120, 30);
-                    address.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    address.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(address);
 
                     JLabel workingType = new JLabel(tutor.getWorkingType());
-                    workingType.setForeground(Color.WHITE); // Set text color
+                    workingType.setForeground(Color.WHITE);
                     workingType.setBounds(200, 257, 120, 30);
-                    workingType.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    workingType.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(workingType);
 
                     JLabel employmentStatus = new JLabel(tutor.getEmploymentStatus());
-                    employmentStatus.setForeground(Color.WHITE); // Set text color
+                    employmentStatus.setForeground(Color.WHITE); 
                     employmentStatus.setBounds(200, 286, 120, 30);
-                    employmentStatus.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    employmentStatus.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(employmentStatus);
 
                     JLabel workingHours = new JLabel(Integer.toString(tutor.getWorkingHours()));
-                    workingHours.setForeground(Color.WHITE); // Set text color
+                    workingHours.setForeground(Color.WHITE); 
                     workingHours.setBounds(200, 315, 120, 30);
-                    workingHours.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    workingHours.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(workingHours);
 
                     JLabel salary = new JLabel(Double.toString(((Tutor) tutor).getSalary()));
-                    salary.setForeground(Color.WHITE); // Set text color
+                    salary.setForeground(Color.WHITE);
                     salary.setBounds(200, 344, 120, 30);
-                    salary.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    salary.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(salary);
 
                     JLabel specialization = new JLabel(((Tutor) tutor).getSpecialization());
-                    specialization.setForeground(Color.WHITE); // Set text color
+                    specialization.setForeground(Color.WHITE);
                     specialization.setBounds(200, 373, 120, 30);
-                    specialization.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    specialization.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(specialization);
 
                     JLabel qualifications = new JLabel(((Tutor) tutor).getAcademicQualifications());
-                    qualifications.setForeground(Color.WHITE); // Set text color
+                    qualifications.setForeground(Color.WHITE); 
                     qualifications.setBounds(200, 402, 120, 30);
                     qualifications.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(qualifications);
@@ -2766,10 +2809,8 @@ public class TeacherGUI implements ActionListener{
                     tutorDataFrame.setSize(900, 550);
                     tutorDataFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                     tutorDataFrame.setLocationRelativeTo(null); // Center the frame
-                    tutorDataFrame.setLayout(null);
+                    //tutorDataFrame.setLayout(null);
                     tutorDataFrame.setVisible(true);
-                    tutorDataFrame.revalidate();
-                    tutorDataFrame.repaint();
 
                     clearInputFields();
                 } else {
@@ -2788,7 +2829,7 @@ public class TeacherGUI implements ActionListener{
                 int teacherId = Integer.parseInt(teacherIDFieldDisplayLecturerData.getText());
                 Teacher lecturer = null;
         
-                // Find lecturer by ID directly within the action performed method
+                // Find lecturer by ID 
                 for (Teacher teacher : teachersList) {
                     if (teacher.getTeacherId() == teacherId && teacher instanceof Lecturer) {
                         lecturer = teacher;
@@ -2801,112 +2842,112 @@ public class TeacherGUI implements ActionListener{
                     lecturerDataFrame.setSize(900, 550);
                     lecturerDataFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                     lecturerDataFrame.setLocationRelativeTo(null); // Center the frame
-                    lecturerDataFrame.setLayout(null);
+                    //lecturerDataFrame.setLayout(null);
                     
                     JPanel panel = new JPanel();
                     panel.setBackground(Color.BLACK);
                     lecturerDataFrame.add(panel);
 
                     JLabel heading = new JLabel("Teacher Details");
-                    heading.setForeground(Color.WHITE); // Set text color
-                    heading.setFont(new Font("Arial", Font.BOLD, 20)); // Set font style and size
+                    heading.setForeground(Color.WHITE);
+                    heading.setFont(new Font("Arial", Font.BOLD, 20)); 
                     heading.setBounds(271, 54, 358, 57);
                     panel.add(heading);
 
                     JLabel IDLabel = new JLabel("Teacher ID: ");
-                    IDLabel.setForeground(Color.WHITE); // Set text color
+                    IDLabel.setForeground(Color.WHITE); 
                     IDLabel.setBounds(80, 170, 120, 30);
-                    IDLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    IDLabel.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(IDLabel);
 
                     JLabel nameLabel = new JLabel("Teacher Name: ");
-                    nameLabel.setForeground(Color.WHITE); // Set text color
+                    nameLabel.setForeground(Color.WHITE); 
                     nameLabel.setBounds(80, 199, 120, 30);
-                    nameLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    nameLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(nameLabel);
 
                     JLabel addressLabel = new JLabel("Address : ");
-                    addressLabel.setForeground(Color.WHITE); // Set text color
+                    addressLabel.setForeground(Color.WHITE); 
                     addressLabel.setBounds(80, 228, 120, 30);
-                    addressLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    addressLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(addressLabel);
 
                     JLabel workingTypeLabel = new JLabel("Working Type: ");
-                    workingTypeLabel.setForeground(Color.WHITE); // Set text color
+                    workingTypeLabel.setForeground(Color.WHITE); 
                     workingTypeLabel.setBounds(80, 257, 120, 30);
-                    workingTypeLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    workingTypeLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(workingTypeLabel);
 
                     JLabel employmentStatusLabel = new JLabel("Employment Status: ");
-                    employmentStatusLabel.setForeground(Color.WHITE); // Set text color
+                    employmentStatusLabel.setForeground(Color.WHITE); 
                     employmentStatusLabel.setBounds(80, 286, 120, 30);
-                    employmentStatusLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    employmentStatusLabel.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(employmentStatusLabel);
 
                     JLabel workingHoursLabel = new JLabel("Working Hours: ");
-                    workingHoursLabel.setForeground(Color.WHITE); // Set text color
+                    workingHoursLabel.setForeground(Color.WHITE); 
                     workingHoursLabel.setBounds(80, 315, 120, 30);
-                    workingHoursLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    workingHoursLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(workingHoursLabel);
 
                     JLabel departmentLabel = new JLabel("Department: ");
-                    departmentLabel.setForeground(Color.WHITE); // Set text color
+                    departmentLabel.setForeground(Color.WHITE); 
                     departmentLabel.setBounds(80, 344, 120, 30);
-                    departmentLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    departmentLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(departmentLabel);
 
                     JLabel yearsOfExperienceLabel = new JLabel("Years of Experience: ");
-                    yearsOfExperienceLabel.setForeground(Color.WHITE); // Set text color
+                    yearsOfExperienceLabel.setForeground(Color.WHITE); 
                     yearsOfExperienceLabel.setBounds(80, 373, 120, 30);
-                    yearsOfExperienceLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    yearsOfExperienceLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(yearsOfExperienceLabel);
 
                     JLabel GradedAssignments = new JLabel("Graded Assignments: ");
-                    GradedAssignments.setForeground(Color.WHITE); // Set text color
+                    GradedAssignments.setForeground(Color.WHITE);
                     GradedAssignments.setBounds(80, 402, 120, 30);
-                    GradedAssignments.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    GradedAssignments.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(GradedAssignments);
 
                     JLabel teacherID = new JLabel(Integer.toString(lecturer.getTeacherId()));
-                    teacherID.setForeground(Color.WHITE); // Set text color
+                    teacherID.setForeground(Color.WHITE); 
                     teacherID.setBounds(200, 170, 120, 30);
-                    teacherID.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    teacherID.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(teacherID);
 
                     JLabel teacherName = new JLabel(lecturer.getTeacherName());
-                    teacherName.setForeground(Color.WHITE); // Set text color
+                    teacherName.setForeground(Color.WHITE); 
                     teacherName.setBounds(200, 199, 120, 30);
-                    teacherName.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    teacherName.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(teacherName);
 
                     JLabel address = new JLabel(lecturer.getAddress());
-                    address.setForeground(Color.WHITE); // Set text color
+                    address.setForeground(Color.WHITE); 
                     address.setBounds(200, 228, 120, 30);
-                    address.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    address.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(address);
 
                     JLabel workingType = new JLabel(lecturer.getWorkingType());
-                    workingType.setForeground(Color.WHITE); // Set text color
+                    workingType.setForeground(Color.WHITE); 
                     workingType.setBounds(200, 257, 120, 30);
-                    workingType.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    workingType.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(workingType);
 
                     JLabel employmentStatus = new JLabel(lecturer.getEmploymentStatus());
-                    employmentStatus.setForeground(Color.WHITE); // Set text color
+                    employmentStatus.setForeground(Color.WHITE); 
                     employmentStatus.setBounds(200, 286, 120, 30);
-                    employmentStatus.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    employmentStatus.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(employmentStatus);
 
                     JLabel workingHours = new JLabel(Integer.toString(lecturer.getWorkingHours()));
-                    workingHours.setForeground(Color.WHITE); // Set text color
+                    workingHours.setForeground(Color.WHITE); 
                     workingHours.setBounds(200, 315, 120, 30);
-                    workingHours.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    workingHours.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(workingHours);
 
                     JLabel department = new JLabel(((Lecturer) lecturer).getDepartment());
-                    department.setForeground(Color.WHITE); // Set text color
+                    department.setForeground(Color.WHITE); 
                     department.setBounds(200, 344, 120, 30);
-                    department.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    department.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(department);
 
                     JLabel yearsOfExperience = new JLabel(Integer.toString(((Lecturer) lecturer).getYearsOfExperience()));
@@ -2946,7 +2987,7 @@ public class TeacherGUI implements ActionListener{
                 int teacherId = Integer.parseInt(teacherIDFieldOfDisplayTutorSalary.getText());
                 Tutor tutor = null;
         
-                // Find tutor by ID directly within the action performed method
+                // Find tutor by ID
                 for (Teacher teacher : teachersList) {
                     if (teacher.getTeacherId() == teacherId && teacher instanceof Tutor) {
                         tutor = (Tutor) teacher;
@@ -2966,45 +3007,45 @@ public class TeacherGUI implements ActionListener{
                     displaySalaryFrame.add(panel);
 
                     JLabel heading = new JLabel("Teacher Salary");
-                    heading.setForeground(Color.WHITE); // Set text color
-                    heading.setFont(new Font("Arial", Font.BOLD, 20)); // Set font style and size
+                    heading.setForeground(Color.WHITE); 
+                    heading.setFont(new Font("Arial", Font.BOLD, 20)); 
                     heading.setBounds(271, 54, 358, 57);
                     panel.add(heading);
 
                     JLabel IDLabel = new JLabel("Teacher ID: ");
-                    IDLabel.setForeground(Color.WHITE); // Set text color
+                    IDLabel.setForeground(Color.WHITE); 
                     IDLabel.setBounds(199, 231, 120, 30);
-                    IDLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    IDLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(IDLabel);
 
                     JLabel nameLabel = new JLabel("Teacher Name: ");
-                    nameLabel.setForeground(Color.WHITE); // Set text color
+                    nameLabel.setForeground(Color.WHITE); 
                     nameLabel.setBounds(199, 260, 120, 30);
-                    nameLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    nameLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(nameLabel);
 
                     JLabel salaryLabel = new JLabel("Salary: ");
-                    salaryLabel.setForeground(Color.WHITE); // Set text color
+                    salaryLabel.setForeground(Color.WHITE); 
                     salaryLabel.setBounds(199, 289, 120, 30);
-                    salaryLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    salaryLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(salaryLabel);
 
                     JLabel teacherID = new JLabel(Integer.toString(tutor.getTeacherId()));
-                    teacherID.setForeground(Color.WHITE); // Set text color
+                    teacherID.setForeground(Color.WHITE); 
                     teacherID.setBounds(359, 231, 120, 30);
-                    teacherID.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    teacherID.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(teacherID);
 
                     JLabel teacherName = new JLabel(tutor.getTeacherName());
-                    teacherName.setForeground(Color.WHITE); // Set text color
+                    teacherName.setForeground(Color.WHITE); 
                     teacherName.setBounds(359, 260, 120, 30);
-                    teacherName.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    teacherName.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(teacherName);
 
                     JLabel salary = new JLabel(Double.toString(tutor.getSalary()));
-                    salary.setForeground(Color.WHITE); // Set text color
+                    salary.setForeground(Color.WHITE); 
                     salary.setBounds(359, 289, 120, 30);
-                    salary.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    salary.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(salary);
         
                     displaySalaryFrame.setVisible(true);
@@ -3024,7 +3065,7 @@ public class TeacherGUI implements ActionListener{
                 int teacherId = Integer.parseInt(teacherIDFieldOfDisplayGradedAssignment.getText());
                 Lecturer lecturer = null;
         
-                // Find teacher by ID directly within the action performed method
+                // Find teacher by ID
                 for (Teacher teacher : teachersList) {
                     if (teacher.getTeacherId() == teacherId && teacher instanceof Lecturer) {
                         lecturer = (Lecturer) teacher;
@@ -3044,52 +3085,52 @@ public class TeacherGUI implements ActionListener{
                     gradedFrame.add(panel);
 
                     JLabel heading = new JLabel("Graded Assignments");
-                    heading.setForeground(Color.WHITE); // Set text color
-                    heading.setFont(new Font("Arial", Font.BOLD, 20)); // Set font style and size
+                    heading.setForeground(Color.WHITE);
+                    heading.setFont(new Font("Arial", Font.BOLD, 20)); 
                     heading.setBounds(271, 54, 358, 57);
                     panel.add(heading);
 
                     JLabel IDLabel = new JLabel("Teacher ID: ");
-                    IDLabel.setForeground(Color.WHITE); // Set text color
+                    IDLabel.setForeground(Color.WHITE); 
                     IDLabel.setBounds(199, 231, 120, 30);
-                    IDLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    IDLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(IDLabel);
 
                     JLabel nameLabel = new JLabel("Teacher Name: ");
-                    nameLabel.setForeground(Color.WHITE); // Set text color
+                    nameLabel.setForeground(Color.WHITE); 
                     nameLabel.setBounds(199, 260, 120, 30);
-                    nameLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    nameLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(nameLabel);
 
                     JLabel gradedScoreLabel = new JLabel("Graded Score: ");
-                    gradedScoreLabel.setForeground(Color.WHITE); // Set text color
+                    gradedScoreLabel.setForeground(Color.WHITE); 
                     gradedScoreLabel.setBounds(199, 289, 120, 30);
-                    gradedScoreLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    gradedScoreLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(gradedScoreLabel);
 
                     JLabel teacherIDLabel = new JLabel(Integer.toString(lecturer.getTeacherId()));
-                    teacherIDLabel.setForeground(Color.WHITE); // Set text color
+                    teacherIDLabel.setForeground(Color.WHITE); 
                     teacherIDLabel.setBounds(359, 231, 120, 30);
-                    teacherIDLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    teacherIDLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(teacherIDLabel);
 
                     JLabel teacherNameLabel = new JLabel(lecturer.getTeacherName());
-                    teacherNameLabel.setForeground(Color.WHITE); // Set text color
+                    teacherNameLabel.setForeground(Color.WHITE); 
                     teacherNameLabel.setBounds(359, 260, 120, 30);
-                    teacherNameLabel.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                    teacherNameLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(teacherNameLabel);
 
                     if (lecturer.getHasGraded()) {
                         JLabel gradedScore = new JLabel(Integer.toString((lecturer.getGradedScore())));
-                        gradedScore.setForeground(Color.WHITE); // Set text color
+                        gradedScore.setForeground(Color.WHITE); 
                         gradedScore.setBounds(359, 289, 120, 30);
-                        gradedScore.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                        gradedScore.setFont(new Font("Arial", Font.BOLD, 15)); 
                         panel.add(gradedScore);
                     }else {
                         JLabel gradedScore = new JLabel("Assignments not yet graded.");
-                        gradedScore.setForeground(Color.WHITE); // Set text color
+                        gradedScore.setForeground(Color.WHITE); 
                         gradedScore.setBounds(359, 289, 120, 30);
-                        gradedScore.setFont(new Font("Arial", Font.BOLD, 15)); // Set font style and size
+                        gradedScore.setFont(new Font("Arial", Font.BOLD, 15)); 
                         panel.add(gradedScore);
                     }
                     
