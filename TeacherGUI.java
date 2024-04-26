@@ -1885,7 +1885,7 @@ public class TeacherGUI implements ActionListener{
         StaffIDValue.setForeground(new java.awt.Color(105, 105, 105));
         rightSidePanel.add(StaffIDValue);
 
-        JLabel StaffEmailValue = new JLabel("email@gmail.com");
+        JLabel StaffEmailValue = new JLabel("admin1@gmail.com");
         StaffEmailValue.setBounds(640, 509, 150, 30);
         StaffEmailValue.setFont(new java.awt.Font("Arial", 1, 15));
         StaffEmailValue.setForeground(new java.awt.Color(105, 105, 105));
@@ -1915,7 +1915,6 @@ public class TeacherGUI implements ActionListener{
         CollegeAddressValue.setForeground(new java.awt.Color(105, 105, 105));
         rightSidePanel.add(CollegeAddressValue);
 
-         // Loadong and displaying image with expection handeling by using try Catch
         try {
             BufferedImage profileImage = ImageIO.read(new File(imagePathOfProfileImage));
             int desiredWidth = 200; 
@@ -1980,7 +1979,7 @@ public class TeacherGUI implements ActionListener{
             int userID = Integer.parseInt(userIDField.getText());
             String password = passwordField.getText();
             
-            if ((userID == 100 && password.equals("admin1"))) {
+            if ((userID == 100 && password.equals("admin"))) {
                 // Clear text fields
                 clearInputFields();
                 // Remove the current panel and add the new panels
@@ -2277,7 +2276,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.revalidate();
             mainPanel.repaint();
         }
-       //-----------------------------------------------------------------------------------------------------------------------
         if (e.getSource() == lecturerGUIBackButton){
             mainPanel.remove(lecturerPanel);
             mainPanel.add(leftSideMenuPanel);
@@ -2286,7 +2284,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.repaint();
         }
         if (e.getSource() == displayDataBackButton){
-            // Remove the current pannel and add new panel
             mainPanel.remove(displayDataPanel);
             mainPanel.add(leftSideMenuPanel);
             mainPanel.add(dashBoardBackground);
@@ -2764,7 +2761,7 @@ public class TeacherGUI implements ActionListener{
                     JFrame tutorDataFrame = new JFrame("Tutor Data");
 
                     JPanel panel = new JPanel();
-                    panel.setLayout(null); // You may consider using a layout manager here
+                    panel.setLayout(null);
                     panel.setBackground(Color.BLACK);
 
                     JLabel heading = new JLabel("Teacher Details");
@@ -2776,126 +2773,125 @@ public class TeacherGUI implements ActionListener{
                     // Add other components similarly
                     JLabel IDLabel = new JLabel("Teacher ID: ");
                     IDLabel.setForeground(Color.WHITE); 
-                    IDLabel.setBounds(80, 170, 120, 30);
+                    IDLabel.setBounds(200, 170, 120, 30);
                     IDLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(IDLabel);
 
                     JLabel nameLabel = new JLabel("Teacher Name: ");
                     nameLabel.setForeground(Color.WHITE); 
-                    nameLabel.setBounds(80, 199, 120, 30);
+                    nameLabel.setBounds(200, 199, 120, 30);
                     nameLabel.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(nameLabel);
 
                     JLabel addressLabel = new JLabel("Address: ");
                     addressLabel.setForeground(Color.WHITE);
-                    addressLabel.setBounds(80, 228, 120, 30);
+                    addressLabel.setBounds(200, 228, 120, 30);
                     addressLabel.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(addressLabel);
 
                     JLabel workingTypeLabel = new JLabel("Working Type: ");
                     workingTypeLabel.setForeground(Color.WHITE); 
-                    workingTypeLabel.setBounds(80, 257, 120, 30);
+                    workingTypeLabel.setBounds(200, 257, 120, 30);
                     workingTypeLabel.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(workingTypeLabel);
 
                     JLabel employmentStatusLabel = new JLabel("Employment Status: ");
                     employmentStatusLabel.setForeground(Color.WHITE);
-                    employmentStatusLabel.setBounds(80, 286, 120, 30);
+                    employmentStatusLabel.setBounds(200, 286, 200, 30);
                     employmentStatusLabel.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(employmentStatusLabel);
 
                     JLabel workingHoursLabel = new JLabel("Working Hours: ");
                     workingHoursLabel.setForeground(Color.WHITE);
-                    workingHoursLabel.setBounds(80, 315, 120, 30);
+                    workingHoursLabel.setBounds(200, 315, 200, 30);
                     workingHoursLabel.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(workingHoursLabel);
 
                     JLabel salaryLabel = new JLabel("Salary: ");
                     salaryLabel.setForeground(Color.WHITE); 
-                    salaryLabel.setBounds(80, 344, 120, 30);
+                    salaryLabel.setBounds(200, 344, 120, 30);
                     salaryLabel.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(salaryLabel);
 
                     JLabel specializationLabel = new JLabel("Specialization: ");
                     specializationLabel.setForeground(Color.WHITE);
-                    specializationLabel.setBounds(80, 373, 120, 30);
+                    specializationLabel.setBounds(200, 373, 200, 30);
                     specializationLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(specializationLabel);
 
                     JLabel qualificationsLabel = new JLabel("Qualifications: ");
                     qualificationsLabel.setForeground(Color.WHITE); 
-                    qualificationsLabel.setBounds(80, 402, 120, 30);
+                    qualificationsLabel.setBounds(200, 402, 200, 30);
                     qualificationsLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(qualificationsLabel);
 
                     JLabel performanceIndexLabel = new JLabel("Performance Index: ");
                     performanceIndexLabel.setForeground(Color.WHITE);
-                    performanceIndexLabel.setBounds(80, 431, 120, 30);
+                    performanceIndexLabel.setBounds(200, 431, 200, 30);
                     performanceIndexLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(performanceIndexLabel);
 
                     JLabel teacherID = new JLabel(Integer.toString(tutor.getTeacherId()));
                     teacherID.setForeground(Color.WHITE); 
-                    teacherID.setBounds(200, 170, 120, 30);
+                    teacherID.setBounds(380, 170, 120, 30);
                     teacherID.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(teacherID);
 
                     JLabel teacherName = new JLabel(tutor.getTeacherName());
                     teacherName.setForeground(Color.WHITE); 
-                    teacherName.setBounds(200, 199, 120, 30);
+                    teacherName.setBounds(380, 199, 120, 30);
                     teacherName.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(teacherName);
 
                     JLabel address = new JLabel(tutor.getAddress());
                     address.setForeground(Color.WHITE); 
-                    address.setBounds(200, 228, 120, 30);
+                    address.setBounds(380, 228, 120, 30);
                     address.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(address);
 
                     JLabel workingType = new JLabel(tutor.getWorkingType());
                     workingType.setForeground(Color.WHITE);
-                    workingType.setBounds(200, 257, 120, 30);
+                    workingType.setBounds(380, 257, 120, 30);
                     workingType.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(workingType);
 
                     JLabel employmentStatus = new JLabel(tutor.getEmploymentStatus());
                     employmentStatus.setForeground(Color.WHITE); 
-                    employmentStatus.setBounds(200, 286, 120, 30);
+                    employmentStatus.setBounds(380, 286, 120, 30);
                     employmentStatus.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(employmentStatus);
 
                     JLabel workingHours = new JLabel(Integer.toString(tutor.getWorkingHours()));
                     workingHours.setForeground(Color.WHITE); 
-                    workingHours.setBounds(200, 315, 120, 30);
+                    workingHours.setBounds(380, 315, 120, 30);
                     workingHours.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(workingHours);
 
                     JLabel salary = new JLabel(Double.toString(((Tutor) tutor).getSalary()));
                     salary.setForeground(Color.WHITE);
-                    salary.setBounds(200, 344, 120, 30);
+                    salary.setBounds(380, 344, 120, 30);
                     salary.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(salary);
 
                     JLabel specialization = new JLabel(((Tutor) tutor).getSpecialization());
                     specialization.setForeground(Color.WHITE);
-                    specialization.setBounds(200, 373, 120, 30);
+                    specialization.setBounds(380, 373, 120, 30);
                     specialization.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(specialization);
 
                     JLabel qualifications = new JLabel(((Tutor) tutor).getAcademicQualifications());
                     qualifications.setForeground(Color.WHITE); 
-                    qualifications.setBounds(200, 402, 120, 30);
+                    qualifications.setBounds(380, 402, 120, 30);
                     qualifications.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(qualifications);
 
                     JLabel performanceIndex = new JLabel(Integer.toString(((Tutor) tutor).getPerformanceIndex()));
                     performanceIndex.setForeground(Color.WHITE);
-                    performanceIndex.setBounds(200, 431, 120, 30);
+                    performanceIndex.setBounds(380, 431, 120, 30);
                     performanceIndex.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(performanceIndex);
 
                     tutorDataFrame.getContentPane().add(panel); // Add panel to the frame's content pane
-
                     tutorDataFrame.setSize(900, 550);
                     tutorDataFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                     tutorDataFrame.setLocationRelativeTo(null); // Center the frame
@@ -2928,14 +2924,10 @@ public class TeacherGUI implements ActionListener{
         
                 if (lecturer != null) {
                     JFrame lecturerDataFrame = new JFrame("Lecturer Data");
-                    lecturerDataFrame.setSize(900, 550);
-                    lecturerDataFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    lecturerDataFrame.setLocationRelativeTo(null); // Center the frame
-                    //lecturerDataFrame.setLayout(null);
                     
                     JPanel panel = new JPanel();
                     panel.setBackground(Color.BLACK);
-                    lecturerDataFrame.add(panel);
+                    panel.setLayout(null);
 
                     JLabel heading = new JLabel("Teacher Details");
                     heading.setForeground(Color.WHITE);
@@ -2945,121 +2937,128 @@ public class TeacherGUI implements ActionListener{
 
                     JLabel IDLabel = new JLabel("Teacher ID: ");
                     IDLabel.setForeground(Color.WHITE); 
-                    IDLabel.setBounds(80, 170, 120, 30);
+                    IDLabel.setBounds(200, 170, 120, 30);
                     IDLabel.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(IDLabel);
 
                     JLabel nameLabel = new JLabel("Teacher Name: ");
                     nameLabel.setForeground(Color.WHITE); 
-                    nameLabel.setBounds(80, 199, 120, 30);
+                    nameLabel.setBounds(200, 199, 120, 30);
                     nameLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(nameLabel);
 
                     JLabel addressLabel = new JLabel("Address : ");
                     addressLabel.setForeground(Color.WHITE); 
-                    addressLabel.setBounds(80, 228, 120, 30);
+                    addressLabel.setBounds(200, 228, 120, 30);
                     addressLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(addressLabel);
 
                     JLabel workingTypeLabel = new JLabel("Working Type: ");
                     workingTypeLabel.setForeground(Color.WHITE); 
-                    workingTypeLabel.setBounds(80, 257, 120, 30);
+                    workingTypeLabel.setBounds(200, 257, 200, 30);
                     workingTypeLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(workingTypeLabel);
 
                     JLabel employmentStatusLabel = new JLabel("Employment Status: ");
                     employmentStatusLabel.setForeground(Color.WHITE); 
-                    employmentStatusLabel.setBounds(80, 286, 120, 30);
+                    employmentStatusLabel.setBounds(200, 286, 200, 30);
                     employmentStatusLabel.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(employmentStatusLabel);
 
                     JLabel workingHoursLabel = new JLabel("Working Hours: ");
                     workingHoursLabel.setForeground(Color.WHITE); 
-                    workingHoursLabel.setBounds(80, 315, 120, 30);
+                    workingHoursLabel.setBounds(200, 315, 120, 30);
                     workingHoursLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(workingHoursLabel);
 
                     JLabel departmentLabel = new JLabel("Department: ");
                     departmentLabel.setForeground(Color.WHITE); 
-                    departmentLabel.setBounds(80, 344, 120, 30);
+                    departmentLabel.setBounds(200, 344, 120, 30);
                     departmentLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(departmentLabel);
 
                     JLabel yearsOfExperienceLabel = new JLabel("Years of Experience: ");
                     yearsOfExperienceLabel.setForeground(Color.WHITE); 
-                    yearsOfExperienceLabel.setBounds(80, 373, 120, 30);
+                    yearsOfExperienceLabel.setBounds(200, 373, 200, 30);
                     yearsOfExperienceLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(yearsOfExperienceLabel);
 
                     JLabel GradedAssignments = new JLabel("Graded Assignments: ");
                     GradedAssignments.setForeground(Color.WHITE);
-                    GradedAssignments.setBounds(80, 402, 120, 30);
+                    GradedAssignments.setBounds(200, 402, 200, 30);
                     GradedAssignments.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(GradedAssignments);
 
                     JLabel teacherID = new JLabel(Integer.toString(lecturer.getTeacherId()));
                     teacherID.setForeground(Color.WHITE); 
-                    teacherID.setBounds(200, 170, 120, 30);
+                    teacherID.setBounds(410, 170, 120, 30);
                     teacherID.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(teacherID);
 
                     JLabel teacherName = new JLabel(lecturer.getTeacherName());
                     teacherName.setForeground(Color.WHITE); 
-                    teacherName.setBounds(200, 199, 120, 30);
+                    teacherName.setBounds(380, 199, 200, 30);
                     teacherName.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(teacherName);
 
                     JLabel address = new JLabel(lecturer.getAddress());
                     address.setForeground(Color.WHITE); 
-                    address.setBounds(200, 228, 120, 30);
+                    address.setBounds(380, 228, 300, 30);
                     address.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(address);
 
                     JLabel workingType = new JLabel(lecturer.getWorkingType());
                     workingType.setForeground(Color.WHITE); 
-                    workingType.setBounds(200, 257, 120, 30);
+                    workingType.setBounds(380, 257, 120, 30);
                     workingType.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(workingType);
 
                     JLabel employmentStatus = new JLabel(lecturer.getEmploymentStatus());
                     employmentStatus.setForeground(Color.WHITE); 
-                    employmentStatus.setBounds(200, 286, 120, 30);
+                    employmentStatus.setBounds(380, 286, 120, 30);
                     employmentStatus.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(employmentStatus);
 
                     JLabel workingHours = new JLabel(Integer.toString(lecturer.getWorkingHours()));
                     workingHours.setForeground(Color.WHITE); 
-                    workingHours.setBounds(200, 315, 120, 30);
+                    workingHours.setBounds(380, 315, 120, 30);
                     workingHours.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(workingHours);
 
                     JLabel department = new JLabel(((Lecturer) lecturer).getDepartment());
                     department.setForeground(Color.WHITE); 
-                    department.setBounds(200, 344, 120, 30);
+                    department.setBounds(380, 344, 200, 30);
                     department.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(department);
 
                     JLabel yearsOfExperience = new JLabel(Integer.toString(((Lecturer) lecturer).getYearsOfExperience()));
                     yearsOfExperience.setForeground(Color.WHITE);
-                    yearsOfExperience.setBounds(200, 373, 120, 30);
+                    yearsOfExperience.setBounds(380, 373, 120, 30);
                     yearsOfExperience.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(yearsOfExperience);
 
                     if (((Lecturer) lecturer).getHasGraded()) {
-                        JLabel gradedScoreLabel = new JLabel("Graded Score: " + ((Lecturer) lecturer).getGradedScore());
+                        JLabel gradedScoreLabel = new JLabel(String.valueOf(((Lecturer) lecturer).getGradedScore()));
                         gradedScoreLabel.setForeground(Color.WHITE); 
-                        gradedScoreLabel.setBounds(200, 402, 120, 30);
+                        gradedScoreLabel.setBounds(380, 402, 120, 30);
                         gradedScoreLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                         panel.add(gradedScoreLabel);
                     } else {
                         JLabel gradedScoreLabel = new JLabel("Assignments not yet graded.");
                         gradedScoreLabel.setForeground(Color.WHITE);
-                        gradedScoreLabel.setBounds(200, 402, 120, 30);
+                        gradedScoreLabel.setBounds(380, 402, 300, 30);
                         gradedScoreLabel.setFont(new Font("Arial", Font.BOLD, 15));
                         panel.add(gradedScoreLabel);
                     }
                     
+                    lecturerDataFrame.getContentPane().add(panel); 
+                    lecturerDataFrame.setSize(900, 550);
+                    lecturerDataFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    lecturerDataFrame.setLocationRelativeTo(null); 
                     lecturerDataFrame.setVisible(true);
+
+                    clearInputFields();
+
                 } else {
                     JOptionPane.showMessageDialog(null, "Teacher ID not found or is not a lecturer.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -3086,58 +3085,61 @@ public class TeacherGUI implements ActionListener{
         
                 if (tutor != null) {
                     JFrame displaySalaryFrame = new JFrame("Tutor Salary");
-                    displaySalaryFrame.setSize(900, 550);
-                    displaySalaryFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    displaySalaryFrame.setLocationRelativeTo(null); // Center the frame
-                    displaySalaryFrame.setLayout(null);
                     
                     JPanel panel = new JPanel();
                     panel.setBackground(Color.BLACK);
                     displaySalaryFrame.add(panel);
+                    panel.setLayout(null);
 
                     JLabel heading = new JLabel("Teacher Salary");
                     heading.setForeground(Color.WHITE); 
                     heading.setFont(new Font("Arial", Font.BOLD, 20)); 
-                    heading.setBounds(271, 54, 358, 57);
+                    heading.setBounds(300, 150, 358, 57);
                     panel.add(heading);
 
                     JLabel IDLabel = new JLabel("Teacher ID: ");
                     IDLabel.setForeground(Color.WHITE); 
-                    IDLabel.setBounds(199, 231, 120, 30);
+                    IDLabel.setBounds(310, 231, 120, 30);
                     IDLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(IDLabel);
 
                     JLabel nameLabel = new JLabel("Teacher Name: ");
                     nameLabel.setForeground(Color.WHITE); 
-                    nameLabel.setBounds(199, 260, 120, 30);
+                    nameLabel.setBounds(310, 260, 120, 30);
                     nameLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(nameLabel);
 
                     JLabel salaryLabel = new JLabel("Salary: ");
                     salaryLabel.setForeground(Color.WHITE); 
-                    salaryLabel.setBounds(199, 289, 120, 30);
+                    salaryLabel.setBounds(310, 289, 120, 30);
                     salaryLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(salaryLabel);
 
                     JLabel teacherID = new JLabel(Integer.toString(tutor.getTeacherId()));
                     teacherID.setForeground(Color.WHITE); 
-                    teacherID.setBounds(359, 231, 120, 30);
+                    teacherID.setBounds(469, 231, 120, 30);
                     teacherID.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(teacherID);
 
                     JLabel teacherName = new JLabel(tutor.getTeacherName());
                     teacherName.setForeground(Color.WHITE); 
-                    teacherName.setBounds(359, 260, 120, 30);
+                    teacherName.setBounds(469, 260, 200, 30);
                     teacherName.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(teacherName);
 
                     JLabel salary = new JLabel(Double.toString(tutor.getSalary()));
                     salary.setForeground(Color.WHITE); 
-                    salary.setBounds(359, 289, 120, 30);
+                    salary.setBounds(469, 289, 200, 30);
                     salary.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(salary);
         
+                    displaySalaryFrame.getContentPane().add(panel); 
+                    displaySalaryFrame.setSize(900, 550);
+                    displaySalaryFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    displaySalaryFrame.setLocationRelativeTo(null); 
                     displaySalaryFrame.setVisible(true);
+
+                    clearInputFields();
                 } else {
                     JOptionPane.showMessageDialog(null, "Teacher ID not found or not a Tutor.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -3164,67 +3166,69 @@ public class TeacherGUI implements ActionListener{
                 
                 if (lecturer != null) {
                     JFrame gradedFrame = new JFrame("Graded Assignments");
-                    gradedFrame.setSize(900, 550);
-                    gradedFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    gradedFrame.setLocationRelativeTo(null); // Center the frame
-                    gradedFrame.setLayout(null);
                     
                     JPanel panel = new JPanel();
                     panel.setBackground(Color.BLACK);
-                    gradedFrame.add(panel);
+                    panel.setLayout(null);
 
                     JLabel heading = new JLabel("Graded Assignments");
                     heading.setForeground(Color.WHITE);
                     heading.setFont(new Font("Arial", Font.BOLD, 20)); 
-                    heading.setBounds(271, 54, 358, 57);
+                    heading.setBounds(300, 150, 358, 57);
                     panel.add(heading);
 
                     JLabel IDLabel = new JLabel("Teacher ID: ");
                     IDLabel.setForeground(Color.WHITE); 
-                    IDLabel.setBounds(199, 231, 120, 30);
+                    IDLabel.setBounds(310, 231, 120, 30);
                     IDLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(IDLabel);
 
                     JLabel nameLabel = new JLabel("Teacher Name: ");
                     nameLabel.setForeground(Color.WHITE); 
-                    nameLabel.setBounds(199, 260, 120, 30);
+                    nameLabel.setBounds(310, 260, 300, 30);
                     nameLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(nameLabel);
 
                     JLabel gradedScoreLabel = new JLabel("Graded Score: ");
                     gradedScoreLabel.setForeground(Color.WHITE); 
-                    gradedScoreLabel.setBounds(199, 289, 120, 30);
+                    gradedScoreLabel.setBounds(310, 289, 120, 30);
                     gradedScoreLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(gradedScoreLabel);
 
                     JLabel teacherIDLabel = new JLabel(Integer.toString(lecturer.getTeacherId()));
                     teacherIDLabel.setForeground(Color.WHITE); 
-                    teacherIDLabel.setBounds(359, 231, 120, 30);
+                    teacherIDLabel.setBounds(469, 231, 120, 30);
                     teacherIDLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(teacherIDLabel);
 
                     JLabel teacherNameLabel = new JLabel(lecturer.getTeacherName());
                     teacherNameLabel.setForeground(Color.WHITE); 
-                    teacherNameLabel.setBounds(359, 260, 120, 30);
+                    teacherNameLabel.setBounds(469, 260, 200, 30);
                     teacherNameLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(teacherNameLabel);
 
                     if (lecturer.getHasGraded()) {
                         JLabel gradedScore = new JLabel(Integer.toString((lecturer.getGradedScore())));
                         gradedScore.setForeground(Color.WHITE); 
-                        gradedScore.setBounds(359, 289, 120, 30);
+                        gradedScore.setBounds(469, 289, 120, 30);
                         gradedScore.setFont(new Font("Arial", Font.BOLD, 15)); 
                         panel.add(gradedScore);
                     }else {
                         JLabel gradedScore = new JLabel("Assignments not yet graded.");
                         gradedScore.setForeground(Color.WHITE); 
-                        gradedScore.setBounds(359, 289, 120, 30);
+                        gradedScore.setBounds(469, 289, 300, 30);
                         gradedScore.setFont(new Font("Arial", Font.BOLD, 15)); 
                         panel.add(gradedScore);
                     }
                     
-                    
+                    gradedFrame.getContentPane().add(panel); 
+                    gradedFrame.setSize(900, 550);
+                    gradedFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    gradedFrame.setLocationRelativeTo(null); 
                     gradedFrame.setVisible(true);
+
+                    clearInputFields();
+
                 }else {
                     JOptionPane.showMessageDialog(null, "Teacher ID not found.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
