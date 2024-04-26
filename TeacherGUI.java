@@ -611,7 +611,7 @@ public class TeacherGUI implements ActionListener{
         // Create ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         // Create JButton with just the image
-        JButton lecturerGUIBackButton = new JButton(scaledIcon);
+        lecturerGUIBackButton = new JButton(scaledIcon);
         lecturerGUIBackButton.setBounds(378, 91, width, height); 
         // Make the button transparent
         lecturerGUIBackButton.setOpaque(false);
@@ -2762,17 +2762,18 @@ public class TeacherGUI implements ActionListener{
         
                 if (tutor != null) {
                     JFrame tutorDataFrame = new JFrame("Tutor Data");
-                    
+
                     JPanel panel = new JPanel();
+                    panel.setLayout(null); // You may consider using a layout manager here
                     panel.setBackground(Color.BLACK);
-                    tutorDataFrame.add(panel);
 
                     JLabel heading = new JLabel("Teacher Details");
-                    heading.setForeground(Color.WHITE); 
+                    heading.setForeground(Color.WHITE);
                     heading.setFont(new Font("Arial", Font.BOLD, 25));
                     heading.setBounds(271, 54, 358, 57);
                     panel.add(heading);
 
+                    // Add other components similarly
                     JLabel IDLabel = new JLabel("Teacher ID: ");
                     IDLabel.setForeground(Color.WHITE); 
                     IDLabel.setBounds(80, 170, 120, 30);
@@ -2832,7 +2833,7 @@ public class TeacherGUI implements ActionListener{
                     performanceIndexLabel.setBounds(80, 431, 120, 30);
                     performanceIndexLabel.setFont(new Font("Arial", Font.BOLD, 15)); 
                     panel.add(performanceIndexLabel);
-        
+
                     JLabel teacherID = new JLabel(Integer.toString(tutor.getTeacherId()));
                     teacherID.setForeground(Color.WHITE); 
                     teacherID.setBounds(200, 170, 120, 30);
@@ -2893,10 +2894,11 @@ public class TeacherGUI implements ActionListener{
                     performanceIndex.setFont(new Font("Arial", Font.BOLD, 15));
                     panel.add(performanceIndex);
 
+                    tutorDataFrame.getContentPane().add(panel); // Add panel to the frame's content pane
+
                     tutorDataFrame.setSize(900, 550);
                     tutorDataFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                     tutorDataFrame.setLocationRelativeTo(null); // Center the frame
-                    //tutorDataFrame.setLayout(null);
                     tutorDataFrame.setVisible(true);
 
                     clearInputFields();
