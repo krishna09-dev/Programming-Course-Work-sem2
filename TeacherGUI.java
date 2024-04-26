@@ -2437,7 +2437,6 @@ public class TeacherGUI implements ActionListener{
                                 }
                             }
                         }
-
                         // Create a new Lecturer object
                         Lecturer newLecturer = new Lecturer(teacherId, teacherName, address, workingType, employmentStatus,
                                                             workingHours, department, yearsOfExperience);
@@ -2540,8 +2539,7 @@ public class TeacherGUI implements ActionListener{
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Invalid input format for numeric fields.", "Error", JOptionPane.ERROR_MESSAGE);
             }
-        }
-               
+        }       
         if(e.getSource() == clearButtonOfAddTutorOfAddTutor){
             clearInputFields();
         }
@@ -2606,8 +2604,7 @@ public class TeacherGUI implements ActionListener{
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Invalid input format for teacher ID.", "Error", JOptionPane.ERROR_MESSAGE);
             } 
-        }
-        
+        } 
         if(e.getSource() == clearButtonOfRemoveTutor){
             clearInputFields();
         }     
