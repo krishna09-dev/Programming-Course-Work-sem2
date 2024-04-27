@@ -23,7 +23,6 @@ import java.util.ArrayList;
 public class TeacherGUI implements ActionListener{
 
     private JFrame frame;
-    private JTextField userIDField, passwordField;
 
     private JButton startLoginButton,mainLoginButton,displayData,lecturer,addLecturer,tutor,addTutor,profile,gradeAssignmentOfAssignmentGUI,
     menuHome,menuLecturer,menuTutor,menuAssignments,menuProfile,menuLogOut,assignment,setSalaryOfTutor,removeTutor,displayTutorDataOfTutorGUI,
@@ -39,7 +38,7 @@ public class TeacherGUI implements ActionListener{
     ,addTutorPanel,removeTutorPanel,displayTutorSalaryPanel,setSalaryPanel,assignmentPanel,displayGradedAssignmentsPanel,profileGUIPanel,displayTutorDataPanel,
     displayLecturerDataPanel,gradedAssignmentsPanel;
     
-    private JTextField teacherIDFieldOfAddLecturer,teacherNameFieldOfAddLecturer,addressFieldOfAddLecturer,workingTypeFieldOfAddLecturer,employmentStatusFieldOfAddLecturer,
+    private JTextField userIDField,passwordField,teacherIDFieldOfAddLecturer,teacherNameFieldOfAddLecturer,addressFieldOfAddLecturer,workingTypeFieldOfAddLecturer,employmentStatusFieldOfAddLecturer,
     workingHoursFieldOfAddLecturer,yearsOfExperienceFieldOfAddLecturer,departmentFieldOfAddLecturer,teacherIDFieldDisplayLecturerData,addressFieldOfAddTutor,
     teacherNameFieldOfAddTutor,teacherIDFieldOfAddTutor,workingTypeFieldOfAddTutor,employmentStatusFieldOfAddTutor,workingHoursFieldOfAddTutor,salaryFieldOfAddTutor,
     specializationFieldOfAddTutor,performanceIndexFieldOfAddTutor,academicQualificationsFieldOfAddTutor,teacherIDFieldOfRemoveTutor,teacherIDFieldOfDisplayTutorSalary,
@@ -426,7 +425,7 @@ public class TeacherGUI implements ActionListener{
         rightSideH1.setForeground(new java.awt.Color(101, 151, 128));
         rightSidePanel.add(rightSideH1);
 
-        JLabel rightSideH2 = new JLabel("Welcome UserName");
+        JLabel rightSideH2 = new JLabel("Welcome Admin");
         rightSideH2.setBounds(576, 118, 469, 58);
         rightSideH2.setFont(new java.awt.Font("Arial", 1, 35));
         rightSideH2.setForeground(new java.awt.Color(105, 105, 105));
@@ -575,6 +574,7 @@ public class TeacherGUI implements ActionListener{
         //main panel where  components are added
         JPanel rightSidePanel = new JPanel();
 
+        // adding components and setting up there size,color,positions etc
         JLabel rightSideH1 = new JLabel("Islington College");
         rightSideH1.setBounds(1100, 32, 228, 38);
         rightSideH1.setFont(new java.awt.Font("Arial", 1, 15));
@@ -639,6 +639,7 @@ public class TeacherGUI implements ActionListener{
         //main panel where  components are added
         JPanel rightSidePanel = new JPanel();
 
+        // adding components and setting up there size,color,positions etc
         JLabel rightSideH1 = new JLabel("Islington College");
         rightSideH1.setBounds(1100, 32, 228, 38);
         rightSideH1.setFont(new java.awt.Font("Arial", 1, 15));
@@ -814,6 +815,7 @@ public class TeacherGUI implements ActionListener{
         //main panel where  components are added
         JPanel rightSidePanel = new JPanel();
 
+        // adding components and setting up there size,color,positions etc
         JLabel rightSideH1 = new JLabel("Islington College");
         rightSideH1.setBounds(1100, 32, 228, 38);
         rightSideH1.setFont(new java.awt.Font("Arial", 1, 15));
@@ -986,6 +988,7 @@ public class TeacherGUI implements ActionListener{
         //main panel where  components are added
         JPanel rightSidePanel = new JPanel();
 
+        // adding components and setting up there size,color,positions etc
         JLabel rightSideH1 = new JLabel("Islington College");
         rightSideH1.setBounds(1100, 32, 228, 38);
         rightSideH1.setFont(new java.awt.Font("Arial", 1, 15));
@@ -1185,6 +1188,7 @@ public class TeacherGUI implements ActionListener{
         //main panel where  components are added
         JPanel rightSidePanel = new JPanel();
 
+        // adding components and setting up there size,color,positions etc
         JLabel rightSideH1 = new JLabel("Islington College");
         rightSideH1.setBounds(1100, 32, 228, 38);
         rightSideH1.setFont(new java.awt.Font("Arial", 1, 15));
@@ -1267,6 +1271,7 @@ public class TeacherGUI implements ActionListener{
         //main panel where  components are added
         JPanel rightSidePanel = new JPanel();
 
+        // adding components and setting up there size,color,positions etc
         JLabel rightSideH1 = new JLabel("Islington College");
         rightSideH1.setBounds(1100, 32, 228, 38);
         rightSideH1.setFont(new java.awt.Font("Arial", 1, 15));
@@ -1349,6 +1354,7 @@ public class TeacherGUI implements ActionListener{
         //main panel where  components are added
         JPanel rightSidePanel = new JPanel();
 
+        // adding components and setting up there size,color,positions etc
         JLabel rightSideH1 = new JLabel("Islington College");
         rightSideH1.setBounds(1100, 32, 228, 38);
         rightSideH1.setFont(new java.awt.Font("Arial", 1, 15));
@@ -1431,6 +1437,7 @@ public class TeacherGUI implements ActionListener{
         //main panel where  components are added
         JPanel rightSidePanel = new JPanel();
 
+        // adding components and setting up there size,color,positions etc  
         JLabel rightSideH1 = new JLabel("Islington College");
         rightSideH1.setBounds(1100, 32, 228, 38);
         rightSideH1.setFont(new java.awt.Font("Arial", 1, 15));
@@ -1539,6 +1546,7 @@ public class TeacherGUI implements ActionListener{
         //main panel where  components are added
         JPanel rightSidePanel = new JPanel();
 
+        // adding components and setting up there size,color,positions etc
         JLabel rightSideH1 = new JLabel("Islington College");
         rightSideH1.setBounds(1100, 32, 228, 38);
         rightSideH1.setFont(new java.awt.Font("Arial", 1, 15));
@@ -1604,6 +1612,7 @@ public class TeacherGUI implements ActionListener{
         //main panel where  components are added
         JPanel rightSidePanel = new JPanel();
 
+        // adding components and setting up there size,color,positions etc
         JLabel rightSideH1 = new JLabel("Islington College");
         rightSideH1.setBounds(1100, 32, 228, 38);
         rightSideH1.setFont(new java.awt.Font("Arial", 1, 15));
@@ -1725,6 +1734,7 @@ public class TeacherGUI implements ActionListener{
         //main panel where  components are added
         JPanel rightSidePanel = new JPanel();
 
+        // adding components and setting up there size,color,positions etc
         JLabel rightSideH1 = new JLabel("Islington College");
         rightSideH1.setBounds(1100, 32, 228, 38);
         rightSideH1.setFont(new java.awt.Font("Arial", 1, 15));
@@ -1807,6 +1817,7 @@ public class TeacherGUI implements ActionListener{
         //main panel where  components are added
         JPanel rightSidePanel = new JPanel();
 
+        // adding components and setting up there size,color,positions etc
         JLabel rightSideH1 = new JLabel("Islington College");
         rightSideH1.setBounds(1100, 32, 228, 38);
         rightSideH1.setFont(new java.awt.Font("Arial", 1, 15));
@@ -2000,7 +2011,6 @@ public class TeacherGUI implements ActionListener{
             }
         }  
         if (e.getSource() == displayData) {
-            // Remove the current pannel and add new panel
             mainPanel.remove(dashBoardBackground);
             mainPanel.add(leftSideMenuPanel);
             mainPanel.add(displayDataPanel);
@@ -2008,7 +2018,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.repaint();
         }
         if (e.getSource() == displayGradedAssignmentsOfDisplayGUI) {
-            // Remove the current pannel and add new panel
             mainPanel.remove(displayDataPanel);
             mainPanel.add(leftSideMenuPanel);
             mainPanel.add(displayGradedAssignmentsPanel);
@@ -2016,7 +2025,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.repaint();
         }
         if (e.getSource() == displayGradedScoreOfAssignmentGUI) {
-            // Remove the current pannel and add new panel
             mainPanel.remove(assignmentPanel);
             mainPanel.add(leftSideMenuPanel);
             mainPanel.add(displayGradedAssignmentsPanel);
@@ -2024,7 +2032,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.repaint();
         }
         if (e.getSource() == gradeAssignmentOfAssignmentGUI) {
-            // Remove the current pannel and add new panel
             mainPanel.remove(assignmentPanel);
             mainPanel.add(leftSideMenuPanel);
             mainPanel.add(gradedAssignmentsPanel);
@@ -2032,7 +2039,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.repaint();
         }
         if (e.getSource() == displayTutorDataOfDisplayGUI) {
-            // Remove the current pannel and add new panel
             mainPanel.remove(displayDataPanel);
             mainPanel.add(leftSideMenuPanel);
             mainPanel.add(displayTutorDataPanel);
@@ -2040,7 +2046,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.repaint();
         }
         if (e.getSource() == displayLecturerDataOfDisplayGUI) {
-            // Remove the current pannel and add new panel
             mainPanel.remove(displayDataPanel);
             mainPanel.add(leftSideMenuPanel);
             mainPanel.add(displayLecturerDataPanel);
@@ -2048,7 +2053,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.repaint();
         }
         if (e.getSource() == displayTutorSalaryOfDisplayGUI) {
-            // Remove the current pannel and add new panel
             mainPanel.remove(displayDataPanel);
             mainPanel.add(leftSideMenuPanel);
             mainPanel.add(displayTutorSalaryPanel);
@@ -2056,7 +2060,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.repaint();
         }
         if (e.getSource() == lecturer) {
-            // Remove the current pannel and add new panel    
             mainPanel.remove(dashBoardBackground);
             mainPanel.add(leftSideMenuPanel);
             mainPanel.add(lecturerPanel);
@@ -2064,7 +2067,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.repaint();
         }
         if (e.getSource() == addLecturer) {
-            // Remove the current pannel and add new panel    
             mainPanel.remove(lecturerPanel);
             mainPanel.add(leftSideMenuPanel);
             mainPanel.add(addlecturerPanel);
@@ -2072,7 +2074,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.repaint();
         }
         if (e.getSource() == displayLecturerDataOfLecturerGUI) {
-            // Remove the current pannel and add new panel    
             mainPanel.remove(lecturerPanel);
             mainPanel.add(leftSideMenuPanel);
             mainPanel.add(displayLecturerDataPanel);
@@ -2080,7 +2081,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.repaint();
         }
         if (e.getSource() == tutor) {
-            // Remove the current pannel and add new panel    
             mainPanel.remove(dashBoardBackground);
             mainPanel.add(leftSideMenuPanel);
             mainPanel.add(tutorPanel);
@@ -2088,7 +2088,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.repaint();
         }
         if (e.getSource() == displayTutorDataOfTutorGUI){
-            // Remove the current pannel and add new panel    
             mainPanel.remove(tutorPanel);
             mainPanel.add(leftSideMenuPanel);
             mainPanel.add(displayTutorDataPanel);
@@ -2096,7 +2095,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.repaint();
         }
         if (e.getSource() == addTutor) {
-            // Remove the current pannel and add new panel    
             mainPanel.remove(tutorPanel);
             mainPanel.add(leftSideMenuPanel);
             mainPanel.add(addTutorPanel);
@@ -2104,7 +2102,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.repaint();
         }
         if (e.getSource() == setSalaryOfTutor) {
-            // Remove the current pannel and add new panel    
             mainPanel.remove(tutorPanel);
             mainPanel.add(leftSideMenuPanel);
             mainPanel.add(setSalaryPanel);
@@ -2112,7 +2109,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.repaint();
         }
         if (e.getSource() == removeTutor) {
-            // Remove the current pannel and add new panel    
             mainPanel.remove(tutorPanel);
             mainPanel.add(leftSideMenuPanel);
             mainPanel.add(removeTutorPanel);
@@ -2120,7 +2116,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.repaint();
         }
         if (e.getSource() == displayTutorSalaryOfTutorGUI) {
-            // Remove the current pannel and add new panel    
             mainPanel.remove(tutorPanel);
             mainPanel.add(leftSideMenuPanel);
             mainPanel.add(displayTutorSalaryPanel); 
@@ -2128,7 +2123,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.repaint();
         }
         if (e.getSource() == assignment) {
-            // Remove the current pannel and add new panel    
             mainPanel.remove(dashBoardBackground);
             mainPanel.add(leftSideMenuPanel);
             mainPanel.add(assignmentPanel);
@@ -2136,15 +2130,13 @@ public class TeacherGUI implements ActionListener{
             mainPanel.repaint();
         }
         if (e.getSource() == profile) {
-            // Remove the current pannel and add new panel    
             mainPanel.remove(dashBoardBackground);
             mainPanel.add(leftSideMenuPanel);
             mainPanel.add(profileGUIPanel);
             mainPanel.revalidate();
             mainPanel.repaint();
         }
-        if (e.getSource() == menuHome) {
-            // Remove the current pannel and add new panel    
+        if (e.getSource() == menuHome) { 
             mainPanel.remove(lecturerPanel);
             mainPanel.remove(displayDataPanel);
             mainPanel.remove(addlecturerPanel);
@@ -2165,7 +2157,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.repaint();
         }
         if (e.getSource() == menuLecturer) {
-            // Remove the current pannel and add new panel    
             mainPanel.remove(dashBoardBackground);
             mainPanel.remove(displayDataPanel);
             mainPanel.remove(addlecturerPanel);
@@ -2186,7 +2177,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.repaint();
         }
         if (e.getSource() == menuTutor) {
-            // Remove the current pannel and add new panel    
             mainPanel.remove(dashBoardBackground);
             mainPanel.remove(displayDataPanel);
             mainPanel.remove(addlecturerPanel);
@@ -2207,7 +2197,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.repaint();
         }
         if (e.getSource() == menuAssignments) {
-            // Remove the current pannel and add new panel    
             mainPanel.remove(dashBoardBackground);
             mainPanel.remove(displayDataPanel);
             mainPanel.remove(addlecturerPanel);
@@ -2228,7 +2217,6 @@ public class TeacherGUI implements ActionListener{
             mainPanel.repaint();
         }
         if (e.getSource() == menuProfile) {
-            // Remove the current pannel and add new panel    
             mainPanel.remove(dashBoardBackground);
             mainPanel.remove(displayDataPanel);
             mainPanel.remove(addlecturerPanel);
@@ -2248,8 +2236,7 @@ public class TeacherGUI implements ActionListener{
             mainPanel.revalidate();
             mainPanel.repaint();
         }
-        if (e.getSource() == menuLogOut) {
-            // Remove the current pannel and add new panel    
+        if (e.getSource() == menuLogOut) {   
             mainPanel.remove(dashBoardBackground);
             mainPanel.remove(displayDataPanel);
             mainPanel.remove(addlecturerPanel);
