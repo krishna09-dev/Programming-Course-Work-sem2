@@ -2767,7 +2767,6 @@ public class TeacherGUI implements ActionListener{
                 String teacherIdString = teacherIDFieldDisplayTutorData.getText();
                 int teacherId = Integer.parseInt(teacherIdString);
                 Teacher tutor = null;
-        
                 if (teacherIdString.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Please enter a teacher ID.", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
