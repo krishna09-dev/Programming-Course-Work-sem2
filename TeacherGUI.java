@@ -1974,6 +1974,42 @@ public class TeacherGUI implements ActionListener{
         
     }
 
+    // Method to clear input fields
+    private void clearInputFields() {
+        userIDField.setText("");
+        passwordField.setText("");
+        teacherIDFieldOfAddLecturer.setText("");
+        teacherNameFieldOfAddLecturer.setText("");
+        addressFieldOfAddLecturer.setText("");
+        workingTypeFieldOfAddLecturer.setText("");
+        employmentStatusFieldOfAddLecturer.setText("");
+        workingHoursFieldOfAddLecturer.setText("");
+        departmentFieldOfAddLecturer.setText("");
+        yearsOfExperienceFieldOfAddLecturer.setText("");
+        teacherIDFieldDisplayLecturerData.setText("");
+        addressFieldOfAddTutor.setText("");
+        teacherNameFieldOfAddTutor.setText("");
+        teacherIDFieldOfAddTutor.setText("");
+        workingTypeFieldOfAddTutor.setText("");
+        employmentStatusFieldOfAddTutor.setText("");
+        workingHoursFieldOfAddTutor.setText("");
+        salaryFieldOfAddTutor.setText("");
+        specializationFieldOfAddTutor.setText("");
+        performanceIndexFieldOfAddTutor.setText("");
+        academicQualificationsFieldOfAddTutor.setText("");
+        teacherIDFieldOfRemoveTutor.setText("");
+        teacherIDFieldOfDisplayTutorSalary.setText("");
+        teacherIDFieldDisplayTutorData.setText("");
+        teacherIDFieldOfSetSalary.setText("");
+        newSalaryFieldOfSetSalary.setText("");
+        newPerformanceIndexFieldOfSetSalary.setText("");
+        teacherIDFieldOfGradeAssignment.setText("");
+        gradedScoreFieldOfGradeAssignment.setText("");
+        departmentFieldOfGradeAssignment.setText("");
+        yearsOfExperienceFieldOfGradeAssignment.setText("");
+        teacherIDFieldOfDisplayGradedAssignment.setText("");
+    }
+
     // Adding action 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -3229,43 +3265,7 @@ public class TeacherGUI implements ActionListener{
         
         
     }
-        
-    // Method to clear input fields
-    private void clearInputFields() {
-        userIDField.setText("");
-        passwordField.setText("");
-        teacherIDFieldOfAddLecturer.setText("");
-        teacherNameFieldOfAddLecturer.setText("");
-        addressFieldOfAddLecturer.setText("");
-        workingTypeFieldOfAddLecturer.setText("");
-        employmentStatusFieldOfAddLecturer.setText("");
-        workingHoursFieldOfAddLecturer.setText("");
-        departmentFieldOfAddLecturer.setText("");
-        yearsOfExperienceFieldOfAddLecturer.setText("");
-        teacherIDFieldDisplayLecturerData.setText("");
-        addressFieldOfAddTutor.setText("");
-        teacherNameFieldOfAddTutor.setText("");
-        teacherIDFieldOfAddTutor.setText("");
-        workingTypeFieldOfAddTutor.setText("");
-        employmentStatusFieldOfAddTutor.setText("");
-        workingHoursFieldOfAddTutor.setText("");
-        salaryFieldOfAddTutor.setText("");
-        specializationFieldOfAddTutor.setText("");
-        performanceIndexFieldOfAddTutor.setText("");
-        academicQualificationsFieldOfAddTutor.setText("");
-        teacherIDFieldOfRemoveTutor.setText("");
-        teacherIDFieldOfDisplayTutorSalary.setText("");
-        teacherIDFieldDisplayTutorData.setText("");
-        teacherIDFieldOfSetSalary.setText("");
-        newSalaryFieldOfSetSalary.setText("");
-        newPerformanceIndexFieldOfSetSalary.setText("");
-        teacherIDFieldOfGradeAssignment.setText("");
-        gradedScoreFieldOfGradeAssignment.setText("");
-        departmentFieldOfGradeAssignment.setText("");
-        yearsOfExperienceFieldOfGradeAssignment.setText("");
-        teacherIDFieldOfDisplayGradedAssignment.setText("");
-    }
-    
+         
     // Main Method
     public static void main(String[] args) {
         new TeacherGUI();
