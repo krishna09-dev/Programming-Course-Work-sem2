@@ -2645,9 +2645,10 @@ public class TeacherGUI implements ActionListener{
 
                 // Check if the ArrayList is empty
                 if (teachersList.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "No tutors available to set salary.", "Error",JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "No tutors available to set salary.", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
+
                 // Create a message to show the user the details they are about to add
                 String confirmMessage = "Are you sure you want to add the following tutor?\n\n"
                 + "Teacher ID: " + teacherId + "\n" 
@@ -2658,32 +2659,32 @@ public class TeacherGUI implements ActionListener{
                 // Show confirm dialog with customized buttons
                 int option = JOptionPane.showOptionDialog(null, confirmMessage, "Are you sure to add Tutor", JOptionPane.YES_NO_OPTION, 
                     JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-        
                 // Check user's choice
                 if (option == JOptionPane.YES_OPTION) {
-                    // Check if the teacher ID exists
-                    boolean teacherFound = false;
+                    // Check if the tutor ID exists
+                    boolean tutorFound = false;
                     for (Teacher teacher : teachersList) {
                         if (teacher.getTeacherId() == teacherId) {
-                            // Check if the teacher is a Tutor by checking the instance of the object
+                            // Check if the teacher is a Tutor
                             if (teacher instanceof Tutor) {
-                                teacherFound = true;
-                                // Cast the teacher object to a Tutor object(Downcasting)
+                                tutorFound = true;
+                                // Cast the teacher object to a Tutor object
                                 Tutor tutor = (Tutor) teacher;
-                                tutor.setSalary(newSalary, newPerformanceIndex); // Call the method to set the salary
-                                JOptionPane.showMessageDialog(null, "Salary updated successfully.", "Success",JOptionPane.INFORMATION_MESSAGE);
+                                tutor.setSalary(newSalary, newPerformanceIndex); // Set the salary
+                                JOptionPane.showMessageDialog(null, "Salary updated successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
                             } else {
-                                JOptionPane.showMessageDialog(null, "Teacher ID does not belong to a Tutor.", "Error",JOptionPane.ERROR_MESSAGE);
+                                JOptionPane.showMessageDialog(null, "Teacher ID does not belong to a Tutor.", "Error", JOptionPane.ERROR_MESSAGE);
                             }
-                            break;
+                            break; // Exit the loop once the tutor is found
                         }
                     }
-                    if (!teacherFound) {
-                        JOptionPane.showMessageDialog(null, "Teacher ID not found.", "Error", JOptionPane.ERROR_MESSAGE);
+                    // If the tutor ID doesn't exist
+                    if (!tutorFound) {
+                        JOptionPane.showMessageDialog(null, "Tutor with ID " + teacherId + " not found.", "Error", JOptionPane.ERROR_MESSAGE);
                     }
-                    // Clear the input fields after updating the salary
-                    clearInputFields();
-                }
+            // Clear the input fields after setting the salary
+            clearInputFields();
+            }
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Invalid input format for numeric fields.", "Error",JOptionPane.ERROR_MESSAGE);
             }
@@ -2732,26 +2733,27 @@ public class TeacherGUI implements ActionListener{
                         JOptionPane.showMessageDialog(null, "No teachers available to grade assignments.", "Error", JOptionPane.ERROR_MESSAGE);
                         return;
                     }
-                    // Check if the teacher ID exists
-                    boolean teacherFound = false;
+                    // Check if the lecturer ID exists
+                    boolean lecturerFound = false;
                     for (Teacher teacher : teachersList) {
                         if (teacher.getTeacherId() == teacherId) {
-                            // Check if the teacher is a Lecturer by checking the instance of the object
+                            // Check if the teacher is a Lecturer
                             if (teacher instanceof Lecturer) {
-                                teacherFound = true;
-                                // Cast the teacher object to a Lecturer object (Downcasting)
+                                lecturerFound = true;
+                                // Cast the teacher object to a Lecturer object
                                 Lecturer lecturer = (Lecturer) teacher;
-                                lecturer.gradeAssignment(gradedScore, department, yearsOfExperience); // Call the method to grade assignments
+                                lecturer.gradeAssignment(gradedScore, department, yearsOfExperience); // Grade the assignment
                                 JOptionPane.showMessageDialog(null, "Assignments graded successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Teacher ID does not belong to a Lecturer.", "Error", JOptionPane.ERROR_MESSAGE);
+                                break; // Exit the loop once the lecturer is found and graded
                             }
-                            break;
                         }
                     }
-                    if (!teacherFound) {
-                        JOptionPane.showMessageDialog(null, "Teacher ID not found.", "Error", JOptionPane.ERROR_MESSAGE);
+
+                    // If the lecturer ID doesn't exist or no lecturer found
+                    if (!lecturerFound) {
+                        JOptionPane.showMessageDialog(null, "Lecturer with ID " + teacherId + " not found.", "Error", JOptionPane.ERROR_MESSAGE);
                     }
+
                     clearInputFields(); // Clear the input fields after grading assignments
                 }
             } catch (NumberFormatException ex) {
