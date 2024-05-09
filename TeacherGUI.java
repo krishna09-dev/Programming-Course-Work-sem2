@@ -3261,8 +3261,6 @@ public class TeacherGUI implements ActionListener{
         if(e.getSource() == clearButtonOfDisplayGradeAssignment){
             clearInputFields();
         }
-        
-        
     }
          
     // Main Method
